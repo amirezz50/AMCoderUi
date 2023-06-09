@@ -1,0 +1,39 @@
+<div class="auth-page">
+    <div class="auth-form">
+        <div class="card-auth">
+            <div>
+                <div class="card-form">
+                    <div class="auth-title">
+                        <h2>Register</h2>
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <label for="user" class="label">First Name</label>
+                            <input id="user" type="text" class="form-control" [(ngModel)]="registerModel.firstName">
+                        </div>
+                        <div class="form-group">
+                            <label for="user" class="label">Last Name</label>
+                            <input id="user" type="text" class="form-control" [(ngModel)]="registerModel.lastName">
+                        </div>
+                        <div class="form-group">
+                            <label for="user" class="label">Email</label>
+                            <input id="user" type="text" class="form-control" [(ngModel)]="registerModel.email">
+                        </div>
+                        <div class="form-group">
+                            <label for="pass" class="label">Password </label>
+                            <input id="pass" type="password" class="form-control" [(ngModel)]="registerModel.password"
+                                data-type="password">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-auth" (click)="register()">Register</button>
+                        </div>
+                        <div class="log">
+                            <a (click)="backlogin()">Login</a>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

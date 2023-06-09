@@ -1,0 +1,588 @@
+<!-- <div>
+    <dashboard *ngIf="this._authService._authService.isLoggin"></dashboard>
+</div> -->
+<!-- <div>
+    <login *ngIf="!this._authService._authService.isLoggin"></login>
+</div> -->
+<!-- Bootstrap NavBar -->
+<!-- 
+<div class="body-main">
+    <div class="center-all">
+        <h1 style="
+        color: white;
+        font-size: 42px;
+        text-align: center;
+    ">website</h1>
+        <h2 style="
+        font-size: 25px;
+        color: white;
+    ">Hello in Automatic System To Match
+        </h2>
+        <button [routerLink]="['/main-home']" class="btn-hove" style="
+           color: white;
+    font-size: 25px;
+    background: none;
+    width: 150px;
+    height: 53px;
+    border-radius: 15px;
+    "> login </button>
+    </div>
+</div> -->
+<div class="body-page">
+    <!-- Register Modal Start -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content border-0 position-relative">
+                <button type="button" class="btn-close position-absolute modal-btn" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                <div class="modal-header"></div>
+                <div class="modal-body px-5 py-5">
+                    <div class="row">
+                        <div class="m-auto">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="fname" class="form-label">First Name*</label>
+                                    <input type="text" class="form-control" id="fname" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lname" class="form-label">Last Name*</label>
+                                    <input type="text" class="form-control" id="lname" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number*</label>
+                                    <input type="tel" class="form-control" id="phone" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email*</label>
+                                    <input type="email" class="form-control" id="email" />
+                                </div>
+
+                                <select class="form-select mb-3" aria-label="CourseSelect">
+                                    <option disabled selected>Choose Your Course</option>
+                                    <option value="rcm">RCM Course</option>
+                                    <optgroup label="Medical Coding Courses">
+                                        <option value="aus">Australian Medical Coding</option>
+                                        <option value="conversion">
+                                            Medical Coding Conversion
+                                        </option>
+                                        <option value="usa">American Medical Coding</option>
+                                    </optgroup>
+                                </select>
+
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                                    <label class="form-check-label" for="exampleCheck1">I agree the
+                                        <span class="terms-text text-capitalize">Terms and Conditions</span></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer-image mb-3 p-5 d-xl-block d-none">
+                    <img src="assets/images/illustration.png" class="w-100" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Modal End-->
+
+    <!-- Start GetStarted -->
+    <section class="get">
+        <div class="container-fluid px-5 py-3">
+            <div class="get-head d-flex justify-content-between">
+                <div class="lhside bold text6 d-flex justify-content-start align-items-center">
+                    <a class="dropdown-toggle text-decoration-none px-3 me-lg-4 en" role="button"
+                        data-bs-toggle="dropdown"><span class="me-1"><i class="fa-solid fa-globe"></i></span>
+                        English</a>
+                    <a class="mb-0 text-decoration-none" href="https://anvilcompany.org/contact.html"
+                        target="_blank">Contact Us</a>
+                </div>
+                <div class="rhside bold text6 d-flex justify-content-start align-items-center">
+                    <a class="mb-0 me-lg-4 text-decoration-none" href="https://anvilcompany.org/career.html"
+                        target="_blank">
+                        <i class="fa fa-briefcase me-2"></i> Career
+                    </a>
+                    <div class="career me-lg-4"></div>
+                    <a class="mb-0 me-lg-4 text-decoration-none" [routerLink]="['/main-home']">Login</a>
+                    <a class="mb-0 sec-btn px-4 py-2 text-decoration-none text-white" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End GetStarted -->
+
+    <!-- Start Navigation -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" >
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href=""><img src="assets/images/logo.png" style="width: 45%;" alt="" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa-solid fa-sliders"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://anvilcompany.org/clinical-coding-services.html">
+                                    <i class="fa-solid fa-phone pe-1"></i> clinical coding
+                                    system</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://anvilcompany.org/clinical-mapping.html">
+                                    <i class="fa-solid fa-map-location-dot pe-1"></i> mapping
+                                    services</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://anvilcompany.org/rcm-services.html">
+                                    <i class="fa-brands fa-servicestack pe-1"></i> RCM
+                                    services</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://anvilcompany.org/AMCoder-consultancy.html">
+                                    <i class="fa-solid fa-receipt pe-1"></i> AMCoder
+                                    consultancy</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://anvilcompany.org/clinical-documentation-improvement.html">
+                                    <i class="fa-solid fa-file-medical pe-1"></i> clinical
+                                    doucumentation improvment (CDI)</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            courses
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#courses">
+                                    <i class="fa-solid fa-person-chalkboard me-1"></i> RCM
+                                    courses</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#courses">
+                                    <i class="fa-solid fa-notes-medical me-1"></i> medical
+                                    coding</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item last-nav">
+                        <a class="nav-link" href="https://anvilcompany.org/index.html" target="_blank">About AMCoder</a>
+                    </li>
+
+                    <!-- For Responsive navbar -->
+                    <hr class="dropdown-divider d-xl-none" />
+                    <li class="nav-item m-0">
+                        <a class="dropdown-toggle text-decoration-none d-xl-none" role="button"
+                            data-bs-toggle="dropdown"><span class="me-1"><i class="fa-solid fa-globe"></i></span>
+                            English</a>
+                    </li>
+                    <li class="nav-item m-0 d-xl-none">
+                        <a class="nav-link" target="_blank" href="https://anvilcompany.org/contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item d-xl-none">
+                        <a class="nav-link d-xl-none" href="#"><i class="fa fa-briefcase me-2"></i> Career</a>
+                    </li>
+                    <li class="nav-item m-0 d-xl-none">
+                        <a class="nav-link d-xl-none" [routerLink]="['/main-home']" data-bs-toggle="modal"
+                            data-bs-target="#signinModal">Login</a>
+                    </li>
+                    <li class="nav-item m-0 d-xl-none">
+                        <a class="nav-link d-xl-none" data-bs-toggle="modal" data-bs-target="#registerModal">Get
+                            Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="header">
+        <div class="container-fluid p-5">
+            <div class="header-main">
+                <div class="header-content m-auto text-center">
+                    <h1 class="text1 bold text-white text-capitalize">
+                        find the best courses about healthcare ecosystem
+                    </h1>
+                </div>
+                <div class="form-group has-search d-flex align-items-center m-auto">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="search" class="form-control py-3 text-capitalize"
+                        placeholder="search for all courses" />
+                </div>
+                <div class="m-auto">
+                    <p class="sec-btn text-capitalize text-center" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">
+                        get started
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="bookmark">
+            <i class="fa-solid fa-bookmark"></i>
+        </div>
+    </header>
+    <!-- Start Header -->
+
+    <!-- Start Courses -->
+    <section class="courses py-5" id="courses">
+        <div class="container-fluid px-5">
+            <h2 class="title mb-4">AMCoder's training courses</h2>
+            <ul class="mb-4">
+                <li class="active" data-bs-toggle="collapse" href="#allCoursescollapse" role="button"
+                    data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false"
+                    aria-controls="allCoursescollapse codingCoursescollapse">
+                    all courses
+                </li>
+                <li data-bs-toggle="collapse" href="#codingCoursescollapse" role="button" data-bs-toggle="collapse"
+                    data-bs-target=".multi-collapse" aria-expanded="false"
+                    aria-controls="codingCoursescollapse allCoursescollapse">
+                    medical coding courses
+                </li>
+            </ul>
+            <div class="row g-3">
+                <!-- All Courses -->
+                <div class="collapse collapse-horizontal multi-collapse col-lg-3 col-md-6 show" id="allCoursescollapse">
+                    <div class="card">
+                        <div class="image">
+                            <img src="assets/images/image5.jpeg" class="card-img-top w-100 h-100" alt="image" />
+                            <p class="card-views"><i class="fa fa-user" aria-hidden="true"></i>120</p>
+                        </div>
+                        <span class="card-date">1 - 28 July 2022</span>
+                        <div class="card-body p-0">
+                            <h5 class="card-title text4">RCM course</h5>
+                            <p class="card-text">
+                                The course benefits you with the experience you need in
+                                hospital management By studying RCM Sections( Registration&
+                                TOB - Approval - Billing - claim Submission - Denial
+                                Management- Account Receivable)
+                            </p>
+                        </div>
+                        <div class="card-footer px-0 bg-white d-flex justify-content-between align-items-baseline">
+                            <div class="h-100 w-100">
+                                <p class="card-price">6000 EGP</p>
+                            </div>
+                            <div class="w-100 h-100 d-flex justify-content-end">
+                                <p class="main-btn mb-0">Show All</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse collapse-horizontal multi-collapse col-lg-3 col-md-6 show" id="allCoursescollapse">
+                    <div class="card">
+                        <div class="image">
+                            <img src="assets/images/image6.jpeg" class="card-img-top w-100" alt="image" />
+                            <p class="card-views"><i class="fa fa-user" aria-hidden="true"></i>120</p>
+                        </div>
+                        <span class="card-date">1 - 28 July 2022</span>
+                        <div class="card-body p-0">
+                            <h5 class="card-title text4" data-bs-toggle="collapse" href="#codingCoursescollapse"
+                                role="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse"
+                                aria-expanded="false" aria-controls="codingCoursescollapse allCoursescollapse">
+                                medical coding courses
+                            </h5>
+                            <p class="card-text">
+                                Medical coding is the process during which standardized
+                                numeric and alphanumeric codes are assigned to medical
+                                diagnoses and procedures.
+                            </p>
+                        </div>
+                        <div class="card-footer px-0 bg-white d-flex justify-content-between align-items-baseline">
+                            <div class="h-100 w-100"></div>
+                            <div class="w-100 h-100 d-flex justify-content-end"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Medical Coding Courses -->
+                <div class="collapse collapse-horizontal multi-collapse col-lg-3 col-md-6" id="codingCoursescollapse">
+                    <div class="card">
+                        <div class="image">
+                            <img src="assets/images/image5.jpeg" class="card-img-top w-100" alt="image" />
+                            <p class="card-views"><i class="fa fa-user" aria-hidden="true"></i>120</p>
+                        </div>
+                        <span class="card-date">1 - 28 July 2022</span>
+                        <div class="card-body p-0">
+                            <h5 class="card-title text4">australian medical coding</h5>
+                            <p class="card-text">
+                                Providing precise coding and mapping (ICD10-AM, ICD10-CM, CPT,
+                                ACHI)
+                            </p>
+                        </div>
+                        <div class="card-footer px-0 bg-white d-flex justify-content-between align-items-baseline">
+                            <div class="h-100 w-100">
+                                <p class="card-price">4000 EGP</p>
+                            </div>
+                            <div class="w-100 h-100 d-flex justify-content-end">
+                                <p class="main-btn mb-0">Show All</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse collapse-horizontal multi-collapse col-lg-3 col-md-6" id="codingCoursescollapse">
+                    <div class="card">
+                        <div class="image">
+                            <img src="assets/images/image6.jpeg" class="card-img-top w-100 h-100" alt="image" />
+                            <p class="card-views"><i class="fa fa-user" aria-hidden="true"></i>120</p>
+                        </div>
+                        <span class="card-date">1 - 28 July 2022</span>
+                        <div class="card-body p-0">
+                            <h5 class="card-title text4">Medical Coding conversion</h5>
+                            <p class="card-text">
+                                Allow American Medical coder to start working with Australian
+                                guidelines
+                            </p>
+                        </div>
+                        <div class="card-footer px-0 bg-white d-flex justify-content-between align-items-baseline">
+                            <div class="h-100 w-100">
+                                <p class="card-price">2000 EGP</p>
+                            </div>
+                            <div class="w-100 h-100 d-flex justify-content-end">
+                                <p class="main-btn mb-0">Show All</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse collapse-horizontal multi-collapse col-lg-3 col-md-6" id="codingCoursescollapse">
+                    <div class="card">
+                        <div class="image">
+                            <img src="assets/images/image6.jpeg" class="card-img-top w-100 h-100" alt="image" />
+                            <p class="card-views"><i class="fa fa-user" aria-hidden="true"></i>120</p>
+                        </div>
+                        <span class="card-date">1 - 28 July 2022</span>
+                        <div class="card-body p-0">
+                            <h5 class="card-title text4">american medical coding</h5>
+                            <p class="card-text"></p>
+                        </div>
+                        <div class="card-footer px-0 bg-white d-flex justify-content-end align-items-baseline">
+                            <div class="w-100 h-100 d-flex justify-content-end">
+                                <p class="mb-0 demand text-capitalize">on demand</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex justify-content-start align-items-center ps-5 main-arrow mb-5">
+                    <div class="d-flex justify-content-center align-items-center arrow-icon">
+                        <i class="fa fa-arrow-right text-white fa-3x m-auto"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Courses -->
+
+    <!-- Start Why -->
+    <section class="why">
+        <div class="container-fluid position-relative p-5">
+            <div class="row mb-5">
+                <h2 class="title">Why You Should Trust Us?</h2>
+                <div class="col-xl-5">
+                    <div class="space">
+                        <br /><br /><br /><br /><br /><br /><br /><br />
+                    </div>
+                    <p class="why-text1">
+                        We have in-depth knowledge and culturally-sensitive experience of
+                        healthcare ecosystem in the Egyptian and regional markets.
+                        Weconnect you to the knowledge you need
+                    </p>
+                </div>
+                <div class="col-xl-6 offset-xl-1">
+                    <div class="why-image1 mb-5">
+                        <img src="assets/images/image7.jpeg" class="w-100" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="arrow">
+                <img src="assets/images/Vector 1.png" alt="" />
+            </div>
+            <div class="row-sel row mt-5">
+                <div class="col-xl-6">
+                    <div class="why-image1 mb-5">
+                        <img src="assets/images/image8.jpeg" class="w-100" alt="" />
+                    </div>
+                </div>
+                <div class="col-xl-5 offset-xl-1">
+                    <div class="space">
+                        <br /><br /><br /><br /><br /><br /><br /><br />
+                    </div>
+                    <p class="why-text1">
+                        First Specialized Company That Provides Solutions To Health Care
+                        Facilities
+                    </p>
+                    <div class="space"><br /><br /><br /><br /></div>
+                    <a href="https://anvilcompany.org/rcm-services.html" target="_blank"
+                        class="sec-btn text-center">Show More <i class=" fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Why -->
+
+    <!-- Start Our -->
+    <section class="our">
+        <div class="container-fluid p-5">
+            <div class="row">
+                <div class="col-xl-5">
+                    <div class="our-content">
+                        <p class="text1 vision-title bold text-capitalize my-5">
+                            Our Vision
+                        </p>
+                        <p class="mb-2 text3 content-title mb-2">Approach</p>
+                        <p class="mb-2 text6 thin content-caption">
+                            Improve major components of each revenue cycle and training of
+                            health care.
+                        </p>
+                        <p class="text3 content-title mb-2">Strategy</p>
+                        <h3 class="mb-2 text6 thin content-caption">
+                            Adjustment of performance to excellence upon the Best Practice
+                            models and the most updated international standards of medical
+                            coding (American / Australian) and healthcare revenue cycle
+                            management.
+                        </h3>
+                        <p class="text3 content-title mb-2">AIM</p>
+                        <p class="mb-2 text6 thin content-caption">
+                            To be one of the best if not the most trusted third party
+                            providing medical coding,mapping and RCM services.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-5 offset-xl-2 mt-5">
+                    <img src="assets/images/vision-image.png" class="w-100 my-5" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Our -->
+
+    <!-- Start Achievements -->
+    <section class="achievements">
+        <div class="container-fluid px-5 py-5 text-white">
+            <div class="row">
+                <div class="col-xl-6">
+                    <p class="text1 text-capitalize bold">
+                        One Of our Achievements
+                    </p>
+                    <div class="row">
+                        <div class="ach d-flex justify-content-start my-5">
+                            <div class="ach-icon me-3">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M184 0c30.9 0 56 25.1 56 56V456c0 30.9-25.1 56-56 56c-28.9 0-52.7-21.9-55.7-50.1c-5.2 1.4-10.7 2.1-16.3 2.1c-35.3 0-64-28.7-64-64c0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1C131.3 21.9 155.1 0 184 0zM328 0c28.9 0 52.6 21.9 55.7 49.9c27.8 7 48.3 32.1 48.3 62.1c0 6-.8 11.9-2.4 17.4c28.8 6.2 50.4 31.9 50.4 62.6c0 15-5.1 28.8-13.8 39.7C493.3 244.5 512 272.1 512 304c0 34.2-21.4 63.4-51.6 74.8c2.3 6.6 3.6 13.8 3.6 21.2c0 35.3-28.7 64-64 64c-5.6 0-11.1-.7-16.3-2.1c-3 28.2-26.8 50.1-55.7 50.1c-30.9 0-56-25.1-56-56V56c0-30.9 25.1-56 56-56z" />
+                                </svg>
+                            </div>
+                            <div class="ach-data">
+                                <p class="bold text1 text-white mb-0 ach-data-title text-capitalize">
+                                    1 million+
+                                </p>
+                                <p class="text6 text-muted text-capitalize">Mapping</p>
+                            </div>
+                        </div>
+                        <a class="sec-btn text2 my-5 px-4 py-2" data-bs-toggle="modal" data-bs-target="#registerModal">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 offset-xl-2">
+                    <img src="assets/images/image10.jpeg" class="w-100 h-100 ach-image" alt="image" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Achievements -->
+
+    <!-- Start Footer -->
+    <section class="footer">
+        <div class="container-fluid px-5 py-5">
+            <img src="assets/images/logo.png" style="width: 15%;" alt="Logo" />
+            <div class="row text-white">
+                <div class="col-xl-2 mb-3">
+                    <p class="mb-4 fw-bold">AMCoder</p>
+                    <div class="footer-inner">
+                        <p class="mb-2">About</p>
+                        <p class="mb-2">Vision</p>
+                        <p class="mb-2">AMCoder academy</p>
+                        <p class="mb-2">Achievements</p>
+                        <p class="mb-2">Careers</p>
+                    </div>
+                </div>
+                <div class="col-xl-2 mb-3">
+                    <p class="mb-4 fw-bold">SERVICES</p>
+                    <div class="footer-inner">
+                        <ul class="list-unstyled m-0">
+                            <li class="mb-2">clinical coding system</li>
+                            <li class="mb-2">mapping service</li>
+                            <li class="mb-2">RCM services</li>
+                            <li class="mb-2">AMCoder consultancy</li>
+                            <li class="mb-2">clinical documantion improvement (CDL)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 mb-3">
+                    <p class="mb-4 fw-bold">COURSES</p>
+                    <div class="footer-inner">
+                        <p class="mb-2">RCM courses</p>
+                        <p class="mb-2">Medical coding courses</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 mb-3">
+                    <p class="mb-4 fw-bold">Find AMCoder</p>
+                    <div class="footer-inner mb-3">
+                        <p class="mb-3">
+                            <i class="fa fa-whatsapp pe-2 text5"></i>+966 54 068 0265
+                        </p>
+                        <p class="mb-3">
+                            <i class="fa fa-envelope pe-2 text5"></i>info@anvilegypt.com
+                        </p>
+                        <p class="mb-3">
+                            <i class="fa fa-map-marker pe-2 text5"></i>Saudi Arabia
+                            El- Worud commerical center, El-Worud-district , Jeddah
+                        </p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/AMCoder.medical" target="_blank"><i
+                                class="fa fa-facebook"></i></a>
+                        <a href="https://twitter.com/anvilmed" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/AMCoder-company/" target="_blank"><i
+                                class="fa fa-linkedin-square"></i></a>
+                    </div>
+                </div>
+                <div class="col-xl-2 mb-3">
+                    <p class="mb-4">Choose Language</p>
+                    <select name="language" id="lang" style="    color: black;">
+                        <option value="en" selected>English</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Footer -->
+</div>
+<!-- <p>website</p> goto login <button (click)="setRoutLink('./login')"> log</button> -->
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-5TZF2NZ");
+</script>

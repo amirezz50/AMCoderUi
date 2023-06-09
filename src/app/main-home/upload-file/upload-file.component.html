@@ -1,0 +1,47 @@
+<div class="row">
+
+    <div class="row">
+        <h1>You can download template and fill it to upload ==> <a href="assets/excelDocument/template.xlsx" download
+                class="btn btn-save" style="color: white;color: white;background: #2A5370;font-size: 16px;"> <i
+                    class="fa fa-file" aria-hidden="true"></i>
+                download</a>
+        </h1>
+        <br>
+        <br>
+        <div class="col-6">
+            <div class="input-group mb-3">
+                <input type="file" class="form-control input-field" placeholder="Recipient's username"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2" (change)="addfile($event)">
+                <span class="input-group-text input-field" id="basic-addon2"
+                    [ngClass]="{'ready-to-upload':flagReadyToUpload==true}" (click)="upload()"><i class="fa fa-upload"
+                        aria-hidden="true"></i>
+                    Upload</span>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Department</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of arraylist| slice:pageIndex*pageSize:(pageIndex+1)*pageSize">
+                <td>{{item.Code}}</td>
+                <td>{{item.Description}}</td>
+                <td>{{item.Department}}</td>
+                <td>{{item.Price}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="text-align: center; direction: ltr;">
+        <custom-pagination [itemCount]="arraylist.length" [(pageIndex)]="pageIndex" [pageSize]="pageSize">
+        </custom-pagination>
+    </div>
+</div>
