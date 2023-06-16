@@ -53,11 +53,11 @@ export class UploadFileComponent implements OnInit {
   }
   upload() {
     let obj = {
-      "MedicalTasks": this.arraylist,
+      "medicalTasks": this.arraylist,
     }
     this._uploadFileService.uploadSheet(obj)
       .subscribe((res: any) => {
-        console.log(res)
+        window.alert("The sheet has been uploaded successfully")
       })
 
   }

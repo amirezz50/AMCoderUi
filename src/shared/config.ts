@@ -7,6 +7,7 @@ export class CONFIG {
         Users: `${serviceUrl}/Users`,
         login: `${serviceUrl}/api/Authentication`,
         uploadSheet: `${serviceUrl}/api/UploadSheet`,
+        MedicalSheet:`${serviceUrl}/api/MedicalSheet`
 
     }
 }

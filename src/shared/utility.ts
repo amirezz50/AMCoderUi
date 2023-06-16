@@ -7,11 +7,14 @@ export function getAuthorizationHeader() {
     //     'Content-Type': 'application/json',
     //     'Authorization': 'Basic ' + btoaUser(JSON.parse(currentUser))
     // };
+    let token: any = sessionStorage.getItem('UserData')
+    let tokenObj = JSON.parse(token);
+
     const header = new HttpHeaders()
         .set('content-type', 'application/json')
         .set('accept', 'application/json')
         .set('Access-Control-Allow-Origin', '*')
-        .set("Authorization", "Bearer " + sessionStorage.getItem('token'))
+        .set("Authorization", "Bearer " + tokenObj.token)
         .set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
 
     // 'Authorization': 'Basic ' + btoaUser(JSON.parse(currentUser))

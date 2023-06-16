@@ -1,1 +1,67 @@
-<p>sheet-of-hospital works!</p>
+<div class="container-fluid">
+    <div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-3">
+                <h2>Sheets Uploaded </h2>
+            </div>
+        </div>
+        <div style="width: 80%; ">
+
+            <div class="row">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sheet Id</th>
+                            <th>Date Uploaded </th>
+                            <th>User Id</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of arraylist| slice:pageIndex*pageSize:(pageIndex+1)*pageSize">
+                            <td>{{item.sheetId}}</td>
+                            <td>{{item.createdOn|date:"dd/MM/yyyy hh:mm a'"}}</td>
+                            <td>{{item.userId}}</td>
+                            <td> <button (click)="getTasks(item)">cl</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="text-align: center; direction: ltr;" *ngIf="arraylist.length>0">
+                    <custom-pagination [itemCount]="arraylist.length" [(pageIndex)]="pageIndex" [pageSize]="pageSize">
+                    </custom-pagination>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+        <h2>Details of SheetId :{{sheetMaster.sheetId}} </h2>
+        <div class="row">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>CCHI Code</th>
+                        <th>Task Id </th>
+                        <th>Description</th>
+                        <th>Date Uploaded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tasksList| slice:pageIndexTwo*pageSizeTwo:(pageIndexTwo+1)*pageSizeTwo">
+                        <td>{{item.code}}</td>
+                        <td>{{item.cchiCode}}</td>
+                        <td>{{item.taskId}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.createdOn|date:"dd/MM/yyyy hh:mm a'"}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center; direction: ltr;" *ngIf="tasksList.length>0">
+                <custom-pagination [itemCount]="tasksList.length" [(pageIndex)]="pageIndexTwo" [pageSize]="pageSizeTwo">
+                </custom-pagination>
+            </div>
+        </div>
+    </div>
+</div>
