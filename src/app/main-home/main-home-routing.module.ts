@@ -6,6 +6,7 @@ import { RegisterNewUserComponent } from './register-new-user/register-new-user.
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { SheetOfHospitalComponent } from './sheet-of-hospital/sheet-of-hospital.component';
+import { TasksAutoMatchedComponent } from './tasks-auto-matched/tasks-auto-matched.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
       { path: 'register', component: RegisterNewUserComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'upload-file', component: UploadFileComponent },
-      { path: 'sheet-of-hospital', component: SheetOfHospitalComponent }
+      { path: 'sheet-of-hospital', component: SheetOfHospitalComponent },
+      { path: 'tasks-auto-matched', component: TasksAutoMatchedComponent }
+      
     ]
 
   },

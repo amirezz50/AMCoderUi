@@ -24,4 +24,9 @@ export class SheetOfHospitalService {
     params = params.append('pageSize', obj.pageSize);
     return this._http.get<any>(`${MedicalSheetUrl}/GetMedicalTasks`, { headers: headers, params: params })
   }
+  autoMatchTasks(obj: any) {
+    var headers = getAuthorizationHeader();
+    return this._http.put<any>(`${MedicalSheetUrl}/MatchMedicalSheet`, obj, { headers: headers })
+
+  }
 }

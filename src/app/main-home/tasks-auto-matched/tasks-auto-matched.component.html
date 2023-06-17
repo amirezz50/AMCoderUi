@@ -1,6 +1,6 @@
 <div class="container-fluid row">
     <div class="col-4">
-        <h2>Sheets Uploaded </h2>
+        <h2>Sheets </h2>
         <div>
             <div class="row">
                 <table class="table table-striped table-bordered">
@@ -9,22 +9,21 @@
                             <th>Sheet Id</th>
                             <th>Date Uploaded </th>
                             <th>User Id</th>
-                            <th>Action</th>
                             <th>Show</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of arraylist| slice:pageIndex*pageSize:(pageIndex+1)*pageSize">
+                        <tr *ngFor="let item of arraySheetlist| slice:pageIndex*pageSize:(pageIndex+1)*pageSize">
                             <td>{{item.sheetId}}</td>
                             <td>{{item.createdOn|date:"dd/MM/yyyy hh:mm a'"}}</td>
                             <td>{{item.userId}}</td>
-                            <td> <button (click)="getTasks(item,1) ">AutoMatch</button></td>
-                            <td> <button (click)="getTasks(item,2) ">Select</button></td>
+                            <td> <button (click)="getTasksMatched(item) ">Select</button></td>
                         </tr>
                     </tbody>
                 </table>
-                <div style="text-align: center; direction: ltr;" *ngIf="arraylist.length>0">
-                    <custom-pagination [itemCount]="arraylist.length" [(pageIndex)]="pageIndex" [pageSize]="pageSize">
+                <div style="text-align: center; direction: ltr;" *ngIf="arraySheetlist.length>0">
+                    <custom-pagination [itemCount]="arraySheetlist.length" [(pageIndex)]="pageIndex"
+                        [pageSize]="pageSize">
                     </custom-pagination>
                 </div>
             </div>
@@ -32,30 +31,34 @@
     </div>
     <div class="col-1"></div>
     <div class="col-7">
-        <h2>Details of SheetId :{{sheetMaster.sheetId}} </h2>
+        <h2>Tasks AutoMatched </h2>
         <div class="row">
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>Code</th>
-                        <th>CCHI Code</th>
                         <th>Task Id </th>
+                        <th>CCHI Code</th>
                         <th>Description</th>
+                        <th>Matching Precentage</th>
                         <th>Date Uploaded</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of tasksList| slice:pageIndexTwo*pageSizeTwo:(pageIndexTwo+1)*pageSizeTwo">
+                    <tr
+                        *ngFor="let item of arrayTasksList| slice:pageIndexTwo*pageSizeTwo:(pageIndexTwo+1)*pageSizeTwo">
                         <td>{{item.code}}</td>
-                        <td>{{item.cchiCode}}</td>
                         <td>{{item.taskId}}</td>
+                        <td>{{item.cchiCode}}</td>
                         <td>{{item.description}}</td>
+                        <td>{{item.matchingPrecentage}} <span *ngIf="item.matchingPrecentage">%</span></td>
                         <td>{{item.createdOn|date:"dd/MM/yyyy hh:mm a'"}}</td>
                     </tr>
                 </tbody>
             </table>
-            <div style="text-align: center; direction: ltr;" *ngIf="tasksList.length>0">
-                <custom-pagination [itemCount]="tasksList.length" [(pageIndex)]="pageIndexTwo" [pageSize]="pageSizeTwo">
+            <div style="text-align: center; direction: ltr;" *ngIf="arrayTasksList.length>0">
+                <custom-pagination [itemCount]="arrayTasksList.length" [(pageIndex)]="pageIndexTwo"
+                    [pageSize]="pageSizeTwo">
                 </custom-pagination>
             </div>
         </div>

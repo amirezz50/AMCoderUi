@@ -9,6 +9,7 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PagerModule } from 'src/shared/custom-pagination/custom-pagination.Module';
 import { SheetOfHospitalComponent } from './sheet-of-hospital/sheet-of-hospital.component';
+import { TasksAutoMatchedComponent } from './tasks-auto-matched/tasks-auto-matched.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SheetOfHospitalComponent } from './sheet-of-hospital/sheet-of-hospital.
     DashboardComponent,
     UploadFileComponent,
     SheetOfHospitalComponent,
+    TasksAutoMatchedComponent,
     
   ],
   imports: [
