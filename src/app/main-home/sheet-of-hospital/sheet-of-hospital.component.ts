@@ -27,7 +27,7 @@ export class SheetOfHospitalComponent implements OnInit {
   }
   sheetMaster: any = {}
   getTasks(row: any) {
-    let obj = { sheetId: row.sheetId }
+    let obj = { sheetId: row.sheetId, page: this.pageIndexTwo, pageSize: this.pageSizeTwo }
     this._sheetOfHospitalService.getMedicalTask(obj)
       .subscribe((res: any) => {
         this.sheetMaster = res

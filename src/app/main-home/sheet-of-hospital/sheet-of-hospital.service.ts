@@ -20,8 +20,8 @@ export class SheetOfHospitalService {
     var headers = getAuthorizationHeader();
     let params = new HttpParams();
     params = params.append('sheetId', obj.sheetId);
-    params = params.append('page', 1);
-    params = params.append('pageSize', 3);
+    params = params.append('page', obj.page);
+    params = params.append('pageSize', obj.pageSize);
     return this._http.get<any>(`${MedicalSheetUrl}/GetMedicalTasks`, { headers: headers, params: params })
   }
 }
