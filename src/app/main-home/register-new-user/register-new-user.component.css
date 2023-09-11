@@ -32,6 +32,10 @@
 
 .auth-title {
   margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-family: system-ui;
+  font-size: 30px !important;
 }
 
 .auth-title h2 {
@@ -54,6 +58,9 @@
   /* justify-content: center; */
   height: 100vh;
   flex-direction: column;
+  justify-content: start;
+  padding-top: 50px;
+
 }
 
 .card-form {
