@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./main-home.component.css']
 })
 export class MainHomeComponent implements OnInit {
+  flagSideBar: boolean = false;
   constructor(
     public _authService: LoginService,
     public _router: Router,
@@ -42,6 +43,9 @@ export class MainHomeComponent implements OnInit {
 
   generalToggel(x: string) {
     this.obj[x] = !this.obj[x];
+  }
+  changeSideBar() {
+    this.flagSideBar = !this.flagSideBar
   }
   // logout() {
   //   // this._authService.isLoggin = false;

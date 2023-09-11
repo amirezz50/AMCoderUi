@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res: any) => {
           this.authResult = res;
-          localStorage.setItem('token', res.token);
+          localStorage.setItem('token', res.data.token);
           sessionStorage.setItem('UserData', JSON.stringify(res));
 
           this._router.navigateByUrl('/main-home');

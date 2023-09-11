@@ -34,10 +34,25 @@
 
 .sidebar-expanded {
   width: 230px;
+  transition: width 1s;
+
+}
+
+.sidebar-expanded-small {
+  width: 60px;
+  transition: width 1s;
 }
 
 .sidebar-collapsed {
   width: 60px;
+}
+
+.menu-side-bar {
+  background: none;
+  border: 1px solid;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
 }
 
 /* Menu item*/
@@ -58,7 +73,7 @@
 }
 
 .title-system {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -98,7 +113,7 @@
   font-family: FontAwesome;
   display: inline;
   text-align: right;
-  padding-left: 10px;
+  padding-left: 10px 0px;
 }
 
 /* Opened submenu icon */
@@ -108,7 +123,7 @@
   font-family: FontAwesome;
   display: inline;
   text-align: left;
-  padding-right: 10px;
+  padding-right: 10px 0px;
 }
 
 .custom-link {
@@ -180,6 +195,7 @@
   padding: 0;
   margin: 0px;
   border-radius: 0px;
+  height: 60px;
 }
 
 .logo-dashboard {
@@ -211,7 +227,13 @@
 
 .list-group {
   /* padding-inline-end: 15px; */
-  padding: 10px;
+  padding: 10px 0px;
+  color: white;
+}
+
+.list-group-header {
+  list-style-type: none;
+  margin-left: -32px;
 }
 
 .btn-logout {
@@ -278,9 +300,12 @@
 
 .li-child {
   /* padding-left: 25px; */
-  padding-right: 25px;
+  padding-right: 0px;
 }
-
+.list-group-item:hover{
+  background-color: #212529 !important;
+  cursor: pointer;
+}
 .dropbtn {
   background: none;
   font-size: 16px;
@@ -335,4 +360,16 @@
   background-color: #2A5370;
   margin-right: 10px;
 
+}
+
+.hidden {
+  animation: fadeOut 1s ease-in-out; /* Apply a fade-out animation */
+}
+@keyframes fadeOut {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
