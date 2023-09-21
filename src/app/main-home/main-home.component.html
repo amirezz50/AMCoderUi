@@ -54,8 +54,8 @@
               <button (click)="changeSideBar()" class="menu-side-bar"><i class="fa fa-bars" aria-hidden="true"></i>
               </button>
             </div>
-            <ul class="list-group" *ngIf="!flagSideBar" [ngClass]="{'hidden':!flagSideBar}">
-                <ul  >
+            <ul class="list-group" *ngIf="!flagSideBar" [ngClass]="{'hidden':flagSideBar}">
+                <ul  style="list-style-type: none; padding: 0;">
                     <!-- home -->
                     <li>
                         <a routerLinkActive="active" [routerLink]="[ '/main-home/dashboard' ]" style="padding: 10px;"
@@ -68,7 +68,7 @@
                             </div>
                         </a>
                     </li>
-                    <li>
+                    <li style="    padding-left: 11px;">
                         <ul>
                             <li  class="list-group-header" >
                                 <a class=" list-group-item list-group-item-action" style="display: flex;"(click)="generalToggel('toggelSetup')">
