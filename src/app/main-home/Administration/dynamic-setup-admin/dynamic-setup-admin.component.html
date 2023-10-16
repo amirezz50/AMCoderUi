@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <h2 style="text-align: center;">Master</h2>
+      <table style="text-align: center;" class="table table-striped table-bordered">
+        <thead>
+          <tr >
+            <th>Serial</th>
+            <th>Name</th>
+            <th>
+              <i
+                style="color: green"
+                class="fa-solid fa-circle-plus"
+              ></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>MemberShip</td>
+            <td>
+              <custom-dropdown
+                [ArrayNames]="['Update', 'Delete']"
+                (onSelect)="onSelectRow($event)"
+              ></custom-dropdown>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-7">
+      <h2 style="text-align: center;">Details [MemberShip]</h2>
+      <table style="text-align: center;" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Serial</th>
+            <th>Name</th>
+            <th>Sort</th>
+            <th>Active</th>
+            <th>
+              <i
+                style="color: green"
+                class="fa-solid fa-circle-plus"
+              ></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Silver 1000</td>
+            <td>1</td>
+            <td><input type="checkbox" /></td>
+            <td>
+              <custom-dropdown
+                [ArrayNames]="['Update', 'Delete']"
+                (onSelect)="onSelectRow($event)"
+              ></custom-dropdown>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Gold 3000</td>
+            <td>2</td>
+            <td><input type="checkbox" /></td>
+            <td>
+              <custom-dropdown
+                [ArrayNames]="['Update', 'Delete']"
+                (onSelect)="onSelectRow($event)"
+              ></custom-dropdown>
+            </td>
+          </tr>
+          <!-- Add more detail data rows here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

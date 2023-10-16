@@ -1,3 +1,4 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainHomeRoutingModule } from './main-home-routing.module';
@@ -6,10 +7,13 @@ import { RegisterNewUserComponent } from './register-new-user/register-new-user.
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PagerModule } from 'src/shared/custom-pagination/custom-pagination.Module';
 import { SheetOfHospitalComponent } from './sheet-of-hospital/sheet-of-hospital.component';
 import { TasksAutoMatchedComponent } from './tasks-auto-matched/tasks-auto-matched.component';
+import { UsersModule } from './Administration/Administration.module';
+import { CustomDropdownModule } from 'src/shared/custom-dropdown/custom-dropdown.module';
+import { FinancialAdminComponent } from './financial-admin/financial-admin.component';
+import { FinancialAdminModule } from './financial-admin/financial-admin.module';
 
 @NgModule({
   declarations: [
@@ -19,14 +23,18 @@ import { TasksAutoMatchedComponent } from './tasks-auto-matched/tasks-auto-match
     UploadFileComponent,
     SheetOfHospitalComponent,
     TasksAutoMatchedComponent,
-    
+
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     MainHomeRoutingModule,
     FontAwesomeModule,
-    PagerModule
+    PagerModule,
+    UsersModule,
+    FinancialAdminModule,
+    CustomDropdownModule
   ], exports: [LoginComponent,
     RegisterNewUserComponent]
 })

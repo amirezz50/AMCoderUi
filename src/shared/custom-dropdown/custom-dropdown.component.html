@@ -1,0 +1,14 @@
+<div class="dropdown">
+  <button class="dropbtn" (click)="openMenu($event)">
+    <i class="fa fa-list"></i>
+  </button>
+  <div class="dropdown-content" *ngIf="this.toogle==true" >
+    <table style="width: 100%;">
+      <tbody>
+        <tr *ngFor="let item of items; let index=index"  style="cursor: pointer;"  (click)="takeSerial(index+1)">
+          <td >{{index+1}}-{{item}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

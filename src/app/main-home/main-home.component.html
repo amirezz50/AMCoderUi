@@ -12,11 +12,22 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand custom-link" style="direction: rtl;">
-            <span an class="menu-collapsed px-3 title-system">Medical App</span>
+            <span an class="menu-collapsed px-3 title-system">FemtoVision</span>
         </a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
         </div>
-        <div class="dropdown" style="align-self: center;height: 100%;">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn" id="dropdownBasic1" ngbDropdownToggle style="height: 40px;align-items: center;display: inline-flex !important; background-color: #2C3848 !important;color: white;font-size: 12px;">
+            <div class="circule-avatar"></div>
+            <span>Full Name</span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a class="dropdown-item" >Update Profile</a>
+            <a class="dropdown-item" >Log Out</a>
+          </div>
+        </div>
+
+        <!-- <div class="dropdown" style="align-self: center;height: 100%;">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false" style="align-items: center;display: inline-flex !important;">
                 <div class="circule-avatar"></div>
@@ -34,7 +45,7 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div> -->
         <div style="width:10px ;"></div>
         <div (click)="openDialog()">
             <button class="btn" style="    font-size: 17px;color: white;">
@@ -73,7 +84,7 @@
                             <li  class="list-group-header" >
                                 <a class=" list-group-item list-group-item-action" style="display: flex;"(click)="generalToggel('toggelSetup')">
                                     <div class="d-flex w-100 justify-content-start align-items-center">
-                                        <span class="menu-collapsed">Medical Sheet
+                                        <span class="menu-collapsed">Administration
                                         </span>
                                     </div>
                                     <i *ngIf="obj.toggelSetup==false" class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -81,31 +92,62 @@
                                 </a>
                             </li>
                             <li class="li-child" *ngIf="obj.toggelSetup==true">
-                                <a routerLinkActive="active" [routerLink]="['/main-home/upload-file']"
+                                <a routerLinkActive="active" [routerLink]="['/main-home/app-users']"
                                     style="display: 10px;" class=" list-group-item list-group-item-action">
                                     <div class="d-flex w-100 justify-content-start align-items-center">
-                                        <span class="menu-collapsed">Upload Sheet</span>
+                                        <span class="menu-collapsed">Users</span>
                                     </div>
                                 </a>
                             </li>
                             <li class="li-child" *ngIf="obj.toggelSetup==true">
-                                <a routerLinkActive="active" [routerLink]="['/main-home/sheet-of-hospital']"
-                                    style="display: 10px;" class=" list-group-item list-group-item-action">
-                                    <div class="d-flex w-100 justify-content-start align-items-center">
-                                        <span class="menu-collapsed">Sheets Hospital</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="li-child" *ngIf="obj.toggelSetup==true">
+                              <a routerLinkActive="active" [routerLink]="['/main-home/dynamic-setup-admin']"
+                                  style="display: 10px;" class=" list-group-item list-group-item-action">
+                                  <div class="d-flex w-100 justify-content-start align-items-center">
+                                      <span class="menu-collapsed">Dynamic Setup</span>
+                                  </div>
+                              </a>
+                          </li>
+                            <!-- <li class="li-child" *ngIf="obj.toggelSetup==true">
                                 <a routerLinkActive="active" [routerLink]="['/main-home/tasks-auto-matched']"
                                     style="display: 10px;" class=" list-group-item list-group-item-action">
                                     <div class="d-flex w-100 justify-content-start align-items-center">
                                         <span class="menu-collapsed">Tasks AutoMatched</span>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
+                    <li style="padding-left: 11px;">
+                      <ul>
+                          <li  class="list-group-header" >
+                              <a class=" list-group-item list-group-item-action" style="display: flex;"(click)="generalToggel('financialSetup')">
+                                  <div class="d-flex w-100 justify-content-start align-items-center">
+                                      <span class="menu-collapsed">Financial Admin
+                                      </span>
+                                  </div>
+                                  <i *ngIf="obj.financialSetup==false" class="fa fa-chevron-down" aria-hidden="true"></i>
+                                  <i *ngIf="obj.financialSetup==true" class="fa fa-chevron-up" aria-hidden="true"></i>
+                              </a>
+                          </li>
+                          <li class="li-child" *ngIf="obj.financialSetup==true">
+                              <a routerLinkActive="active" [routerLink]="['/main-home/financial-doctor-fees']"
+                                  style="display: 10px;" class=" list-group-item list-group-item-action">
+                                  <div class="d-flex w-100 justify-content-start align-items-center">
+                                      <span class="menu-collapsed">Doctors Fees</span>
+                                  </div>
+                              </a>
+                          </li>
+                          <li class="li-child" *ngIf="obj.financialSetup==true">
+                            <a routerLinkActive="active" [routerLink]="['/main-home/financial-patient-fees']"
+                                style="display: 10px;" class=" list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-start align-items-center">
+                                    <span class="menu-collapsed">Patient Fees</span>
+                                </div>
+                            </a>
+                        </li>
+
+                      </ul>
+                  </li>
                 </ul>
 
             </ul>
@@ -123,6 +165,7 @@
             <h1>{{'LOGOUT'|translate}}?</h1>
             <h3>{{translate.currentLang=='ar'?'هل انت متأكد لتسجل الخروج؟':'Are You sure to logout?'}}</h3>
             <button class="btn btnlogout" (click)="logout()"> <span>Log Out</span></button>
+
             <button class="btn btn-cancel" (click)="cancelDialog()">Cancel</button>
         </div>
 

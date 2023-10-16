@@ -373,3 +373,7 @@
     opacity: 1;
   }
 }
+
+.dropdown-menu{
+  min-width: 120px !important;
+}

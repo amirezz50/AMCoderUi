@@ -1,5 +1,5 @@
 
-const serviceUrl = 'https://localhost:44381';
+const serviceUrl = 'https://localhost:44381/api/Auth';
 export class CONFIG {
     public static baseUrls = {
         // config: 'commands/config',

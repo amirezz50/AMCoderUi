@@ -7,6 +7,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { SheetOfHospitalComponent } from './sheet-of-hospital/sheet-of-hospital.component';
 import { TasksAutoMatchedComponent } from './tasks-auto-matched/tasks-auto-matched.component';
+import { UsersComponent } from './Administration/users/users.component';
+import { FinancialDoctorFeesComponent } from './financial-admin/financial-doctor-fees/financial-doctor-fees.component';
+import { FinancialPatientFeesComponent } from './financial-admin/financial-patient-fees/financial-patient-fees.component';
+import { DynamicSetupAdminComponent } from './Administration/dynamic-setup-admin/dynamic-setup-admin.component';
 
 
 const routes: Routes = [
@@ -19,8 +23,11 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'upload-file', component: UploadFileComponent },
       { path: 'sheet-of-hospital', component: SheetOfHospitalComponent },
-      { path: 'tasks-auto-matched', component: TasksAutoMatchedComponent }
-      
+      { path: 'app-users', component: UsersComponent },
+      { path: 'financial-doctor-fees', component: FinancialDoctorFeesComponent },
+      { path: 'financial-patient-fees', component: FinancialPatientFeesComponent },
+      { path: 'dynamic-setup-admin', component: DynamicSetupAdminComponent },
+
     ]
 
   },

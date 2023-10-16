@@ -17,6 +17,7 @@ import { ToastComponent, ToastService } from 'src/shared/toast';
 import { MainHomeModule } from './main-home/main-home.module';
 import { WebsiteComponent } from './website/website.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MainHomeModule,
     TranslateModule.forRoot(),
     NgbModule,
+    FontAwesomeModule,
 
   ],
   providers: [
