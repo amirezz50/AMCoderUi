@@ -13,9 +13,9 @@ export class FinancialPatientFeesComponent implements OnInit {
   ngOnInit(): void {
   }
   patients: any[] = [
-    { patientCode: 'P001', isSelected: false, patientName: 'John Doe', serviceName: 'Consultation', reservationDate: '2023-10-12', patientPrice: 100, patient: 'Patient1' },
-    { patientCode: 'P002', isSelected: false, patientName: 'Jane Smith', serviceName: 'Checkup', reservationDate: '2023-10-13', patientPrice: 120, patient: 'Patient1' },
-    { patientCode: 'P003', isSelected: false, patientName: 'Alice Johnson', serviceName: 'Surgery', reservationDate: '2023-10-14', patientPrice: 500, patient: 'Patient2' },
+    { patientCode: '1', isSelected: false, patientName: 'John Doe', serviceName: 'Consultation', reservationDate: '2023-10-12', patientPrice: 2200, patient: 'Patient1' },
+    { patientCode: '2', isSelected: false, patientName: 'Jane Smith', serviceName: 'Checkup', reservationDate: '2023-10-13', patientPrice: 1500, patient: 'Patient1' },
+    { patientCode: '3', isSelected: false, patientName: 'Alice Johnson', serviceName: 'Surgery', reservationDate: '2023-10-14', patientPrice: 3200, patient: 'Patient2' },
     // Add more sample patient data
   ]; selectedPatients: any[] = []; // Array to store selected patients
   patientSelected: string = ''; // Store selected patient

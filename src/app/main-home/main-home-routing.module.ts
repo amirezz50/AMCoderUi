@@ -11,6 +11,7 @@ import { UsersComponent } from './Administration/users/users.component';
 import { FinancialDoctorFeesComponent } from './financial-admin/financial-doctor-fees/financial-doctor-fees.component';
 import { FinancialPatientFeesComponent } from './financial-admin/financial-patient-fees/financial-patient-fees.component';
 import { DynamicSetupAdminComponent } from './Administration/dynamic-setup-admin/dynamic-setup-admin.component';
+import { OperationManageComponent } from './Administration/operation-manage/operation-manage.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'financial-doctor-fees', component: FinancialDoctorFeesComponent },
       { path: 'financial-patient-fees', component: FinancialPatientFeesComponent },
       { path: 'dynamic-setup-admin', component: DynamicSetupAdminComponent },
+      { path: 'operation-manage', component: OperationManageComponent },
 
     ]
 

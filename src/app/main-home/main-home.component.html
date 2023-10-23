@@ -107,6 +107,14 @@
                                   </div>
                               </a>
                           </li>
+                          <li class="li-child" *ngIf="obj.toggelSetup==true">
+                            <a routerLinkActive="active" [routerLink]="['/main-home/operation-manage']"
+                                style="display: 10px;" class=" list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-start align-items-center">
+                                    <span class="menu-collapsed">Operation Manage</span>
+                                </div>
+                            </a>
+                        </li>
                             <!-- <li class="li-child" *ngIf="obj.toggelSetup==true">
                                 <a routerLinkActive="active" [routerLink]="['/main-home/tasks-auto-matched']"
                                     style="display: 10px;" class=" list-group-item list-group-item-action">

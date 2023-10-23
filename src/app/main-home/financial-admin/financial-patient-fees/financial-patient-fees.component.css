@@ -32,3 +32,23 @@
 .not-selected{
   color: black !important;
 }
+.filter-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  margin-right: 10px;
+}
+
+.filter-group input[type="date"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+.filter-group select {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}

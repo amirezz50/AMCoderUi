@@ -39,7 +39,7 @@ export class MainHomeComponent implements OnInit {
     this._authService.clearCache();
     this.logToggel = false;
   }
-  obj: any = { toggelSetup: true, financialSetup: true }
+  obj: any = { toggelSetup: false, financialSetup: false }
 
   generalToggel(x: string) {
     this.obj[x] = !this.obj[x];

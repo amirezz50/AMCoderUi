@@ -1,28 +1,45 @@
 <div class="container">
-  <h2>Doctor Fees</h2>
+  <!-- <h2>Doctor Fees</h2> -->
   <div class="filters">
-    <div class="filter-group">
-      <label for="doctorDropdown">Select Doctor:</label>
-      <select id="doctorDropdown">
+    <div class="filter-group row">
+      <label for="patientDropdown" class="col-5">Select Doctor:</label>
+      <select id="patientDropdown" class="col-6">
         <!-- Add options for doctors -->
         <option value="doctor1">Doctor 1</option>
         <option value="doctor2">Doctor 2</option>
         <!-- Add more doctor options as needed -->
       </select>
     </div>
+    <div class="filter-group row">
+      <label for="patientDropdown" class="col-5">Select Patient:</label>
+      <select id="patientDropdown" class="col-6">
+        <!-- Add options for patients -->
+        <option value="patient1">Patient 1</option>
+        <option value="patient2">Patient 2</option>
+        <!-- Add more patient options as needed -->
+      </select>
+    </div>
     <div class="filter-group">
       <label for="dateFrom">From:</label>
-      <input type="date" id="dateFrom">
+      <input type="date" id="dateFrom" />
     </div>
     <div class="filter-group">
       <label for="dateTo">To:</label>
-      <input type="date" id="dateTo">
+      <input type="date" id="dateTo" />
     </div>
   </div>
   <div class="col-lg-4">
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="selectAll" [(ngModel)]="selectAllFlag"(change)="selectAll()"/>
-      <label class="form-check-label" for="selectAll">Select All</label>
+    <div class="row">
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="selectAll"
+          [(ngModel)]="selectAllFlag"
+          (change)="selectAll()"
+        />
+        <label class="form-check-label" for="selectAll">Select All</label>
+      </div>
     </div>
   </div>
   <table class="table table-striped table-bordered">
@@ -37,8 +54,14 @@
     </thead>
     <tbody>
       <!-- Add table rows with ngFor as needed -->
-      <tr *ngFor="let patient of patients" [ngClass]="{ 'selected': patient.isSelected, 'not-selected': !patient.isSelected }"
-      (click)="selected(patient)">
+      <tr
+        *ngFor="let patient of patients"
+        [ngClass]="{
+          selected: patient.isSelected,
+          'not-selected': !patient.isSelected
+        }"
+        (click)="selected(patient)"
+      >
         <td>{{ patient.patientCode }}</td>
         <td>{{ patient.patientName }}</td>
         <td>{{ patient.serviceName }}</td>

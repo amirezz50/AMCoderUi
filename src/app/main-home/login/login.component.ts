@@ -42,10 +42,14 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res: any) => {
           this.authResult = res;
-          localStorage.setItem('token', res.data.token);
-          sessionStorage.setItem('UserData', JSON.stringify(res));
+          if (res && res.data) {
+            localStorage.setItem('token', res.data.token);
+            sessionStorage.setItem('UserData', JSON.stringify(res));
 
-          this._router.navigateByUrl('/main-home');
+            this._router.navigateByUrl('/main-home');
+          } else if (res && res.messages && res.messages.length > 0) {
+            this._toastService.activateMsg(res.messages[0],"Error")
+          }
           // this._authService.islogginNew = true
 
         })

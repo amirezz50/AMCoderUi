@@ -28,13 +28,13 @@ export class ToastService {
   public toastMsg(msg?: string, title?: string, type?: 'Error' | 'Warn' | 'Success' | 'Info') {
 
     if (type == 'Success') {
-      this.toastr.success(msg, title, { closeButton: true });
+      this.toastr.success(msg, title);
     } else if (type == 'Warn') {
       this.toastr.warning(msg, title, { closeButton: true });
     } else if (type == 'Info') {
       this.toastr.info(msg, title, { closeButton: true });
     } else {
-      this.toastr.error(msg, title, { closeButton: true });
+      this.toastr.error(msg, title);
     }
 
   }
@@ -119,7 +119,7 @@ export class ToastService {
                 }
               );
             });
-            
+
           }
       }
       return (messages[0].msgID == 5 ||  messages[0].msgID == 44)   ? true : false;
