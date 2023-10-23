@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastService } from 'src/shared/toast';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +8,11 @@ import { ToastService } from 'src/shared/toast';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public _toastService: ToastService) { }
+  constructor(public _ToastrService: ToastrService) { }
 
   ngOnInit(): void {
   }
   opentoast() {
-    this._toastService.toastMsg('hello', 'error','Success')
+    this._ToastrService.success('hello', 'error')
   }
 }

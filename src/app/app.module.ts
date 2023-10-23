@@ -13,7 +13,7 @@ import { LoggedInGuard } from 'src/shared/logged-in.guard';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
-import { ToastComponent, ToastService } from 'src/shared/toast';
+import {  ToastrService } from 'ngx-toastr';
 import { MainHomeModule } from './main-home/main-home.module';
 import { WebsiteComponent } from './website/website.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -23,7 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   declarations: [
     AppComponent,
     MainHomeComponent,
-    ToastComponent,
+
     WebsiteComponent,
   ],
   imports: [
@@ -42,7 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpGeneralService,
     HandleErrorService,
     LoggedInGuard,
-    ToastService,
+    ToastrService,
     TranslateService,
   ],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { LoginService } from './login.service';
 import { merge } from 'rxjs';
 import { Router } from '@angular/router';
-import { ToastService } from 'src/shared/toast';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(
     public _authService: LoginService,
     private _router: Router,
-    private _toastService: ToastService,
+    private toastr: ToastrService,
 
 
   ) { }
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     if ((this.loginModel.email == undefined || this.loginModel.email == null || !this.loginModel.email.replace(/\s/g, '').length) ||
       (this.loginModel.password == undefined || this.loginModel.password == null || !this.loginModel.password.replace(/\s/g, '').length)) {
 
-      this._toastService.toastMsg("mesaasdadsasd asdasd", "title", "Error")
+      this.toastr.success("mesaasdadsasd asdasd", "SucessTitle")
       return;
     } else {
       sessionStorage.setItem('UserModel', JSON.stringify(this.loginModel));
@@ -45,10 +45,11 @@ export class LoginComponent implements OnInit {
           if (res && res.data) {
             localStorage.setItem('token', res.data.token);
             sessionStorage.setItem('UserData', JSON.stringify(res));
-
             this._router.navigateByUrl('/main-home');
+            this.toastr.info( 'Welcome');
+
           } else if (res && res.messages && res.messages.length > 0) {
-            this._toastService.activateMsg(res.messages[0],"Error")
+            this.toastr.error(res.messages[0], 'Error');
           }
           // this._authService.islogginNew = true
 
