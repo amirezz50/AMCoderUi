@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MainHomeComponent implements OnInit {
   flagSideBar: boolean = false;
+  titleSideBar: string = 'Dashboard';
   constructor(
     public _authService: LoginService,
     public _router: Router,
@@ -28,6 +29,9 @@ export class MainHomeComponent implements OnInit {
     this._router.navigate([routePath, { mode: null }]).then(value => { });
   }
   logToggel: boolean = false
+  changeTitlePages(title: string) {
+    this.titleSideBar = title;
+  }
   openDialog() {
     this.logToggel = true;
   }

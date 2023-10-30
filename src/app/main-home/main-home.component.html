@@ -69,7 +69,7 @@
       <ul class="list-group" *ngIf="!flagSideBar" [ngClass]="{'hidden':flagSideBar}">
         <ul style="list-style-type: none; padding: 0;">
           <!-- home -->
-          <li>
+          <li (click)="changeTitlePages('Dashboard')">
             <a routerLinkActive="active" [routerLink]="[ '/main-home/dashboard' ]"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
@@ -80,7 +80,7 @@
               </div>
             </a>
           </li>
-          <li>
+          <li (click)="changeTitlePages('Users')">
             <a routerLinkActive="active" [routerLink]="['/main-home/app-users']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
@@ -88,15 +88,15 @@
               </div>
             </a>
           </li>
-          <li>
-            <a routerLinkActive="active" [routerLink]="['/main-home/dynamic-setup-admin']" style="display: 10px;"
+          <li (click)="changeTitlePages('Schedule Doctor')">
+            <a routerLinkActive="active" [routerLink]="['/main-home/schedul-doctor']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed">Dynamic Setup</span>
+                <span class="menu-collapsed">Schedule Doctor</span>
               </div>
             </a>
           </li>
-          <li>
+          <li (click)="changeTitlePages('Operation Manage')">
             <a routerLinkActive="active" [routerLink]="['/main-home/operation-manage']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
@@ -104,7 +104,7 @@
               </div>
             </a>
           </li>
-          <li>
+          <li (click)="changeTitlePages('Doctors Fees')">
             <a routerLinkActive="active" [routerLink]="['/main-home/financial-doctor-fees']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
@@ -112,7 +112,7 @@
               </div>
             </a>
           </li>
-          <li>
+          <li (click)="changeTitlePages('Patient Fees')">
             <a routerLinkActive="active" [routerLink]="['/main-home/financial-patient-fees']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
@@ -120,12 +120,27 @@
               </div>
             </a>
           </li>
+          <li (click)="changeTitlePages('Dynamic Setup')">
+            <a routerLinkActive="active" [routerLink]="['/main-home/dynamic-setup-admin']" style="display: 10px;"
+              class=" list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-start align-items-center">
+                <span class="menu-collapsed">Dynamic Setup</span>
+              </div>
+            </a>
+          </li>
         </ul>
       </ul>
     </div>
     <!-- MAIN -->
-    <div class="col">
-      <router-outlet></router-outlet>
+    <div class="col" style="background-color:#f5f5f5;">
+      <div class="title-Sidebar">
+        <span class="sidebar-box">
+          {{titleSideBar}}
+        </span>
+      </div>
+      <div style="margin-top: -10px;">
+        <router-outlet></router-outlet>
+      </div>
     </div>
     <!-- Main Col END -->
   </div>

@@ -57,39 +57,5 @@
         </div>
       </div>
     </div>
-    <hr />
-    <h3>User Table</h3>
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>Full Name</th>
-          <th>Gender</th>
-          <th>Birth Date</th>
-          <th>Phone Number</th>
-          <th>User Type</th>
-          <th>User Role</th>
-          <th>Confirm</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let userDetails of userDetailsList| slice:pageIndex*pageSize:(pageIndex+1)*pageSize;let index=index">
-          <td>{{ userDetails.fullName }}</td>
-          <td>{{ userDetails.gender }}</td>
-          <td>{{ userDetails.birthDate }}</td>
-          <td>{{ userDetails.phoneNumber }}</td>
-          <td>{{ userDetails.userType == 1 ? "Doctor" : "Patient" }}</td>
-          <td>{{ userDetails.userRole == 1 ? "Admin" : "NoAdmin" }}</td>
-          <td>{{ userDetails.confirm ? "Yes" : "No" }}</td>
-          <td>
-           <custom-dropdown [ArrayNames]="['Update','Delete']" (onSelect)="onSelectRow($event)" ></custom-dropdown>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="text-align: center; direction: ltr;" *ngIf="userDetailsList.length>0">
-      <custom-pagination [itemCount]="userDetailsList.length" [(pageIndex)]="pageIndex" [pageSize]="pageSize">
-      </custom-pagination>
-  </div>
   </form>
 </div>
