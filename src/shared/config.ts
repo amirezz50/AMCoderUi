@@ -9,6 +9,7 @@ export class CONFIG {
         uploadSheet: `${serviceUrl}/api/UploadSheet`,
         MedicalSheet:`${serviceUrl}/api/MedicalSheet`,
         Dashboard:`${serviceUrl}/api/Dashboard`,
+        Doctors:`${serviceUrl}/api/Doctors`,
 
 
     }

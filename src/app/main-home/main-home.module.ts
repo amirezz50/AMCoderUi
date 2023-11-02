@@ -14,6 +14,8 @@ import { UsersModule } from './Administration/Administration.module';
 import { CustomDropdownModule } from 'src/shared/custom-dropdown/custom-dropdown.module';
 import { FinancialAdminComponent } from './financial-admin/financial-admin.component';
 import { FinancialAdminModule } from './financial-admin/financial-admin.module';
+import { SchedulDoctorModule } from './schedul-doctor/schedul-doctor.module';
+import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom-select-option.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { FinancialAdminModule } from './financial-admin/financial-admin.module';
     PagerModule,
     UsersModule,
     FinancialAdminModule,
-    CustomDropdownModule
+    CustomDropdownModule,
+    SchedulDoctorModule,
+    CustomSelectOptionModule
   ], exports: [LoginComponent,
     RegisterNewUserComponent]
 })

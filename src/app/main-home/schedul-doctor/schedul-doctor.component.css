@@ -1,0 +1,224 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2e3841;
+  border-radius: 10px;
+}
+
+.body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Start Search */
+.form {
+  position: relative;
+}
+
+.form .fa-search {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #9ca3af;
+}
+
+.form span {
+  position: absolute;
+  right: 17px;
+  top: 13px;
+  padding: 2px;
+  border-left: 1px solid #e2e5ea;
+
+}
+
+.form-input {
+  height: 55px;
+  text-indent: 33px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.form-input:focus {
+  box-shadow: #2375e5 0px 0px 0px 2px;
+  border: 1px solid #e2e5ea;
+}
+
+/* End Search */
+/* Start Client Name History */
+.dejaBtn input {
+  background-color: green;
+  color: #fff;
+  font-weight: 500;
+  max-width: max-content;
+  padding: 0.8rem 3rem;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.dejaBtn input:hover {
+  background-color: #fff;
+  color: #2e3841;
+  border: 2px solid #2e3841;
+}
+
+/* End Client Name History */
+/* Start date left side head */
+.dejaBtn2 input:hover {
+  background-color: #2e3841;
+  color: #fff;
+  border: none !important;
+}
+
+.dejaBtn2 input {
+  background-color: transparent;
+  color: #2e3841;
+  border: #2e3841 2px solid !important;
+  font-weight: 500;
+  max-width: max-content;
+  padding: 0.8rem 3rem;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.dejaBtn,
+.dejaBtn2 {
+  align-items: center;
+  max-width: max-content;
+}
+
+/* End Client Name History */
+/* Start date left side head */
+.dejaBtn2 a:hover {
+  background-color: #2e3841;
+  color: #fff;
+  border: none !important;
+}
+
+.dejaBtn2 a {
+  background-color: transparent;
+  color: #2e3841;
+  border: #2e3841 2px solid !important;
+  font-weight: 500;
+  max-width: max-content;
+  padding: 1rem 3rem;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.dejaBtn,
+.dejaBtn2 {
+  align-items: center;
+  max-width: max-content;
+}
+
+/* End date left side head */
+/* Start Rounded Head Table  */
+table th {
+  border: #e2e5ea 2px solid !important;
+  border-top: none !important;
+  font-weight: 500;
+}
+
+table th:first-child {
+  border-left: none !important;
+}
+
+table th:last-child {
+  border-right: none !important;
+}
+
+/* End Rounded Head Table  */
+.dejaDate-table {
+  overflow: auto;
+}
+
+.dejaRes-day-card1 {
+  background-color: #7386c7;
+}
+
+.dejaRes-day-card3 {
+  background-color: #f5a125;
+}
+
+.dejaRes-day-card2 {
+  background-color: #37c17c;
+}
+
+.dejaDate-reserve-table {
+  overflow: auto;
+}
+
+.dejaDate-reserve-table table td:first-child {
+  border-right: #e2e5ea 2px solid !important;
+  text-align: left;
+  max-width: fit-content;
+}
+
+.dejaDate-reserve-table-card1 {
+  background-color: #ff2929;
+}
+
+.dejaDate-reserve-table-card2 {
+  background-color: #2375e5;
+}
+
+.dejaDate-reserve-table-card1 p:first-child,
+.dejaDate-reserve-table-card2 p:first-child {
+  text-align: left;
+}
+
+.dejaSetupLsideSelected {
+  background-color: #e2e5ea;
+  text-align: center;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.bg-transparent {
+  color: black;
+  font-family: "Poppins", sans-serif;
+
+  font-size: 16px;
+}
+
+.color-input {
+  color: #2e3841;
+  font-weight: 900;
+}
+
+.table-header {
+  background: none;
+  color: black !important;
+  padding: 0.5rem 0.5rem !important;
+  text-align: center;
+  cursor: pointer;
+}
+
+.no-shift {
+  font-size: 20px;
+  font-weight: 500;
+  color: red;
+  word-spacing: 5px;
+  text-align: center;
+}
+.btn {
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.active {
+  background-color: green;
+  color: white;
+}

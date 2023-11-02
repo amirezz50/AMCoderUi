@@ -1,0 +1,4 @@
+<select>
+  <option [value]="null"></option>
+  <option *ngFor="let item of array" [value]="item.code">{{item.name}}</option>
+</select>
