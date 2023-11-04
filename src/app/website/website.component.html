@@ -5,7 +5,7 @@
     <login *ngIf="!this._authService._authService.isLoggin"></login>
 </div> -->
 <!-- Bootstrap NavBar -->
-<!-- 
+<!--
 <div class="body-main">
     <div class="center-all">
         <h1 style="
@@ -104,7 +104,7 @@
                         <i class="fa fa-briefcase me-2"></i> Career
                     </a>
                     <div class="career me-lg-4"></div>
-                    <a class="mb-0 me-lg-4 text-decoration-none" [routerLink]="['/main-home']">Login</a>
+                    <a class="mb-0 me-lg-4 text-decoration-none" (click)="setRoutLink('/main-home')">Login</a>
                     <a class="mb-0 sec-btn px-4 py-2 text-decoration-none text-white" data-bs-toggle="modal"
                         data-bs-target="#registerModal">
                         Get Started

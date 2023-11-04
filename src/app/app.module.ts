@@ -18,24 +18,28 @@ import { MainHomeModule } from './main-home/main-home.module';
 import { WebsiteComponent } from './website/website.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
+import { WebsiteModule } from './website/website.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainHomeComponent,
 
-    WebsiteComponent,
+
   ],
   imports: [
     AppRoutingModule,
     FormsModule,
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MainHomeModule,
     TranslateModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
+    WebsiteModule
 
 
   ],

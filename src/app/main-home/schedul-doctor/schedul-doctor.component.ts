@@ -12,15 +12,17 @@ import { Subject, takeUntil } from 'rxjs';
 export class SchedulDoctorComponent implements OnInit {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
   doctorArr: any[] = [];
-
+  scheduleMasterForm: FormGroup | undefined;
+  docId: any
+  UnitList: any[] = []
   constructor(private _SchedulDoctorService: SchedulDoctorService) { }
 
   ngOnInit(): void {
     this.getDoctors();
   }
-  scheduleMasterForm: FormGroup | undefined;
-
-  UnitList: any[] = []
+  getCodeFromArray(ev: any) {
+    this.docId = ev;
+  }
   save() { }
   // sort: boolean = false;
   // sorting(byWhat:any) {
@@ -31,11 +33,13 @@ export class SchedulDoctorComponent implements OnInit {
   //     this.UnitList = this.UnitList.sort((a: any, b: any) => a[byWhat] < b[byWhat] ? 1 : -1)
   //   }
   // }
+
   scheduleDays: any[] = [{ textEn: "aa", Shifts: [{}] }];
   selectedDoctor: any;
   searchTerm: string = '';
   addNewUnit() { }
-  onBtnsClicked(number: number) { }
+  onBtnsClicked(number: number) { console.log(this.docId) }
+
   addNewShift(day: any) { }
   openCheckDelete(shift: any) { }
   toggleButton(shift: any) { }
@@ -63,7 +67,6 @@ export class FilterDoctorPipe implements PipeTransform {
     if (!doctors || !searchTerm) {
       return doctors;
     }
-
     searchTerm = searchTerm.toLowerCase();
     return doctors.filter(doctor => doctor.FullName.toLowerCase().includes(searchTerm));
   }

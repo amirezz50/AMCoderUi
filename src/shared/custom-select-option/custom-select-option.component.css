@@ -1,0 +1,50 @@
+.dropbtn {
+  background: none;
+  font-size: 16px;
+  border: none;
+  color: black;
+}
+
+.dropdown {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  top: 35px;
+  border: 0.1px groove;
+  border-radius: 5px;
+  overflow-y: auto;
+  height: auto;
+  max-height: 230px;
+}
+
+.dropdown-content tr:hover {
+  background-color: #ddd;
+}
+
+.arabic-lang {
+  left: 0;
+}
+
+.english-lang {
+  right: 0;
+}
+
+.icon-up-down {
+  position: absolute;
+  right: 6px;
+  top: 10px;
+}
+
+.search-style {
+  font-size: 15px !important;
+}

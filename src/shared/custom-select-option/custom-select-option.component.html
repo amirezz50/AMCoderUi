@@ -4,17 +4,37 @@
 </select> -->
 <!-- <form class="example-form">
   <mat-form-field class="example-full-width">
-    <mat-label>Number</mat-label>
     <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
+           placeholder=""
+           aria-label=""
            matInput
            [formControl]="myControl"
            [matAutocomplete]="auto">
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
+      <mat-option *ngFor="let option of array[0] " [value]="option.code">
+        {{option.name}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
 </form> -->
+
+<div>
+  <div class="dropdown" #dropdown1>
+    <div #dropdown2>
+      <input class="form-control search-style" placeholder="Search" [(ngModel)]="selectedItem" (keyup)="search($event)" (click)="flagOpenClose=true">
+      <i class="fa-solid fa-angle-up icon-up-down" (click)="flagOpenClose=false;$event.stopPropagation()" *ngIf="flagOpenClose"></i>
+      <i class="fa-solid fa-angle-down icon-up-down" (click)="flagOpenClose=true;$event.stopPropagation()"
+        *ngIf="!flagOpenClose"></i>
+    </div>
+    <div class="dropdown-content" *ngIf="flagOpenClose" #dropdown3>
+      <table style="width: 100%;">
+        <tbody>
+          <tr (click)="select(null)"></tr>
+          <tr *ngFor="let item of arrayFilter | slice: pageIndex * pageSize : (pageIndex + 1) * pageSize">
+            <td (click)="select(item)">{{item.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

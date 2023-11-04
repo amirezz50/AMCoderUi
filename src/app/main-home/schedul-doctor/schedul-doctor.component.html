@@ -10,18 +10,12 @@
     </div> -->
     <div class="col-3 mb-3">
       <div class="form-floating">
-        <custom-select-option [array]="[doctorArr]"></custom-select-option>
-
-        <!-- <datalist id="doctor">
-          <option *ngFor="let doctor of doctorArr| filterDoctor: searchTerm" [value]="doctor.FullName">
-            {{doctor.FullName}}</option>
-        </datalist> -->
-        <!-- <input for="Choose" [(ngModel)]="searchTerm"> -->
-        <!-- <select name="Choose" placeholder="Choose some technologies..." id="search" multiple="multiple">
-          <option *ngFor="let doctor of doctorArr| filterDoctor: searchTerm" [value]="doctor.FullName">
-            {{doctor.FullName}}</option>
-        </select> -->
+        <custom-select-option [array]="[doctorArr]" (code)="getCodeFromArray($event)"></custom-select-option>
       </div>
+    </div>
+    <div class="col-3">
+      <div><button class="btn"><i class="fa-solid fa-magnifying-glass " style="font-size: 17px;"></i></button></div>
+
     </div>
   </div>
   <br>
