@@ -16,6 +16,7 @@ import { FinancialAdminComponent } from './financial-admin/financial-admin.compo
 import { FinancialAdminModule } from './financial-admin/financial-admin.module';
 import { SchedulDoctorModule } from './schedul-doctor/schedul-doctor.module';
 import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom-select-option.module';
+import { BookingModule } from './booking/booking.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,6 @@ import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom
     UploadFileComponent,
     SheetOfHospitalComponent,
     TasksAutoMatchedComponent,
-
-
   ],
   imports: [
 
@@ -39,7 +38,8 @@ import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom
     FinancialAdminModule,
     CustomDropdownModule,
     SchedulDoctorModule,
-    CustomSelectOptionModule
+    CustomSelectOptionModule,
+    BookingModule
   ], exports: [LoginComponent,
     RegisterNewUserComponent]
 })

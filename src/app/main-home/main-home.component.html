@@ -96,6 +96,14 @@
               </div>
             </a>
           </li>
+          <li (click)="changeTitlePages('booking')">
+            <a routerLinkActive="active" [routerLink]="['/main-home/booking']" style="display: 10px;"
+              class=" list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-start align-items-center">
+                <span class="menu-collapsed">Booking</span>
+              </div>
+            </a>
+          </li>
           <li (click)="changeTitlePages('Operation Manage')">
             <a routerLinkActive="active" [routerLink]="['/main-home/operation-manage']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
@@ -138,7 +146,7 @@
           {{titleSideBar}}
         </span>
       </div>
-      <div style="margin-top: -10px;">
+      <div style="margin-top: 20px;">
         <router-outlet></router-outlet>
       </div>
     </div>

@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res: any) => {
           this.authResult = res;
-          if (res && res.data) {
-            localStorage.setItem('token', res.data.token);
+          if (res && res.array) {
+            localStorage.setItem('token', res.array.token);
             sessionStorage.setItem('UserData', JSON.stringify(res));
             this._router.navigateByUrl('/main-home');
             this.toastr.info( 'Welcome');

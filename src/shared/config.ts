@@ -10,6 +10,7 @@ export class CONFIG {
         MedicalSheet:`${serviceUrl}/api/MedicalSheet`,
         Dashboard:`${serviceUrl}/api/Dashboard`,
         Doctors:`${serviceUrl}/api/Doctors`,
+        Schedule:`${serviceUrl}/api/schedule`,
 
 
     }

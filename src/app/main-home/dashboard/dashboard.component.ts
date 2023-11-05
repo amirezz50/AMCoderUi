@@ -23,8 +23,8 @@ export class DashboardComponent implements OnInit {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(
         (res: any) => {
-          if (res && res.data) {
-            this.arrayDashboard = res.data;
+          if (res && res.array) {
+            this.arrayDashboard = res.array;
           } else {
             this._toaster.warning(res.messages[0]);
           }

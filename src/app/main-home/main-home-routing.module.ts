@@ -13,6 +13,8 @@ import { FinancialPatientFeesComponent } from './financial-admin/financial-patie
 import { DynamicSetupAdminComponent } from './Administration/dynamic-setup-admin/dynamic-setup-admin.component';
 import { OperationManageComponent } from './Administration/operation-manage/operation-manage.component';
 import { SchedulDoctorComponent } from './schedul-doctor/schedul-doctor.component';
+import { BookingDetailComponent } from './booking/booking-detail/booking-detail.component';
+import { BookingComponent } from './booking/booking.component';
 
 
 const routes: Routes = [
@@ -31,6 +33,8 @@ const routes: Routes = [
       { path: 'dynamic-setup-admin', component: DynamicSetupAdminComponent },
       { path: 'operation-manage', component: OperationManageComponent },
       { path: 'schedul-doctor', component: SchedulDoctorComponent },
+      { path: 'booking', component: BookingComponent },
+      { path: 'booking-detail', component: BookingDetailComponent },
 
     ]
 
