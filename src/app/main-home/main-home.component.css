@@ -26,7 +26,7 @@
 
 #sidebar-container {
   min-height: 100vh;
-  background-color: #426770;
+  background-color: #c4a859;
   padding: 0;
 }
 
@@ -49,7 +49,7 @@
 
 .menu-side-bar {
   background: none;
-  border: 1px solid;
+  border: none;
   border-radius: 5px;
   color: white;
   font-size: 18px;
@@ -58,9 +58,8 @@
 /* Menu item*/
 
 #sidebar-container .list-group a {
-  padding: 5px 8px;
-  color: white;
-  background-color: #426770;
+  padding: 7px 20px;
+  background-color: #c4a859;
   border: 0px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -76,10 +75,8 @@
 }
 
 .title-Sidebar {
-  font-size: 20px;
-  font-family: 'Verdana', 'sans-seriff';
+  font-size: 17px;
   font-weight: bold;
-
 }
 
 .sidebar-box {
@@ -203,7 +200,7 @@
 
 /*=========================*/
 .navbar {
-  background-color: #426770;
+  background-color: #c4a859;
   padding: 0;
   margin: 0px;
   border-radius: 0px;
@@ -234,7 +231,7 @@
 }
 
 .active {
-  background-color: #2C3848 !important;
+  background-color: #6c6c6c !important;
 }
 
 .list-group {
@@ -316,7 +313,7 @@
 }
 
 .list-group-item:hover {
-  background-color: #212529 !important;
+  background-color: #a29e9e !important;
   cursor: pointer;
 }
 
@@ -369,8 +366,8 @@
 
 .circule-avatar {
   border-radius: 25px;
-  width: 20px;
-  height: 20px;
+  width: 35px;
+  height: 35px;
   background-color: #2A5370;
   margin-right: 10px;
 

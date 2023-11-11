@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     if ((this.loginModel.email == undefined || this.loginModel.email == null || !this.loginModel.email.replace(/\s/g, '').length) ||
       (this.loginModel.password == undefined || this.loginModel.password == null || !this.loginModel.password.replace(/\s/g, '').length)) {
 
-      this.toastr.success("mesaasdadsasd asdasd", "SucessTitle")
+      this.toastr.error("Pleace enter correct form", "Error")
       return;
     } else {
       sessionStorage.setItem('UserModel', JSON.stringify(this.loginModel));

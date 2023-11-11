@@ -1,4 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.back-btn {
+  height: 30px;
+  background-color: cadetblue;
+  color: white;
+  border: none;
+  border-radius: 7px;
+}
+
+
+.btn-save {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px !important;
+  outline: none;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .3s;
+  background-color: #6c6c6c !important;
+}
+
+.btn-save:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-save i {
+  margin-right: 10px;
+  padding: 5px;
+  background-color: none;
+  border-radius: 13%;
+  color: white;
+  font-size: 17px;
+
+}

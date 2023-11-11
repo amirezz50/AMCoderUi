@@ -15,6 +15,9 @@ import { OperationManageComponent } from './Administration/operation-manage/oper
 import { SchedulDoctorComponent } from './schedul-doctor/schedul-doctor.component';
 import { BookingDetailComponent } from './booking/booking-detail/booking-detail.component';
 import { BookingComponent } from './booking/booking.component';
+import { UsersDetailComponent } from './Administration/users-detail/users-detail.component';
+import { OperationManageDetailComponent } from './Administration/operation-manage/operation-manage-detail/operation-manage-detail.component';
+import { MembershipDetailComponent } from './Administration/dynamic-setup-admin/membership-detail/membership-detail.component';
 
 
 const routes: Routes = [
@@ -28,10 +31,13 @@ const routes: Routes = [
       { path: 'upload-file', component: UploadFileComponent },
       { path: 'sheet-of-hospital', component: SheetOfHospitalComponent },
       { path: 'app-users', component: UsersComponent },
+      { path: 'app-users-detail', component: UsersDetailComponent },
       { path: 'financial-doctor-fees', component: FinancialDoctorFeesComponent },
       { path: 'financial-patient-fees', component: FinancialPatientFeesComponent },
       { path: 'dynamic-setup-admin', component: DynamicSetupAdminComponent },
+      { path: 'membership-detail', component: MembershipDetailComponent },
       { path: 'operation-manage', component: OperationManageComponent },
+      { path: 'operation-manage-detail', component: OperationManageDetailComponent },
       { path: 'schedul-doctor', component: SchedulDoctorComponent },
       { path: 'booking', component: BookingComponent },
       { path: 'booking-detail', component: BookingDetailComponent },

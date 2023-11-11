@@ -1,7 +1,7 @@
 <div class="auth-page">
   <div class="auth-form">
     <div class="card-auth">
-      <div *ngIf="showRegisterForm==false" style="    width: 67%;line-height: 3;">
+      <div *ngIf="showRegisterForm==false" style="    width: 100%;line-height: 3;">
         <div class="card-form">
           <div class="auth-title">
             <span>Log In</span>
@@ -45,7 +45,7 @@
         </div>
 
       </div>
-      <div *ngIf="showRegisterForm==true">
+      <div *ngIf="showRegisterForm==true" style="width: 100%;">
         <register-new-user (rigesterPage)="registerationForm($event)"></register-new-user>
       </div>
     </div>

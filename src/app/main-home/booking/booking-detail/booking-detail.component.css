@@ -1,0 +1,14 @@
+
+
+.card-status {
+  background-color: rgb(0, 190, 127);
+  color: white;
+  border-radius: 17px;
+  padding: 5px;
+}
+
+.large-title {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: sans-serif;
+}

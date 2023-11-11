@@ -1,0 +1,72 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <button class="btn" (click)="routeToLink('/main-home/app-users')">
+        <i class="fa-solid fa-angle-left" style="font-size: 22px;"></i>
+      </button>
+    </div>
+    <div class="col" style="padding-right:15px ;">
+      <button class="btn-save" style="float: inline-end;">
+        <i class="fa-regular fa-floppy-disk"></i> Save</button>
+    </div>
+  </div>
+  <form style="padding: 0px 35px;">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" class="form-control" id="fullName" />
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <label for="birthDate">Birth Date</label>
+          <input type="text" class="form-control" id="birthDate" />
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" class="form-control" id="phoneNumber" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-group">
+          <label for="userType">User Type</label>
+          <select class="form-control" id="userType">
+            <option [value]="1">Doctor</option>
+            <option [value]="2">Patient</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <label for="userRole">User Role</label>
+          <select class="form-control" id="userRole">
+            <option [value]="1">Admin</option>
+            <option [value]="2">Not Admin</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="confirm" />
+          <label class="form-check-label" for="confirm">Confirm</label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

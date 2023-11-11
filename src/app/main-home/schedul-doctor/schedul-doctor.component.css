@@ -41,7 +41,7 @@
 }
 
 .form-input {
-  height: 55px;
+  height: 60px;
   text-indent: 33px;
   border-radius: 10px;
   font-size: 16px;
@@ -211,7 +211,9 @@ table th:last-child {
   color: red;
   word-spacing: 5px;
   text-align: center;
+  align-self: center;
 }
+
 .btn {
   padding: 10px 10px;
   border: none;
@@ -221,4 +223,10 @@ table th:last-child {
 .btn.active {
   background-color: green;
   color: white;
+}
+
+.font-color {
+  background-color: antiquewhite;
+  padding: 10px 0px;
+  text-align: center;
 }

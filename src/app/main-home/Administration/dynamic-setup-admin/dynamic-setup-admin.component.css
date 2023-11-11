@@ -1,3 +1,5 @@
-.table tbody tr {
-  height: 20px; /* Set your desired row height here */
+
+.btn-action {
+  width: 30%;
+  font-size: 16px;
 }

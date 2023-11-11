@@ -1,2 +1,35 @@
-<p>booking works!</p>
-  <a (click)="routeToLink()" >Go To Detail</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <input type="text" placeholder="Search Booking" class="form-control" [(ngModel)]="searchTerm" (keyup)="filterinTable()">
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Doc. Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Procedure Type</th>
+        <th>Number of Slot</th>
+        <th>Note</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookingsFilter ;let indx=index;">
+        <td>{{booking.docName}}</td>
+        <td>{{ booking.date | date:"dd/MM/yyyy"}}</td>
+        <td>{{ booking.date | date:"hh:mm:a"}}</td>
+        <!-- doctor or patient name -->
+        <td>{{ booking.operationName }}</td>
+        <td>{{ booking.numOfSlot }}</td>
+        <td>{{ booking.note  }}</td>
+        <td>
+          <button (click)="routeToLink(booking)" class="btn btn-success">Detail</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

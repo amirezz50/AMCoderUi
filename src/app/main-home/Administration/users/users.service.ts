@@ -11,7 +11,7 @@ export class UsersService {
 
 export interface IUserDetails {
   fullName?: string;
-  gender?: number;
+  gender?: string;
   birthDate?: string;
   phoneNumber?: string;
   userType?: number;

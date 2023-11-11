@@ -5,6 +5,9 @@ import { CustomDropdownModule } from "../../../shared/custom-dropdown/custom-dro
 import { PagerModule } from 'src/shared/custom-pagination/custom-pagination.Module';
 import { DynamicSetupAdminComponent } from './dynamic-setup-admin/dynamic-setup-admin.component';
 import { OperationManageComponent } from './operation-manage/operation-manage.component';
+import { UsersDetailComponent } from './users-detail/users-detail.component';
+import { OperationManageDetailComponent } from './operation-manage/operation-manage-detail/operation-manage-detail.component';
+import { MembershipDetailComponent } from './dynamic-setup-admin/membership-detail/membership-detail.component';
 
 
 
@@ -12,7 +15,10 @@ import { OperationManageComponent } from './operation-manage/operation-manage.co
     declarations: [
         UsersComponent,
         DynamicSetupAdminComponent,
-        OperationManageComponent
+        OperationManageComponent,
+        UsersDetailComponent,
+        OperationManageDetailComponent,
+        MembershipDetailComponent
     ],
     exports: [UsersComponent],
     imports: [

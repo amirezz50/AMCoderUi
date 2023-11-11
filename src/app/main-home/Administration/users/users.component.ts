@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUserDetails } from './users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -10,12 +11,19 @@ export class UsersComponent implements OnInit {
   userDetailsList: IUserDetails[] = [];
   pageIndex: number = 0;
   pageSize: number = 10;
-  constructor() { }
-
+  constructor(public _router: Router) { }
+  routeToLink(link: any) {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+    this._router.navigate([link]).then(value => { });
+  }
   ngOnInit(): void {
     this.userDetailsList = [{
       fullName: 'Amir Ezz',
-      gender: 1,
+      gender: 'Male',
       birthDate: '20/10/1980',
       phoneNumber: '010123456789',
       userType: 1,
@@ -24,7 +32,7 @@ export class UsersComponent implements OnInit {
     },
     {
       fullName: 'Mostafa Esmail',
-      gender: 1,
+      gender: 'Male',
       birthDate: '01/01/1975',
       phoneNumber: '010987654321',
       userType: 2,

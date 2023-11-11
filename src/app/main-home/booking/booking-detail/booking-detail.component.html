@@ -1,1 +1,79 @@
-<p>booking-detail works!</p>
+<div>
+  <div style="width: 6%;">
+    <button class="btn" (click)="routeToLink()">
+      <i class="fa-solid fa-angle-left" style="font-size: 22px;"></i>
+    </button>
+  </div>
+  <div class="container" style="padding: 0px 40px;">
+    <div>
+      <div class="small-title row">
+        <div class="header-one col-11">{{bookingsMaster[bookingDetailCode!].date|date:'dd/MM/yyyy'}}
+          {{bookingsMaster[bookingDetailCode!].date|date:'hh:mm:a'}}</div>
+        <div class="header-two col-1"><i class="fa-solid fa-ellipsis"></i></div>
+      </div>
+      <br>
+      <div class="large-title">{{bookingsMaster[bookingDetailCode!].docName}}</div>
+    </div>
+    <hr>
+    <br>
+
+    <div class="date-booked">
+      <div class="large-title">Date Booked</div>
+      <table class="table table-striped" style="text-align: center;">
+        <thead>
+          <tr>
+            <th style="width: 20%;">
+              <div class="row">
+                <span class="col-6">Date</span>
+                <span class="col-6">Time</span>
+              </div>
+            </th>
+            <th style="width: 60%;"></th>
+            <th style="width: 20%;">Status</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr style="width: 20%;">
+            <td>{{bookingsMaster[bookingDetailCode!].date|date:'dd/MM/yyyy'}} -
+              {{bookingsMaster[bookingDetailCode!].date|date:'hh:mm:a'}}</td>
+            <td style="width: 60%;"></td>
+            <td style="width: 20%;">
+              <div class="card-status">Confirmed <i class="fa-solid fa-check"></i></div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <hr>
+    <br>
+    <div class="invited-members">
+      <div class="large-title">Invited Members</div>
+      <table class="table table-striped" style="text-align: center;">
+        <thead>
+          <tr>
+            <th>Num. Slot</th>
+            <th>Procedure Type</th>
+            <th>Cost</th>
+            <th>Note</th>
+            <th>Time</th>
+          </tr>
+
+        </thead>
+        <tbody *ngFor="let item of bookingsMaster[bookingDetailCode!].listOfPatient">
+          <tr>
+            <td>{{item.numOfSlot}}</td>
+            <td>{{item.operationName}}</td>
+            <td>{{item.cost}}</td>
+            <td>{{item.note}}</td>
+            <td>{{item.date|date:'dd/MM/yyyy'}}</td>
+            <!-- <td>
+              <div class="card-status">{{item.status}} <i class="fa-solid fa-check"></i></div>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
