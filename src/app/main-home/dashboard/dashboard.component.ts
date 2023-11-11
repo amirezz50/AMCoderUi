@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { DashboardService } from './dashboard.service';
 import { Subject, takeUntil } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(public _DashboardService: DashboardService,
 
-    public _toaster: ToastrService) { }
+    public _toaster: ToastrService, private dialog: MatDialog) { }
   arrayDashboard: any
   ngOnInit(): void {
     this.getAllDetails();
@@ -30,5 +32,23 @@ export class DashboardComponent implements OnInit {
           }
         }
       )
+  }
+  @ViewChild("delete", { static: true })
+  delete: TemplateRef<any> | undefined;
+  openPopUp() {
+    const CheckDelete = this.dialog.open(this.delete!, {});
+    CheckDelete.afterClosed().subscribe((result) => {
+      if (result === 'Ok') {
+        // Ok button clicked
+        console.log('Ok clicked');
+      } else if (result === 'CLOSE') {
+        // CLOSE button clicked
+        console.log('CLOSE clicked');
+      }
+    });
+    // this.dialog.open(PopupContentComponent, {
+    //   width: '400px',
+    //   // You can add more configuration options here
+    // });
   }
 }

@@ -77,7 +77,7 @@
               <div class="d-flex w-100 justify-content-start align-items-center">
                 <!-- <img src="assets/images/Portal/d1.png" alt=""> -->
                 <span class="menu-collapsed">
-                  Dashboard
+                  <i class="fa-solid fa-house"></i> Dashboard
                 </span>
               </div>
             </a>
@@ -86,15 +86,15 @@
             <a routerLinkActive="active" [routerLink]="['/main-home/app-users']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed">Users</span>
+                <span class="menu-collapsed"><i class="fa-solid fa-user-group"></i> Users</span>
               </div>
             </a>
           </li>
-          <li (click)="changeTitlePages('Schedule Doctor')">
+          <li (click)="changeTitlePages('Working hours')">
             <a routerLinkActive="active" [routerLink]="['/main-home/schedul-doctor']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed">Schedule Doctor</span>
+                <span class="menu-collapsed"><i class="fa-regular fa-clock"></i> Working hours</span>
               </div>
             </a>
           </li>
@@ -102,15 +102,15 @@
             <a routerLinkActive="active" [routerLink]="['/main-home/booking']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed">Booking</span>
+                <span class="menu-collapsed"><i class="fa-solid fa-calendar-days"></i> Booking</span>
               </div>
             </a>
           </li>
-          <li (click)="changeTitlePages('Operation Manage')">
+          <li (click)="changeTitlePages('Procedures Manage')">
             <a routerLinkActive="active" [routerLink]="['/main-home/operation-manage']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed">Operation Manage</span>
+                <span class="menu-collapsed"><i class="fa-solid fa-list-check"></i> Procedures Manage</span>
               </div>
             </a>
           </li>
@@ -118,7 +118,7 @@
             <a routerLinkActive="active" [routerLink]="['/main-home/financial-doctor-fees']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed">Doctors Fees</span>
+                <span class="menu-collapsed"><i class="fa-solid fa-user-doctor"></i> Doctors Fees</span>
               </div>
             </a>
           </li>
@@ -126,7 +126,7 @@
             <a routerLinkActive="active" [routerLink]="['/main-home/financial-patient-fees']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed">Patient Fees</span>
+                <span class="menu-collapsed"><i class="fa-solid fa-hospital-user"></i> Patient Fees</span>
               </div>
             </a>
           </li>
@@ -134,7 +134,7 @@
             <a routerLinkActive="active" [routerLink]="['/main-home/dynamic-setup-admin']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed">MemberShip</span>
+                <span class="menu-collapsed"><i class="fa-regular fa-address-card"></i> MemberShip</span>
               </div>
             </a>
           </li>
@@ -154,7 +154,6 @@
       </div>
       <!-- Main Col END -->
     </div>
-
   </div>
   <div class="confirmDialog" *ngIf="logToggel==true &&_authService.isLoggin()">
     <div>
@@ -163,5 +162,4 @@
       <button class="btn btnlogout" (click)="logout()"> <span>Log Out</span></button>
       <button class="btn btn-cancel" (click)="cancelDialog()">Cancel</button>
     </div>
-
   </div>

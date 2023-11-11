@@ -258,7 +258,7 @@ a {
 .card {
   padding: 20px;
   border-radius: 20px;
-  min-width: 230px;
+  min-width: 270px;
   height: auto;
   transition: .3s;
 }
@@ -420,11 +420,8 @@ a {
 }
 
 .table {
-  height: 200px;
+  height: auto !important;
   overflow-y: scroll;
-}
-
-table {
   width: 100%;
   text-align: left;
   border-collapse: collapse;
@@ -565,4 +562,25 @@ th {
   .sidebar {
     padding: 10px;
   }
+}
+
+::ng-deep .mat-dialog-container {
+  height: 240px !important;
+  width: 550px !important;
+  border-radius: 12px!important;
+
+  }
+/*
+::ng-deep .mat-dialog-actions {
+  height: 50% !important;
+  justify-content: space-around;
+}
+
+::ng-deep .mat-dialog-content {
+  text-align: center !important;
+  font-size: 33px !important;
+  padding: 17px !important;
+} */
+::-webkit-scrollbar {
+  display: none;
 }

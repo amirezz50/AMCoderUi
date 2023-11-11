@@ -17,6 +17,7 @@ import { FinancialAdminModule } from './financial-admin/financial-admin.module';
 import { SchedulDoctorModule } from './schedul-doctor/schedul-doctor.module';
 import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom-select-option.module';
 import { BookingModule } from './booking/booking.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BookingModule } from './booking/booking.module';
     CustomDropdownModule,
     SchedulDoctorModule,
     CustomSelectOptionModule,
-    BookingModule
+    BookingModule,
+    MatDialogModule
   ], exports: [LoginComponent,
     RegisterNewUserComponent]
 })
