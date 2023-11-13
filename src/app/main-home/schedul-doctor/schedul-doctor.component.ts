@@ -10,6 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrls: ['./schedul-doctor.component.css']
 })
 export class SchedulDoctorComponent implements OnInit {
+  numOfSlot: number = 0;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
   laserDoctorsObj: any = {}
   private resourceTypeParam!: number;

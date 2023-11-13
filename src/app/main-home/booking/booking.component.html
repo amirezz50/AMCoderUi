@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <input type="text" placeholder="Search Booking" class="form-control" [(ngModel)]="searchTerm" (keyup)="filterinTable()">
+      <input type="text" placeholder="Search Booking" class="form-control" [(ngModel)]="searchTerm"
+        (keyup)="filterinTable()">
     </div>
   </div>
 
@@ -25,9 +26,13 @@
         <!-- doctor or patient name -->
         <td>{{ booking.operationName }}</td>
         <td>{{ booking.numOfSlot }}</td>
-        <td>{{ booking.note  }}</td>
+        <td>{{ booking.note }}</td>
         <td>
-          <button (click)="routeToLink(booking)" class="btn btn-success">Detail</button>
+          <div class="row" style="justify-content: space-around;">
+            <button (click)="routeToLink(booking)" class="btn btn-success col-5 btn-action"
+              style="font-size: 15px ">Detail</button>
+            <button class="btn btn-warning col-5 btn-action" style="font-size: 15px !important;">Update</button>
+          </div>
         </td>
       </tr>
     </tbody>

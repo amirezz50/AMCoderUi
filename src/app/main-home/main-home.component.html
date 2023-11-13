@@ -106,11 +106,19 @@
               </div>
             </a>
           </li>
-          <li (click)="changeTitlePages('Procedures Manage')">
+          <li (click)="changeTitlePages('Procedures Management')">
             <a routerLinkActive="active" [routerLink]="['/main-home/operation-manage']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed"><i class="fa-solid fa-list-check"></i> Procedures Manage</span>
+                <span class="menu-collapsed"><i class="fa-solid fa-list-check"></i> Procedures Management</span>
+              </div>
+            </a>
+          </li>
+          <li (click)="changeTitlePages('Review')">
+            <a routerLinkActive="active" [routerLink]="['/main-home/app-review']" style="display: 10px;"
+              class=" list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-start align-items-center">
+                <span class="menu-collapsed"><i class="fa-solid fa-comments"></i> Review</span>
               </div>
             </a>
           </li>
@@ -130,11 +138,11 @@
               </div>
             </a>
           </li>
-          <li (click)="changeTitlePages('MemberShip')">
+          <li (click)="changeTitlePages('Membership ')">
             <a routerLinkActive="active" [routerLink]="['/main-home/dynamic-setup-admin']" style="display: 10px;"
               class=" list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="menu-collapsed"><i class="fa-regular fa-address-card"></i> MemberShip</span>
+                <span class="menu-collapsed"><i class="fa-regular fa-address-card"></i> Membership</span>
               </div>
             </a>
           </li>

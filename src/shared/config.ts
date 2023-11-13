@@ -1,5 +1,6 @@
 
-const serviceUrl = 'http://jointclinc-001-site8.itempurl.com';
+// const serviceUrl = 'http://jointclinc-001-site8.itempurl.com';
+const serviceUrl = 'https://localhost:44381';
 export class CONFIG {
     public static baseUrls = {
         // config: 'commands/config',

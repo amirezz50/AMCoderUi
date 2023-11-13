@@ -31,13 +31,8 @@
   <div class="col-lg-4">
     <div class="row">
       <div class="form-check">
-        <input
-          type="checkbox"
-          class="form-check-input"
-          id="selectAll"
-          [(ngModel)]="selectAllFlag"
-          (change)="selectAll()"
-        />
+        <input type="checkbox" class="form-check-input" id="selectAll" [(ngModel)]="selectAllFlag"
+          (change)="selectAll()" />
         <label class="form-check-label" for="selectAll">Select All</label>
       </div>
     </div>
@@ -46,24 +41,18 @@
     <thead>
       <tr>
         <th>Patient Code</th>
-        <th>Patient Name</th>
-        <th>Service Name</th>
+        <th>Procedure Type</th>
         <th>Reservation Date</th>
         <th>Patient Price</th>
       </tr>
     </thead>
     <tbody>
       <!-- Add table rows with ngFor as needed -->
-      <tr
-        *ngFor="let patient of patients"
-        [ngClass]="{
+      <tr *ngFor="let patient of patients" [ngClass]="{
           selected: patient.isSelected,
           'not-selected': !patient.isSelected
-        }"
-        (click)="selected(patient)"
-      >
+        }" (click)="selected(patient)">
         <td>{{ patient.patientCode }}</td>
-        <td>{{ patient.patientName }}</td>
         <td>{{ patient.serviceName }}</td>
         <td>{{ patient.reservationDate }}</td>
         <td>{{ patient.patientPrice }}</td>
@@ -71,6 +60,6 @@
     </tbody>
   </table>
   <div class="total-price">
-    <p>Total Price for Doctor: {{ calculateTotalPrice() }}</p>
+    <p>Total revenue for doctor: {{ calculateTotalPrice() }}</p>
   </div>
 </div>

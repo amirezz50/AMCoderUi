@@ -406,10 +406,13 @@ a {
 
 .free {
   color: #70d7a5;
+  font-size: 18px;
 }
 
 .scheduled {
   color: #5073fb;
+  font-size: 18px;
+
 }
 
 
@@ -567,9 +570,10 @@ th {
 ::ng-deep .mat-dialog-container {
   height: 240px !important;
   width: 550px !important;
-  border-radius: 12px!important;
+  border-radius: 12px !important;
 
-  }
+}
+
 /*
 ::ng-deep .mat-dialog-actions {
   height: 50% !important;

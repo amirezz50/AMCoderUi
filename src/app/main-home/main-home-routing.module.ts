@@ -18,6 +18,7 @@ import { BookingComponent } from './booking/booking.component';
 import { UsersDetailComponent } from './Administration/users-detail/users-detail.component';
 import { OperationManageDetailComponent } from './Administration/operation-manage/operation-manage-detail/operation-manage-detail.component';
 import { MembershipDetailComponent } from './Administration/dynamic-setup-admin/membership-detail/membership-detail.component';
+import { ReviewComponent } from './review/review.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
       { path: 'schedul-doctor', component: SchedulDoctorComponent },
       { path: 'booking', component: BookingComponent },
       { path: 'booking-detail', component: BookingDetailComponent },
+      { path: 'app-review', component: ReviewComponent },
 
     ]
 

@@ -18,6 +18,8 @@ import { SchedulDoctorModule } from './schedul-doctor/schedul-doctor.module';
 import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom-select-option.module';
 import { BookingModule } from './booking/booking.module';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ReviewComponent } from './review/review.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     UploadFileComponent,
     SheetOfHospitalComponent,
     TasksAutoMatchedComponent,
+    ReviewComponent,
   ],
   imports: [
 
@@ -41,7 +44,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     SchedulDoctorModule,
     CustomSelectOptionModule,
     BookingModule,
-    MatDialogModule
+    MatDialogModule,
+    NgbModule
   ], exports: [LoginComponent,
     RegisterNewUserComponent]
 })
