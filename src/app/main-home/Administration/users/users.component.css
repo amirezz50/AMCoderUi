@@ -31,3 +31,9 @@
 .dropdown-menu li:hover {
   background-color: #f0f0f0;
 }
+
+.btn-action {
+  width: 30%;
+  font-size: 16px;
+  height: 40px;
+}

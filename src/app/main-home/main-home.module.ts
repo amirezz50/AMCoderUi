@@ -20,6 +20,7 @@ import { BookingModule } from './booking/booking.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReviewComponent } from './review/review.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SheetOfHospitalComponent,
     TasksAutoMatchedComponent,
     ReviewComponent,
+    NotificationComponent,
   ],
   imports: [
 

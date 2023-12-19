@@ -146,6 +146,14 @@
               </div>
             </a>
           </li>
+          <li (click)="changeTitlePages('Notification')">
+            <a routerLinkActive="active" [routerLink]="['/main-home/app-notification']" style="display: 10px;"
+              class=" list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-start align-items-center">
+                <span class="menu-collapsed"><i class="fas fa-bell"></i> Notification</span>
+              </div>
+            </a>
+          </li>
         </ul>
       </ul>
     </div>

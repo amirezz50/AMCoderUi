@@ -19,6 +19,7 @@ import { UsersDetailComponent } from './Administration/users-detail/users-detail
 import { OperationManageDetailComponent } from './Administration/operation-manage/operation-manage-detail/operation-manage-detail.component';
 import { MembershipDetailComponent } from './Administration/dynamic-setup-admin/membership-detail/membership-detail.component';
 import { ReviewComponent } from './review/review.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
       { path: 'booking', component: BookingComponent },
       { path: 'booking-detail', component: BookingDetailComponent },
       { path: 'app-review', component: ReviewComponent },
+      { path: 'app-notification', component: NotificationComponent },
 
     ]
 

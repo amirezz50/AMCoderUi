@@ -5,7 +5,7 @@ export class CONFIG {
     public static baseUrls = {
         // config: 'commands/config',
         localhost: `${serviceUrl}`,
-        Users: `${serviceUrl}/Users`,
+        Users: `${serviceUrl}/api/Users`,
         login: `${serviceUrl}/api/Auth`,
         uploadSheet: `${serviceUrl}/api/UploadSheet`,
         MedicalSheet:`${serviceUrl}/api/MedicalSheet`,

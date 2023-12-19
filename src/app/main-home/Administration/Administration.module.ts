@@ -8,6 +8,7 @@ import { OperationManageComponent } from './operation-manage/operation-manage.co
 import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { OperationManageDetailComponent } from './operation-manage/operation-manage-detail/operation-manage-detail.component';
 import { MembershipDetailComponent } from './dynamic-setup-admin/membership-detail/membership-detail.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +25,8 @@ import { MembershipDetailComponent } from './dynamic-setup-admin/membership-deta
     imports: [
         CommonModule,
         CustomDropdownModule,
-        PagerModule
+        PagerModule,
+        FormsModule
     ]
 })
 export class UsersModule { }
