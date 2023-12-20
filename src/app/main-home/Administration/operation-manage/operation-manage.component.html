@@ -7,7 +7,6 @@
       <table style="text-align: center" class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>Serial</th>
             <th>Procedure Name</th>
             <th>Procedure Value</th>
             <th>Action</th>
@@ -16,7 +15,6 @@
         <tbody>
           <tr
             *ngFor="let procDetails of procedureList| slice:pageIndex*pageSize:(pageIndex+1)*pageSize;let index=index">
-            <td>{{procDetails.serial}}</td>
             <td>{{procDetails.procedure_Name}}</td>
             <td>{{procDetails.procedure_Price}}</td>
             <td>

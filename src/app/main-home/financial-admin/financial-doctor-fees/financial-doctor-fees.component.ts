@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { SchedulDoctorService } from '../../schedul-doctor/schedul-doctor.service';
 
 @Component({
   selector: 'financial-doctor-fees',
@@ -6,10 +8,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./financial-doctor-fees.component.css']
 })
 export class FinancialDoctorFeesComponent implements OnInit {
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor() { }
+  constructor(private _LaserDoctorsService: SchedulDoctorService) { }
 
   ngOnInit(): void {
+    this.getDoctors();
+  }
+  doctorArr: any[] = [];
+  patientArr: any[] = [];
+  getDoctors() {
+    this._LaserDoctorsService.getAllDoctors({})
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (res: any) => {
+          if (res && res.data) {
+            this.doctorArr = []
+            this.doctorArr = res.data;
+            this.patientArr = res.data1;
+          }
+        }
+      )
+  }
+  docId: any;
+  patcode: any
+  getCodeFromArray(ev: any, type: number) {
+    if (type == 1) {
+      //doctor
+      this.docId = ev;
+    }
+    else if (type == 2) {
+      this.patcode = ev;
+    }
   }
   patients: any[] = [
     { patientCode: 'P001', isSelected: false, patientName: 'John Doe', serviceName: 'Consultation', reservationDate: '2023-10-12', patientPrice: 100, doctor: 'Doctor1' },

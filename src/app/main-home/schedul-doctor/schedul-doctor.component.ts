@@ -69,9 +69,9 @@ export class SchedulDoctorComponent implements OnInit {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(
         (res: any) => {
-          if (res && res.array) {
+          if (res && res.data) {
             this.scheduleDays = []
-            this.scheduleDays = res.array.data
+            this.scheduleDays = res.data
           }
         }
       )
@@ -83,9 +83,9 @@ export class SchedulDoctorComponent implements OnInit {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(
         (res: any) => {
-          if (res && res.array) {
+          if (res && res.data) {
             this.doctorArr = []
-            this.doctorArr = res.array.data
+            this.doctorArr = res.data
           }
         }
       )

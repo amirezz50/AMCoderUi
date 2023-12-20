@@ -3,30 +3,34 @@
   <div class="filters">
     <div class="filter-group row">
       <label for="patientDropdown" class="col-5">Select Doctor:</label>
-      <select id="patientDropdown" class="col-6">
-        <!-- Add options for doctors -->
-        <option value="doctor1">Doctor 1</option>
-        <option value="doctor2">Doctor 2</option>
-        <!-- Add more doctor options as needed -->
-      </select>
+      <div style="width: 90%;">
+        <custom-select-option [array]="[doctorArr]" (code)="getCodeFromArray($event,1)"></custom-select-option>
+      </div>
     </div>
     <div class="filter-group row">
       <label for="patientDropdown" class="col-5">Select Patient:</label>
-      <select id="patientDropdown" class="col-6">
-        <!-- Add options for patients -->
-        <option value="patient1">Patient 1</option>
-        <option value="patient2">Patient 2</option>
-        <!-- Add more patient options as needed -->
-      </select>
+      <div>
+        <div style="width: 90%;">
+          <custom-select-option [array]="[patientArr]" (code)="getCodeFromArray($event,2)"></custom-select-option>
+          <!-- <select id="patientDropdown" class="col-6">
+          <option value="patient1">Patient 1</option>
+          <option value="patient2">Patient 2</option>
+        </select> -->
+        </div>
+      </div>
     </div>
-    <div class="filter-group">
-      <label for="dateFrom">From:</label>
-      <input type="date" id="dateFrom" />
+    <div class="filter-group" style="display: block">
+      <div>
+        <label for="dateFrom">From:</label>
+      </div>
+      <div><input type="date" id="dateFrom" style="width: 90%;" /></div>
     </div>
-    <div class="filter-group">
+    <div class="filter-group" style="display: block">
       <label for="dateTo">To:</label>
-      <input type="date" id="dateTo" />
+      <div><input type="date" id="dateTo" style="width: 90%;" /></div>
     </div>
+    <button class="btn" style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"
+        style="font-size: 17px;"></i></button>
   </div>
   <div class="col-lg-4">
     <div class="row">

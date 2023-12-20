@@ -4,6 +4,7 @@ import { FinancialAdminComponent } from './financial-admin.component';
 import { FinancialDoctorFeesComponent } from './financial-doctor-fees/financial-doctor-fees.component';
 import { FormsModule } from '@angular/forms';
 import { FinancialPatientFeesComponent } from './financial-patient-fees/financial-patient-fees.component';
+import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom-select-option.module';
 
 
 
@@ -15,7 +16,8 @@ import { FinancialPatientFeesComponent } from './financial-patient-fees/financia
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    CustomSelectOptionModule
   ],
   exports: [
     FinancialAdminComponent,

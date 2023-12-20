@@ -7,8 +7,8 @@
       </div>
     </div>
     <div class="col-3">
-      <div (click)="getDaybyDocId()"><button class="btn"><i class="fa-solid fa-magnifying-glass"
-            style="font-size: 17px;"></i></button></div>
+      <div (click)="getDaybyDocId()"><button class="btn" style="cursor: pointer;"><i
+            class="fa-solid fa-magnifying-glass" style="font-size: 17px;"></i></button></div>
     </div>
   </div>
   <br>
@@ -35,7 +35,8 @@
               <div class="col-3">
                 <div class="form-floating text-muted mb-3">
                   <input type="time" style="height: 60px;font-size: 15px;" [disabled]="!day.isSelected"
-                    class="form-control" id="startTime" placeholder="Start Time" />
+                    class="form-control" id="startTime" placeholder="Start Time" [(ngModel)]="shift.startTime"
+                    [ngModelOptions]="{standalone: true}" />
                   <label for="startTime">Start Time</label>
                 </div>
               </div>
@@ -46,7 +47,8 @@
               <div class="col-3">
                 <div class="form-floating text-muted mb-3">
                   <input type="time" style="height: 60px;font-size: 15px;" [disabled]="!day.isSelected"
-                    class="form-control" id="endTime" placeholder="End Time" />
+                    class="form-control" id="endTime" placeholder="End Time" [(ngModel)]="shift.endTime"
+                    [ngModelOptions]="{standalone: true}" />
                   <label for="endTime">End Time</label>
                 </div>
               </div>
