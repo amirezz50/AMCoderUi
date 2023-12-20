@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <button class="btn" (click)="routeToLink('/main-home/operation-manage')">
+      <button class="btn" (click)="routeToLink()">
         <i class="fa-solid fa-angle-left" style="font-size: 22px;"></i>
       </button>
     </div>
-    <div class="col" style="padding-right:15px ;">
+    <div class="col" style="padding-right:15px ;"(click)="addProcedures()">
       <button class="btn-save" style="float: inline-end;">
         <i class="fa-regular fa-floppy-disk"></i> Save</button>
     </div>
@@ -14,13 +14,13 @@
     <div class="col-md-6">
       <div class="form-group">
         <label for="ProceduresName">Procedures Name</label>
-        <input type="text" class="form-control" id="ProceduresName" />
+        <input type="text" class="form-control" id="ProceduresName"[(ngModel)]="objProcedures.procedure_Name" />
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <label for="price">Price</label>
-        <input type="text" class="form-control" id="price" />
+        <label for="Value">procedure Price</label>
+        <input type="text" class="form-control" id="Value" [(ngModel)]="objProcedures.procedure_Price" />
       </div>
     </div>
   </div>

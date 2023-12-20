@@ -13,6 +13,7 @@ export class CONFIG {
         Doctors:`${serviceUrl}/api/Doctors`,
         Schedule:`${serviceUrl}/api/schedule`,
         MemberShip:`${serviceUrl}/api/Membership`,
+        OperationManage :`${serviceUrl}/api/OperationManage`,
 
 
     }
