@@ -1,5 +1,5 @@
 <div class="container mr-4">
-  <button class="btn-save" (click)="routeToLink(null)">
+  <button class="btn-save" (click)="routeToLink(0)">
     <i class="fa-solid fa-plus"></i>Add</button>
   <br>
   <div class="row">
@@ -14,41 +14,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Silver</td>
-            <td>5000</td>
+          <tr
+            *ngFor="let memDetails of memberShipList| slice:pageIndex*pageSize:(pageIndex+1)*pageSize;let index=index">
+            <td>{{memDetails.serial}}</td>
+            <td>{{memDetails.mem_Name}}</td>
+            <td>{{memDetails.mem_Value}}</td>
             <td>
               <div class="row" style="justify-content: space-around;">
-                <button (click)="update(1)" class="btn btn-success col-6 btn-action">Update</button>
-                <button class="btn btn-danger col-6 btn-action">Delete</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Gold</td>
-            <td>10000</td>
-            <td>
-              <div class="row" style="justify-content: space-around;">
-                <button (click)="update(2)" class="btn btn-success col-6 btn-action">Update</button>
-                <button class="btn btn-danger col-6 btn-action">Delete</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Platinum</td>
-            <td>20000</td>
-            <td>
-              <div class="row" style="justify-content: space-around;">
-                <button (click)="update(3)" class="btn btn-success col-6 btn-action">Update</button>
-                <button class="btn btn-danger col-6 btn-action">Delete</button>
+                <button (click)="updateMemberShip(memDetails)" class="btn btn-success col-6 btn-action">Update</button>
+                <button (click)="deleteMemberShip(memDetails)" class="btn btn-danger col-6 btn-action">Delete</button>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div style="text-align: center; direction: ltr;" *ngIf="memberShipList.length>0">
+      <custom-pagination [itemCount]="memberShipList.length" [(pageIndex)]="pageIndex" [pageSize]="pageSize">
+      </custom-pagination>
     </div>
   </div>
 </div>

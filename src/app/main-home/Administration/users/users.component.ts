@@ -20,34 +20,16 @@ export class UsersComponent implements OnInit {
     private _usersService: UsersService,
     private toastr: ToastrService,
   ) { }
-  routeToLink(obj: any) {
+  routeToLink(userId: any) {
     window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth'
     });
-    this._router.navigate(['/main-home/app-users-detail', { id: obj.userId }]).then(value => { });
+    this._router.navigate(['/main-home/app-users-detail', { id: userId }]).then(value => { });
   }
   ngOnInit(): void {
     this.getAllUser();
-    // [{
-    //   fullName: 'Amir Ezz',
-    //   gender: 'Male',
-    //   birthDate: '20/10/1980',
-    //   phoneNumber: '010123456789',
-    //   userType: 1,
-    //   userRole: 1,
-    //   confirm: true
-    // },
-    // {
-    //   fullName: 'Mostafa Esmail',
-    //   gender: 'Male',
-    //   birthDate: '01/01/1975',
-    //   phoneNumber: '010987654321',
-    //   userType: 2,
-    //   userRole: 2,
-    //   confirm: true
-    // }]
   }
 
   isDropdownOpen = false;

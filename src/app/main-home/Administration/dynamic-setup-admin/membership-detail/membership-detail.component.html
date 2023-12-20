@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <button class="btn" (click)="routeToLink('/main-home/dynamic-setup-admin')">
+      <button class="btn" (click)="routeToLink()">
         <i class="fa-solid fa-angle-left" style="font-size: 22px;"></i>
       </button>
     </div>
-    <div class="col" style="padding-right:15px ;">
+    <div class="col" style="padding-right:15px ;"(click)="addMemberShip()">
       <button class="btn-save" style="float: inline-end;">
         <i class="fa-regular fa-floppy-disk"></i> Save</button>
     </div>
@@ -13,14 +13,14 @@
   <div class="row" style="padding: 0px 40px;">
     <div class="col-md-6">
       <div class="form-group">
-        <label for="operationName">Membership Name</label>
-        <input type="text" class="form-control" id="operationName" />
+        <label for="MembershipName">Membership Name</label>
+        <input type="text" class="form-control" id="MembershipName"[(ngModel)]="objMemberShip.mem_Name" />
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <label for="price">Price</label>
-        <input type="text" class="form-control" id="price" />
+        <label for="Value">Membership Value</label>
+        <input type="text" class="form-control" id="Value" [(ngModel)]="objMemberShip.mem_Value" />
       </div>
     </div>
   </div>
