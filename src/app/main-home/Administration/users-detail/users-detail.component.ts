@@ -18,13 +18,13 @@ export class UsersDetailComponent implements OnInit {
     private toastr: ToastrService,
     private route: ActivatedRoute
   ) { }
-  routeToLink(link: any) {
+  routeToLink() {
     window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth'
     });
-    this._router.navigate([link, {}]).then(value => { });
+    this._router.navigate(['/main-home/app-users', {}]).then(value => { });
   }
   ngOnInit(): void {
     this.getIdFromSnapShot()
@@ -80,7 +80,8 @@ export class UsersDetailComponent implements OnInit {
             this.toastr.error(res.data[0].error);
           } else {
             this.toastr.success("Done")
-            this.resetObj()
+            this.resetObj();
+            this.routeToLink();
           }
         } else if (Object.keys(res).length != 0) {
           this.toastr.error(res);
@@ -93,7 +94,8 @@ export class UsersDetailComponent implements OnInit {
       .subscribe((res: any) => {
         if ((res && res.data) || (Object.keys(res).length == 0)) {
           this.toastr.success("Updated Done")
-          this.resetObj()
+          this.resetObj();
+          this.routeToLink();
         } else if (Object.keys(res).length != 0) {
           this.toastr.error(res);
         }

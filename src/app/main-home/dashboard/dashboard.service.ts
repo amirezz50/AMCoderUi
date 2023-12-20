@@ -11,4 +11,8 @@ export class DashboardService {
   constructor(private _http: HttpGeneralService) { }
   getAllDashboard(Dashboard: any) {
     return this._http.post<any>(`${DashboardUrl}/GetAllDashboard`, Dashboard)
-  }}
+  }
+  updateUsers(row: any) {
+    return this._http.update<any>(`${DashboardUrl}/UpdateDashboard`, row)
+  }
+}

@@ -15,8 +15,16 @@ export class DashboardComponent implements OnInit {
 
   constructor(public _DashboardService: DashboardService,
 
-    public _toaster: ToastrService, private dialog: MatDialog) { }
-  arrayDashboard: any
+    public _toaster: ToastrService, private dialog: MatDialog,) { }
+  arrayDashboard: any = {
+    sumUserId: 0,
+    active: 0,
+    disActive: 0,
+    numberPatient: 0,
+    numberDoctor: 0,
+  }
+  userPendingList: any[] = []
+  doctorScheduleList: any[] = []
   ngOnInit(): void {
     this.getAllDetails();
   }
@@ -25,10 +33,13 @@ export class DashboardComponent implements OnInit {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(
         (res: any) => {
-          if (res && res.array) {
-            this.arrayDashboard = res.array;
+          if (res && res.data) {
+            this.arrayDashboard = res.data[0];
+            this.userPendingList = res.data1;
+            this.doctorScheduleList = res.data2;
+
           } else {
-            this._toaster.warning(res.messages[0]);
+            this._toaster.error(res);
           }
         }
       )
@@ -50,5 +61,18 @@ export class DashboardComponent implements OnInit {
     //   width: '400px',
     //   // You can add more configuration options here
     // });
+  }
+  updateUserConfirm(row: any, confirmTOLogin: number) {
+    row.confirmTOLogin = confirmTOLogin;
+    this._DashboardService.updateUsers(row)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((res: any) => {
+        if ((res && res.data) || (Object.keys(res).length == 0)) {
+          this._toaster.success("Updated Done")
+          this.getAllDetails();
+        } else if (Object.keys(res).length != 0) {
+          this._toaster.error(res);
+        }
+      })
   }
 }

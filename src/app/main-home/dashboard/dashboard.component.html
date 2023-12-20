@@ -9,7 +9,7 @@
           <div class="card--data">
             <div class="card--content">
               <h5 class="card--title">Doctors</h5>
-              <h1>{{this.arrayDashboard?.data[0].sumUserId}}</h1>
+              <h1>{{this.arrayDashboard.sumUserId?this.arrayDashboard.sumUserId:0}}</h1>
             </div>
             <i class="ri-user-2-line card--icon--lg"></i>
           </div>
@@ -18,16 +18,17 @@
             <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>Pending</span>
           </div>
           <div class="card--stats" style="    padding: 0px 20px;">
-            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>{{this.arrayDashboard?.data[0].active}}</span>
             <span><i
-                class="ri-arrow-down-s-fill card--icon down--arrow"></i>{{this.arrayDashboard?.data[0].disActive}}</span>
+                class="ri-arrow-up-s-fill card--icon up--arrow"></i>{{this.arrayDashboard.active?this.arrayDashboard.active:0}}</span>
+            <span><i
+                class="ri-arrow-down-s-fill card--icon down--arrow"></i>{{this.arrayDashboard.disActive?this.arrayDashboard.disActive:0}}</span>
           </div>
         </div>
         <div class="card card-3">
           <div class="card--data">
             <div class="card--content">
               <h5 class="card--title">Total Users</h5>
-              <h1>{{this.arrayDashboard?.data[0].numberPatient}}</h1>
+              <h1>{{this.arrayDashboard.sumUserId?this.arrayDashboard.sumUserId:0}}</h1>
             </div>
             <i class="ri-user-line card--icon--lg"></i>
           </div>
@@ -37,9 +38,9 @@
           </div>
           <div class="card--stats" style="    padding: 0px 20px;">
             <span><i
-                class="ri-arrow-up-s-fill card--icon up--arrow"></i>{{this.arrayDashboard?.data[0].active-2}}</span>
+                class="ri-arrow-up-s-fill card--icon up--arrow"></i>{{this.arrayDashboard.numberPatient?this.arrayDashboard.numberPatient:0}}</span>
             <span><i
-                class="ri-arrow-down-s-fill card--icon down--arrow"></i>{{this.arrayDashboard?.data[0].active-1}}</span>
+                class="ri-arrow-down-s-fill card--icon down--arrow"></i>{{this.arrayDashboard.numberDoctor?this.arrayDashboard.numberDoctor:0}}</span>
           </div>
         </div>
       </div>
@@ -53,15 +54,17 @@
         </div>
       </div>
       <div class="doctors--cards">
-        <a class="doctor--card">
+        <a class="doctor--card" *ngFor="let doc of doctorScheduleList">
+          <h4>{{doc.doctorName}}</h4>
           <div class="img--box--cover">
             <div class="img--box">
               <img src="assets/images/doctor/doctor1.jfif" alt="">
             </div>
           </div>
-          <p class="free">Free</p>
+          <p class="free" *ngIf="doc.hasSchedule==0">Free</p>
+          <p class="scheduled" *ngIf="doc.hasSchedule==1">Scheduled</p>
         </a>
-        <a class="doctor--card">
+        <!-- <a class="doctor--card">
           <div class="img--box--cover">
             <div class="img--box">
               <img src="assets/images/doctor/doctor2.jfif" alt="">
@@ -108,7 +111,7 @@
             </div>
           </div>
           <p class="scheduled">Scheduled</p>
-        </a>
+        </a> -->
       </div>
     </div>
     <!-- <div class="recent--patients">
@@ -189,55 +192,24 @@
     </div> -->
   </div>
 </section>
-<ng-template #delete >
+<ng-template #delete>
 
-  <table class="table table-striped">
-    <tr>
-      <td><span style="font-size: 22px;">Ahmed Mohamed</span></td>
+  <table class="table table-striped" *ngIf="userPendingList.length>0">
+    <tr *ngFor="let user of userPendingList">
+      <td><span style="font-size: 22px;">{{user.fullName}}</span></td>
       <td>
         <div class="row" style="justify-content: space-around;">
           <button mat-raised-button mat-button [mat-dialog-close]="'Ok'" class="btn btn-success col-6 btn-action"
-            style="width: 90px;height: 35px;font-size: 15px;">Accept</button>
+            style="width: 90px;height: 35px;font-size: 15px;" (click)="updateUserConfirm(user,1)">Accept</button>
           <button mat-raised-button mat-button [mat-dialog-close]="'CLOSE'" class="btn btn-danger col-6 btn-action"
-            style="width: 90px;height: 35px;font-size: 15px;">Deny</button>
+            style="width: 90px;height: 35px;font-size: 15px;" (click)="updateUserConfirm(user,-1)">Deny</button>
         </div>
       </td>
     </tr>
-    <tr>
-      <td><span style="font-size: 22px;">Reda Kamel</span></td>
-      <td>
-        <div class="row" style="justify-content: space-around;">
-          <button mat-raised-button mat-button [mat-dialog-close]="'Ok'" class="btn btn-success col-6 btn-action"
-            style="width: 90px;height: 35px;font-size: 15px;">Accept</button>
-          <button mat-raised-button mat-button [mat-dialog-close]="'CLOSE'" class="btn btn-danger col-6 btn-action"
-            style="width: 90px;height: 35px;font-size: 15px;">Deny</button>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td><span style="font-size: 22px;">Esmail Gaber</span></td>
-      <td>
-        <div class="row" style="justify-content: space-around;">
-          <button mat-raised-button mat-button [mat-dialog-close]="'Ok'" class="btn btn-success col-6 btn-action"
-            style="width: 90px;height: 35px;font-size: 15px;">Accept</button>
-          <button mat-raised-button mat-button [mat-dialog-close]="'CLOSE'" class="btn btn-danger col-6 btn-action"
-            style="width: 90px;height: 35px;font-size: 15px;">Deny</button>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td><span style="font-size: 22px;">Magdy Allam</span></td>
-      <td>
-        <div class="row" style="justify-content: space-around;">
-          <button mat-raised-button mat-button [mat-dialog-close]="'Ok'" class="btn btn-success col-6 btn-action"
-            style="width: 90px;height: 35px;font-size: 15px;">Accept</button>
-          <button mat-raised-button mat-button [mat-dialog-close]="'CLOSE'" class="btn btn-danger col-6 btn-action"
-            style="width: 90px;height: 35px;font-size: 15px;">Deny</button>
-        </div>
-      </td>
-    </tr>
-
   </table>
+  <h1 style="text-align: center;
+  color: darkorchid;
+  font-weight: bold;" *ngIf="userPendingList.length<=0">No Item </h1>
 
 
   <!-- <mat-dialog-content>
