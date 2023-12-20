@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
 
   constructor(public _router: Router,
     private _usersService: UsersService,
-    private toastr: ToastrService,
+      private toastr: ToastrService,
   ) { }
   routeToLink(userId: any) {
     window.scroll({
@@ -63,6 +63,6 @@ export class UsersComponent implements OnInit {
       })
   }
   updateUser(row: any) {
-    this.routeToLink(row)
+    this.routeToLink(row.userId)
   }
 }

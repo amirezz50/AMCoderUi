@@ -7,9 +7,17 @@
         questions
       </h1> -->
 
-      <div style="direction: rtl;padding: 17px">
-        <button class="btn-save" style="direction: ltr !important">
-          <i class="fa-solid fa-plus"></i>Add Question</button>
+      <div style="direction: rtl; padding: 17px; display: flex; justify-content: space-between;">
+        <div>
+          <button class="btn-save" style="direction: ltr !important" (click)="save()">
+            <i class="fa-regular fa-floppy-disk"></i>Save
+          </button>
+        </div>
+        <div>
+          <button class="btn-save" style="direction: ltr !important" (click)="addNewQuestion()">
+            <i class="fa-solid fa-plus"></i>Add Question
+          </button>
+        </div>
       </div>
 
     </div>
@@ -18,52 +26,25 @@
     <hr>
     <br>
     <br>
-
-    <div class="col-12 row">
-      <div class="form-group col-9">
-        <h2 for="exampleFormControlTextarea1">How would you rate your overall experience with our
-          hospital?</h2>
+    <div *ngFor="let review of reviewList;let indx=index;">
+      <div class="col-12 row">
+        <div class="form-group col-9">
+          <h2 *ngIf="review.dataStatus!=1&&review.dataStatus!=2">{{review.question}}
+          </h2>
+          <textarea class="form-control" rows="3" *ngIf="review.dataStatus==1||review.dataStatus==2"
+            [(ngModel)]="review.question"></textarea>
+        </div>
+        <div class="row col-3" style="justify-content: space-around;">
+          <button *ngIf="review.dataStatus!=1&&review.dataStatus!=2" class="btn btn-success col-4 btn-action"
+            (click)="updateQuestion(review)">Update</button>
+          <button class="btn btn-danger col-4 btn-action" (click)="deleteQuestion(review)">Delete</button>
+        </div>
+        <!-- <ngb-rating [max]="5" [(rate)]="starRating1" [readonly]="false" style="font-size:45px;"
+      class="color-system"></ngb-rating> -->
       </div>
-      <div class="row col-3" style="justify-content: space-around;">
-        <button class="btn btn-success col-4 btn-action">Update</button>
-        <button class="btn btn-danger col-4 btn-action">Delete</button>
-      </div>
-      <!-- <ngb-rating [max]="5" [(rate)]="starRating1" [readonly]="false" style="font-size:45px;"
-        class="color-system"></ngb-rating> -->
+      <br>
+      <hr>
+      <br>
     </div>
-    <br>
-    <hr>
-    <br>
-    <div class="col-12 row">
-      <div class="form-group col-9">
-        <h2 for="exampleFormControlTextarea1">How satisfied were you with the easy of scheduling
-          appointments through the app?</h2>
-      </div>
-      <div class="row col-3" style="justify-content: space-around;">
-        <button class="btn btn-success col-4 btn-action">Update</button>
-        <button class="btn btn-danger col-4 btn-action">Delete</button>
-      </div>
-      <!-- <ngb-rating [max]="5" [(rate)]="starRating1" [readonly]="false" style="font-size:45px;"
-        class="color-system"></ngb-rating> -->
-    </div>
-    <br>
-    <hr>
-    <br>
-    <div class="col-12 row">
-      <div class="form-group col-9">
-        <h2 for="exampleFormControlTextarea1">Did you feel that the medical staff provided you with
-          high-quality care?</h2>
-      </div>
-      <div class="row col-3" style="justify-content: space-around;">
-        <button class="btn btn-success col-4 btn-action">Update</button>
-        <button class="btn btn-danger col-4 btn-action">Delete</button>
-      </div>
-      <!-- <ngb-rating [max]="5" [(rate)]="starRating1" [readonly]="false" style="font-size:45px;"
-        class="color-system"></ngb-rating> -->
-    </div>
-    <br>
-    <hr>
-    <br>
-
   </div>
 </div>
