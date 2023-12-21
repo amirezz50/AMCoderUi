@@ -15,6 +15,7 @@ export class CONFIG {
     MemberShip: `${serviceUrl}/api/Membership`,
     OperationManage: `${serviceUrl}/api/OperationManage`,
     Review: `${serviceUrl}/api/Review`,
+    Email: `${serviceUrl}/api/Email`,
 
 
   }

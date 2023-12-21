@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { CONFIG } from 'src/shared/config';
 import { HttpGeneralService } from 'src/shared/http-general.service';
 const UsersUrl = CONFIG.baseUrls.Users;
+const EmailUrl = CONFIG.baseUrls.Email;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +23,10 @@ export class UsersService {
     return this._http.delete<any>(`${UsersUrl}/DeleteUser/${row.userId}`)
   }
 
+  // ------ Mail ----------
+  sendMail(obj: any) {
+    return this._http.post<any>(`${EmailUrl}/SendMail`, obj)
+  }
 }
 
 
@@ -33,4 +39,5 @@ export interface IUserDetails {
   userType?: number;
   userRole?: number;
   confirmTOLogin?: number;
+  email?: string;
 }

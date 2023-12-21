@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { IUserDetails } from './users.service';
 import { Router } from '@angular/router';
 import { UsersService } from './users.service';
 import { Subject, takeUntil } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-users',
@@ -18,7 +19,8 @@ export class UsersComponent implements OnInit {
 
   constructor(public _router: Router,
     private _usersService: UsersService,
-      private toastr: ToastrService,
+    private toastr: ToastrService,
+    private dialog: MatDialog
   ) { }
   routeToLink(userId: any) {
     window.scroll({
@@ -64,5 +66,41 @@ export class UsersComponent implements OnInit {
   }
   updateUser(row: any) {
     this.routeToLink(row.userId)
+  }
+  subjectMail: string = "";
+  bodyMail: string = "";
+  sendMailFun(row: any) {
+    if (row.email) {
+      let obj = {
+        toAddress: row.email,
+        subject: this.subjectMail,
+        body: this.bodyMail,
+      }
+      this._usersService.sendMail(obj)
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((res: any) => {
+          if ((res && res.data) || (Object.keys(res).length == 0)) {
+            this.toastr.success("Email sent successfully");
+          } else if (Object.keys(res).length != 0) {
+            this.toastr.error(res);
+          }
+        })
+    } else {
+      this.toastr.error("This User does not have an email");
+    }
+  }
+  @ViewChild("sendMail", { static: true })
+  sendMail: TemplateRef<any> | undefined;
+  openPopupMail(row: any) {
+    const ChecksendMail = this.dialog.open(this.sendMail!, {});
+    ChecksendMail.afterClosed().subscribe((result) => {
+      if (result === 'Ok') {
+        this.sendMailFun(row);
+        console.log('Ok clicked');
+      } else if (result === 'CLOSE') {
+        // CLOSE button clicked
+        console.log('CLOSE clicked');
+      }
+    });
   }
 }
