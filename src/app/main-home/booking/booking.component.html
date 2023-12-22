@@ -1,5 +1,10 @@
 <div class="container">
+
   <div class="row">
+    <div class="col-3">
+      <button class="btn-save" (click)="routeToLink('/main-home/booking-create',0)">
+        <i class="fa-solid fa-plus"></i>Add</button>
+    </div>
     <div class="col-md-6">
       <input type="text" placeholder="Search Booking" class="form-control" [(ngModel)]="searchTerm"
         (keyup)="filterinTable()">
@@ -29,9 +34,11 @@
         <td>{{ booking.note }}</td>
         <td>
           <div class="row" style="justify-content: space-around;">
-            <button (click)="routeToLink(booking)" class="btn btn-success col-5 btn-action"
+            <button (click)="routeToLink('/main-home/booking-detail',booking)" class="btn btn-success col-5 btn-action"
               style="font-size: 15px ">Detail</button>
-            <button class="btn btn-warning col-5 btn-action" style="font-size: 15px !important;">Update</button>
+            <button class="btn btn-warning col-5 btn-action"
+              (click)="routeToLink('/main-home/booking-create',booking.serial)"
+              style="font-size: 15px !important;">Update</button>
           </div>
         </td>
       </tr>

@@ -49,3 +49,7 @@ body {
 .color-system {
   color: #c4a859 !important;
 }
+
+input {
+  font-size: 15px !important;
+}

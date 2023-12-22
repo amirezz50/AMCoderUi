@@ -20,6 +20,7 @@ import { OperationManageDetailComponent } from './Administration/operation-manag
 import { MembershipDetailComponent } from './Administration/dynamic-setup-admin/membership-detail/membership-detail.component';
 import { ReviewComponent } from './review/review.component';
 import { NotificationComponent } from './notification/notification.component';
+import { BookingCreateComponent } from './booking/booking-create/booking-create.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,8 @@ const routes: Routes = [
       { path: 'booking-detail', component: BookingDetailComponent },
       { path: 'app-review', component: ReviewComponent },
       { path: 'app-notification', component: NotificationComponent },
+      { path: 'booking-create', component: BookingCreateComponent },
+
 
     ]
 

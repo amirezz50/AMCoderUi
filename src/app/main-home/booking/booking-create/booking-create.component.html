@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <button class="btn" (click)="routeToLink()">
+        <i class="fa-solid fa-angle-left" style="font-size: 22px;"></i>
+      </button>
+    </div>
+    <div class="col" style="padding-right:15px ;" (click)="addBooking()">
+      <button class="btn-save" style="float: inline-end;">
+        <i class="fa-regular fa-floppy-disk"></i> Save</button>
+    </div>
+  </div>
+
+  <div class="row" style="padding: 0px 40px;">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Value">Doctor</label>
+        <custom-select-option [array]="[doctorArr]" (code)="getCodeFromArray($event,1)"></custom-select-option>
+        <!-- <input type="text" class="form-control" id="Value" [(ngModel)]="objBooking.note" /> -->
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Value">Oreation</label>
+        <custom-select-option [array]="[operationArr]" (code)="getCodeFromArray($event,3)"></custom-select-option>
+        <!-- <input type="text" class="form-control" id="Value" [(ngModel)]="objBooking.note" /> -->
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding: 0px 40px;">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="birthDate">Reservation Date</label>
+        <input type="date" class="form-control" id="birthDate" [(ngModel)]="objBooking.reservationDate"
+          (change)="checkAvilableSlot($event)" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="reservationTime">Reservation Time</label>
+        <input type="time" style="font-size: 15px;" class="form-control" id="reservationTime" placeholder="End Time"
+          [(ngModel)]="objBooking.reservationTime" />
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding: 0px 40px;">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="numSlot">Num of Slot</label>
+        <input type="number" class="form-control" id="numSlot" [(ngModel)]="objBooking.numSlot" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Value">Note</label>
+        <input type="text" class="form-control" id="Value" [(ngModel)]="objBooking.note" />
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -4,14 +4,15 @@ import { HttpGeneralService } from 'src/shared/http-general.service';
 
 const doctorUrl = CONFIG.baseUrls.Doctors
 const ScheduleUrl = CONFIG.baseUrls.Schedule
+const SelectizeUrl = CONFIG.baseUrls.Selectize
 @Injectable({
   providedIn: 'root'
 })
 export class SchedulDoctorService {
 
   constructor(private _http: HttpGeneralService) { }
-  getAllDoctors(Dashboard: any) {
-    return this._http.post<any>(`${doctorUrl}/GetAllDoctors`, Dashboard)
+  getAllSelectize(Dashboard: any) {
+    return this._http.post<any>(`${SelectizeUrl}/GetAllSelectize`, Dashboard)
   }
   getScheduleByDocId(obj: any) {
     return this._http.post<any>(`${ScheduleUrl}/GetSchedulShiftsByDocId`, obj)

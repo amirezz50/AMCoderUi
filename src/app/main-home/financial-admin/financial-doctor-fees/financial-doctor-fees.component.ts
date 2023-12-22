@@ -18,7 +18,7 @@ export class FinancialDoctorFeesComponent implements OnInit {
   doctorArr: any[] = [];
   patientArr: any[] = [];
   getDoctors() {
-    this._LaserDoctorsService.getAllDoctors({})
+    this._LaserDoctorsService.getAllSelectize({})
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(
         (res: any) => {

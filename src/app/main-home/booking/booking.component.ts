@@ -14,14 +14,14 @@ export class BookingComponent implements OnInit {
   ngOnInit(): void {
     this.bookingsFilter = this.bookings
   }
-  routeToLink(obj: any) {
+  routeToLink(link: string, serial: any) {
     window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth'
     });
 
-    this._router.navigate(['/main-home/booking-detail', { id: obj.serial }]).then(value => { });
+    this._router.navigate([link, { id: serial }]).then(value => { });
   }
   searchTerm: string = '';
   bookings = [
@@ -29,7 +29,6 @@ export class BookingComponent implements OnInit {
       serial: 1,
       date: new Date(),
       docName: 'Ahmed mostafa',
-
       operationName: 'operation one',
       numOfSlot: 2,
       note: "test note"
