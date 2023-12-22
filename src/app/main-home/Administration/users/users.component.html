@@ -63,7 +63,8 @@
   </div>
   <div class="form-group">
     <label for="bodyMail">Body</label>
-    <input type="text" class="form-control" id="bodyMail" placeholder="Body Mail" [(ngModel)]="bodyMail" />
+    <textarea type="text" class="form-control" rows="3" id="bodyMail" placeholder="Body Mail"
+      [(ngModel)]="bodyMail"></textarea>
   </div>
   <div>
     <Button mat-raised-button mat-button [mat-dialog-close]="'Ok'" class="btn btn-success" style="height: 30px;">

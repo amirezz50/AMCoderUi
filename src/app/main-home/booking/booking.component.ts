@@ -46,7 +46,8 @@ export class BookingComponent implements OnInit {
   ];
   filterinTable() {
     this.bookingsFilter = this.bookings.filter(x =>
+      x.docName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
       x.operationName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      x.numOfSlot.toString().includes(this.searchTerm.toString()))
+      x.numOfSlot.toString().includes(this.searchTerm.toLowerCase()))
   }
 }

@@ -39,7 +39,7 @@
 }
 
 ::ng-deep .mat-dialog-container {
-  height: 300px !important;
+  height: 350px !important;
   width: 550px !important;
   border-radius: 12px !important;
 

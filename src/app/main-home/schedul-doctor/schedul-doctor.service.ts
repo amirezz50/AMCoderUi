@@ -22,6 +22,16 @@ export class SchedulDoctorService {
   addMasterSchedule(scheduling: Scheduling) {
     return this._http.post(`${ScheduleUrl}`, scheduling,)
   }
+  // --------------------------------------------
+  saveScheduleShifts(obj: any[]) {
+    return this._http.post(`${ScheduleUrl}/SaveScheduleShifts`, obj)
+  }
+  getScheduleShifts(obj: any) {
+    return this._http.post(`${ScheduleUrl}/GetScheduleShifts`, obj)
+  }
+  deleteScheduleShifts(obj: any) {
+    return this._http.delete<any>(`${ScheduleUrl}/DeleteScheduleShifts/${obj.serial}`)
+  }
 }
 
 export interface ScheduleMaster {

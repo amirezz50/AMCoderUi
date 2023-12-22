@@ -1,6 +1,6 @@
 <div class="container mt-5">
 
-  <div class="row mb-3">
+  <!-- <div class="row mb-3">
     <div class="col-3 mb-3">
       <div class="form-floating">
         <custom-select-option [array]="[doctorArr]" (code)="getCodeFromArray($event)"></custom-select-option>
@@ -10,33 +10,32 @@
       <div (click)="getDaybyDocId()"><button class="btn" style="cursor: pointer;"><i
             class="fa-solid fa-magnifying-glass" style="font-size: 17px;"></i></button></div>
     </div>
-  </div>
+  </div> -->
   <br>
 
-  <form>
+  <div>
     <div class="dejaDoctorPersonalInfo ps-3 border-bottom border-1 border-muted mb-3">
       <h5 class="mb-3">Available Time</h5>
+
       <div class="row">
-        <div class="row mb-3 font-color"
-          *ngFor="let day of scheduleMasterForm.controls['scheduleDays'].value;  index as indx">
+        <div class="row mb-3 font-color" *ngFor="let day of scheduleDays;  index as indx">
           <div class="col-lg-2">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="flexCheckDefault"
-                [ngModelOptions]="{standalone: true}" [(ngModel)]="day.isSelected">
-              <p class="h5 my-3" for="flexCheckDefault" style="font-size: 22px;">{{day.textEn}}</p>
+              <input class="form-check-input" type="checkbox" id="flexCheckDefault" [(ngModel)]="+day.isSelected">
+              <p class="h5 my-3" for="flexCheckDefault" style="font-size: 22px;">{{day.name}}</p>
             </div>
           </div>
           <div class="col-lg-8" *ngIf="day.isSelected">
-            <div class="row" *ngFor="let shift of day.Shifts"
+            <div class="row" *ngFor="let shift of day.shifts"
               style="justify-content: space-between;align-items: center;">
-              <div class="col-2">
+              <div class="col-1">
                 <p class="h5 mt-3" style="font-size: 22px;">From</p>
               </div>
               <div class="col-3">
                 <div class="form-floating text-muted mb-3">
                   <input type="time" style="height: 60px;font-size: 15px;" [disabled]="!day.isSelected"
-                    class="form-control" id="startTime" placeholder="Start Time" [(ngModel)]="shift.startTime"
-                    [ngModelOptions]="{standalone: true}" />
+                    (change)="checkTimeGreaterThan(shift)" class="form-control" id="startTime" placeholder="Start Time"
+                    [(ngModel)]="shift.startTime" />
                   <label for="startTime">Start Time</label>
                 </div>
               </div>
@@ -47,31 +46,32 @@
               <div class="col-3">
                 <div class="form-floating text-muted mb-3">
                   <input type="time" style="height: 60px;font-size: 15px;" [disabled]="!day.isSelected"
-                    class="form-control" id="endTime" placeholder="End Time" [(ngModel)]="shift.endTime"
-                    [ngModelOptions]="{standalone: true}" />
+                    (change)="checkTimeGreaterThan(shift)" class="form-control" id="endTime" placeholder="End Time"
+                    [(ngModel)]="shift.endTime" />
                   <label for="endTime">End Time</label>
                 </div>
               </div>
               <div class="col-1">
-                <button class="btn" [class.active]="shift.flagShiftOnOff" (click)="toggleButton(shift)">
+                <button class="btn" [class.active]="shift.flagShiftOnOff" (click)="toggleOnOff(shift)">
                   {{ shift.flagShiftOnOff ? 'On' : 'Off' }}
                 </button>
               </div>
               <div class="col-1">
-                <button class="btn" style> <i class="fa fa-minus-circle"
+                <button class="btn" style> <i class="fa fa-minus-circle" (click)="removeShit(day.shifts,shift)"
                     style="color: rgb(184, 9, 9);font-size: 25px;"></i></button>
               </div>
+              <div class="col-1" *ngIf="day.isSelected" style="padding-top: 16px;">
+                <div class="form-floating text-muted mb-3">
+                  <input type="number"
+                    style="font-size: 14px;width: 100px;height: 36px;border: none;border-radius: 4px;"
+                    [(ngModel)]="shift.numSlot" placeholder="Number slot">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 no-shift" *ngIf="!day.isSelected">There is no Shift</div>
 
-            </div>
-          </div>
-          <div class="col-lg-9 no-shift" *ngIf="!day.isSelected">There is no Shift</div>
-          <div class="col-lg-1" *ngIf="day.isSelected" style="padding-top: 16px;">
-            <div class="form-floating text-muted mb-3">
-              <input type="number" style="font-size: 14px;width: 100px;height: 36px;border: none;border-radius: 4px;"
-                [(ngModel)]="numOfSlot" placeholder="Number slot">
-            </div>
-          </div>
-          <div class="col-lg-1">
+          <div class="col-lg-2">
             <button (click)="addNewShift(day)" class="btn">
               <i class="fa fa-plus-circle" style="color: green;font-size: 25px;"></i>
             </button>
@@ -81,10 +81,10 @@
 
       </div>
     </div>
-  </form>
+  </div>
   <div class="row mb-3">
     <div class="dejaBtn m-auto">
-      <input type="button" class="btn rounded" value="Save" (click)="onBtnsClicked(1)" />
+      <input type="button" class="btn rounded" value="Save" (click)="save()" />
     </div>
   </div>
 
