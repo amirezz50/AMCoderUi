@@ -21,10 +21,19 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <label for="Value">Oreation</label>
+        <label for="birthDate">Reservation Date</label>
+        <input type="date" class="form-control" id="birthDate" [(ngModel)]="objBooking.reservationDate"
+          (change)="checkAvilableSlot($event)" />
+      </div>
+    </div>
+  </div>
+  <div class="row" style="padding: 0px 40px;">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="Procedure">Procedure Type</label>
         <div class="card">
           <div *ngFor="let operation of operationArr; let i = index">
-            <input type="checkbox" [id]="'checkbox' + i" [name]="'operationCheckbox'"
+            <input type="checkbox" [id]="'Procedure' + i" [name]="'operationCheckbox'"
               [(ngModel)]="+operation.selected" />
             <label [for]="'checkbox' + i">
               <strong>{{ operation.name }}</strong><br />
@@ -35,29 +44,20 @@
         <!-- <input type="text" class="form-control" id="Value" [(ngModel)]="objBooking.note" /> -->
       </div>
     </div>
-  </div>
-  <div class="row" style="padding: 0px 40px;">
     <div class="col-md-6">
-      <div class="form-group">
-        <label for="birthDate">Reservation Date</label>
-        <input type="date" class="form-control" id="birthDate" [(ngModel)]="objBooking.reservationDate"
-          (change)="checkAvilableSlot($event)" />
-      </div>
-    </div>
-    <div class="col-md-6">
+      <label for="birthDate">Time Slot</label>
       <div class="form-group card">
-        <!-- <div *ngFor="let slot of arrShiftsTime; let i = index">
-          <input type="checkbox" [id]="'arrShiftsTime' + i" [name]="'operationCheckbox'" [(ngModel)]="+slot.selected" />
-          <label [for]="'arrShiftsTime' + i">
-            <strong>{{ slot.startTime | date: 'HH:mm' }} - {{ slot.endTime | date: 'HH:mm'}}</strong><br />
-          </label>
-        </div> -->
-
         <div *ngFor="let slot of arrShiftsTime; let i = index">
           <input type="radio" [id]="'timeSlot' + i" [name]="'timeSlot'" [value]="slot"
             (click)="selectRadioSchedulTime(slot)" [(ngModel)]="objBooking.reservationTimeSerial" />
           <label [for]="'timeSlot' + i">{{ slot.startTime | date: 'HH:mm' }} - {{ slot.endTime | date: 'HH:mm'
             }}</label>
+          <!-- <div *ngFor="let slot of arrShiftsTime; let i = index">
+              <input type="checkbox" [id]="'arrShiftsTime' + i" [name]="'operationCheckbox'" [(ngModel)]="+slot.selected" />
+              <label [for]="'arrShiftsTime' + i">
+                <strong>{{ slot.startTime | date: 'HH:mm' }} - {{ slot.endTime | date: 'HH:mm'}}</strong><br />
+              </label>
+            </div> -->
           <br />
         </div>
       </div>
