@@ -22,7 +22,16 @@
     <div class="col-md-6">
       <div class="form-group">
         <label for="Value">Oreation</label>
-        <custom-select-option [array]="[operationArr]" (code)="getCodeFromArray($event,3)"></custom-select-option>
+        <div class="card">
+          <div *ngFor="let operation of operationArr; let i = index">
+            <input type="checkbox" [id]="'checkbox' + i" [name]="'operationCheckbox'"
+              [(ngModel)]="+operation.selected" />
+            <label [for]="'checkbox' + i">
+              <strong>{{ operation.name }}</strong><br />
+            </label>
+          </div>
+        </div>
+        <!-- <custom-select-option [array]="[operationArr]" (code)="getCodeFromArray($event,3)"></custom-select-option> -->
         <!-- <input type="text" class="form-control" id="Value" [(ngModel)]="objBooking.note" /> -->
       </div>
     </div>
@@ -36,25 +45,42 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="form-group">
-        <label for="reservationTime">Reservation Time</label>
-        <input type="time" style="font-size: 15px;" class="form-control" id="reservationTime" placeholder="End Time"
-          [(ngModel)]="objBooking.reservationTime" />
+      <div class="form-group card">
+        <!-- <div *ngFor="let slot of arrShiftsTime; let i = index">
+          <input type="checkbox" [id]="'arrShiftsTime' + i" [name]="'operationCheckbox'" [(ngModel)]="+slot.selected" />
+          <label [for]="'arrShiftsTime' + i">
+            <strong>{{ slot.startTime | date: 'HH:mm' }} - {{ slot.endTime | date: 'HH:mm'}}</strong><br />
+          </label>
+        </div> -->
+
+        <div *ngFor="let slot of arrShiftsTime; let i = index">
+          <input type="radio" [id]="'timeSlot' + i" [name]="'timeSlot'" [value]="slot"
+            (click)="selectRadioSchedulTime(slot)" [(ngModel)]="objBooking.reservationTimeSerial" />
+          <label [for]="'timeSlot' + i">{{ slot.startTime | date: 'HH:mm' }} - {{ slot.endTime | date: 'HH:mm'
+            }}</label>
+          <br />
+        </div>
       </div>
     </div>
   </div>
   <div class="row" style="padding: 0px 40px;">
-    <div class="col-md-6">
-      <div class="form-group">
-        <label for="numSlot">Num of Slot</label>
-        <input type="number" class="form-control" id="numSlot" [(ngModel)]="objBooking.numSlot" />
+    <div class="col-md-6 row">
+      <div class="col-md-6 form-group">
+        <label for="Value">Shift Number of Slot</label>
+        <input [disabled]="true" type="text" class="form-control" id="Value" [(ngModel)]="this.numSlot" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="numSlot">Number of Slot</label>
+        <input type="number" class="form-control" id="numSlot" [(ngModel)]="objBooking.numSlot"
+          (change)="checkOnNumSlot($event)" />
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="form-group">
+    <div class="col-md-6 ">
+      <div class=" form-group">
         <label for="Value">Note</label>
         <input type="text" class="form-control" id="Value" [(ngModel)]="objBooking.note" />
       </div>
+
     </div>
   </div>
 

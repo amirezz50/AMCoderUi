@@ -17,7 +17,7 @@ export class BookingService {
     return this._http.get<any>(`${BookingUrl}/GetAllBooking/${id}`)
   }
   addBooking(obj: any) {
-    return this._http.post<any>(`${BookingUrl}/AddBooking`, obj)
+    return this._http.post<any>(`${BookingUrl}/CreateBooking`, obj)
   }
   updateBooking(row: any) {
     return this._http.update<any>(`${BookingUrl}/UpdateBooking`, row)

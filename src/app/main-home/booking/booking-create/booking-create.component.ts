@@ -69,8 +69,15 @@ export class BookingCreateComponent implements OnInit {
   }
   resetObj() {
     this.objBooking.serial = -1;
-    this.objBooking.procedure_Name = '';
-    this.objBooking.procedure_Price = '';
+    this.docId = 0;
+    this.patcode = 0;
+    this.operationCode = 0;
+
+    this.objBooking.reservationDate = new Date().toISOString()
+    this.objBooking.schecduleTimeSerial = 0;
+    this.selectedTimeSlot = 0
+    this.objBooking.numSlot = 0
+    this.objBooking.operationSelected = "";
 
   }
   addBooking() {
@@ -93,8 +100,30 @@ export class BookingCreateComponent implements OnInit {
       })
   }
   saveBooking(row: any) {
-    this.objBooking.serial = -1;
-    this._BookingService.addBooking(this.objBooking)
+
+    let obj: any = {}
+    obj.serial = -1;
+    obj.docId = this.docId;
+    if (this.objBooking.reservationDate && this.objBooking.reservationDate != new Date(this.objBooking.reservationDate).toISOString())
+      obj.reservationDate = new Date(this.objBooking.reservationDate).toISOString();
+    obj.schecduleTimeSerial = this.selectedTimeSlot;
+    obj.numSlot = this.objBooking.numSlot;
+    obj.note = this.objBooking.note;
+    obj.operationSelected = "";
+    this.operationArr.forEach(op => {
+      if (op.selected) {
+        obj.operationSelected += op.code.toString() + ","
+      }
+    });
+    if (this.checkValidation(obj) == -1) {
+      return;
+    }
+    // this.arrShiftsTime.forEach(op => {
+    //   if (op.selected) {
+    //     this.objBooking.schecduleTimeSelected.concate(op.serial + ",")
+    //   }
+    // });
+    this._BookingService.addBooking(obj)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((res: any) => {
         if ((res && res.data) || (Object.keys(res).length == 0)) {
@@ -121,6 +150,29 @@ export class BookingCreateComponent implements OnInit {
         }
       })
   }
+  checkValidation(obj: any): number {
+    if (!obj.docId) {
+      this.toastr.error("Please select doctor");
+      return -1;
+    }
+    if (!obj.reservationDate) {
+      this.toastr.error("Please select reservation date");
+      return -1;
+    }
+    if (!obj.schecduleTimeSerial) {
+      this.toastr.error("Please select time slot");
+      return -1;
+    }
+    if (obj.operationSelected == "") {
+      this.toastr.error("Please select operation");
+      return -1;
+    }
+    if (obj.numSlot <= 0) {
+      this.toastr.error("Please fill number of slot");
+      return -1;
+    }
+    return 0;
+  }
   BookingId: any;
   getIdFromSnapShot() {
     if (this.route.snapshot.paramMap)
@@ -129,6 +181,9 @@ export class BookingCreateComponent implements OnInit {
       this.BookingId = +x.params.id
   }
   // ----------------------------------------------------
+  arrShiftsTime: any[] = [];
+  selectedTimeSlot: any | null = null;
+  numSlot: number = 0;
   checkAvilableSlot(ev: any) {
     if (ev.target.value) {
       let obj = { reservationDate: new Date(ev.target.value).toISOString() }
@@ -136,12 +191,28 @@ export class BookingCreateComponent implements OnInit {
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((res: any) => {
           if ((res && res.data) || (Object.keys(res).length == 0)) {
-            this.toastr.success("Updated Done")
-            this.resetObj()
+            this.arrShiftsTime = res.data
           } else if (Object.keys(res).length != 0) {
             this.toastr.error(res);
           }
         })
+    }
+  }
+  selectRadioSchedulTime(ev: any) {
+    if (ev) {
+      this.selectedTimeSlot = ev.serial
+      this.numSlot = ev.avilableSlot
+    }
+  }
+  checkOnNumSlot(ev: any) {
+    if (ev && ev.target && ev.target.value) {
+      if (ev.target.value > this.numSlot) {
+        this.objBooking.numSlot = this.numSlot;
+        this.toastr.error("Current Number is greater than Old number of slot");
+        return
+      } else {
+        this.objBooking.numSlot = +ev.target.value;
+      }
     }
   }
 }

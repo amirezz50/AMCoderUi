@@ -10,8 +10,8 @@
         (keyup)="filterinTable()">
     </div>
   </div>
-
-  <table class="table table-striped">
+<br>
+  <table class="table table-striped table-bordered">
     <thead>
       <tr>
         <th>Doc. Name</th>
@@ -26,11 +26,11 @@
     <tbody>
       <tr *ngFor="let booking of bookingsFilter ;let indx=index;">
         <td>{{booking.docName}}</td>
-        <td>{{ booking.date | date:"dd/MM/yyyy"}}</td>
-        <td>{{ booking.date | date:"hh:mm:a"}}</td>
+        <td>{{ booking.reservationDate | date:"dd/MM/yyyy"}}</td>
+        <td>{{ booking.startTime | date:"hh:mm"}}</td>
         <!-- doctor or patient name -->
-        <td>{{ booking.operationName }}</td>
-        <td>{{ booking.numOfSlot }}</td>
+        <td>{{ booking.procedure_Name }}</td>
+        <td>{{ booking.numSlot }}</td>
         <td>{{ booking.note }}</td>
         <td>
           <div class="row" style="justify-content: space-around;">

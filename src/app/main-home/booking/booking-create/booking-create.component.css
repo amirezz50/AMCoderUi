@@ -1,0 +1,10 @@
+.card {
+  height: 100px !important;
+  margin: 10px !important;
+  padding: 14px !important;
+  overflow-y: auto !important;
+}
+
+.col-md-6 {
+  align-self: start;
+}
