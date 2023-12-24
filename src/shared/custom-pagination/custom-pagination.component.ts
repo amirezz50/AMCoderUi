@@ -23,7 +23,7 @@ import { Component, EventEmitter } from "@angular/core";
         background-color:#426770;
   }`]
 })
-export class PagerComponent {
+export class PaginationComponent {
     constructor() {
         this.pageSize = 1;
     }

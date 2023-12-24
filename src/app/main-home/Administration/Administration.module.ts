@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users/users.component';
 import { CustomDropdownModule } from "../../../shared/custom-dropdown/custom-dropdown.module";
-import { PagerModule } from 'src/shared/custom-pagination/custom-pagination.Module';
+import { PaginationModule } from 'src/shared/custom-pagination/custom-pagination.Module';
 import { DynamicSetupAdminComponent } from './dynamic-setup-admin/dynamic-setup-admin.component';
 import { OperationManageComponent } from './operation-manage/operation-manage.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
@@ -26,7 +26,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     CommonModule,
     CustomDropdownModule,
-    PagerModule,
+    PaginationModule,
     FormsModule,
     MatDialogModule
   ]

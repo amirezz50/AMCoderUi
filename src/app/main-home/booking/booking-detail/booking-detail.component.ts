@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Navigation, Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { BookingService } from '../booking.service';
+import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'booking-detail',
@@ -7,15 +11,37 @@ import { ActivatedRoute, Navigation, Router } from '@angular/router';
   styleUrls: ['./booking-detail.component.css']
 })
 export class BookingDetailComponent implements OnInit {
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(public _router: Router, private route: ActivatedRoute) { }
+  constructor(public _router: Router,
+    private _BookingService: BookingService,
+    private toastr: ToastrService,
+    private dialog: MatDialog,
+    private route: ActivatedRoute,) { }
   bookingDetailCode: number | null = null;
   ngOnInit(): void {
     if (this.route.snapshot.paramMap)
       var x: any = this.route.snapshot.paramMap;
     if (x && x.params && x.params.id)
       this.bookingDetailCode = +x.params.id
-    this.bookingDetailCode = this.bookingDetailCode! - 1
+
+
+    if (this.bookingDetailCode) {
+      this.getBookingById(this.bookingDetailCode)
+    }
+  }
+
+  getBookingById(id: any) {
+    this._BookingService.getAllBooking(id)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((res: any) => {
+        if (res && res.data) {
+          this.bookingDetailObj = Object.assign({}, res.data[0]);
+          this.bookingDetailArr = Object.assign([], res.data);
+        } else {
+          this.toastr.error(res);
+        }
+      })
   }
   routeToLink() {
     window.scroll({
@@ -25,108 +51,52 @@ export class BookingDetailComponent implements OnInit {
     });
     this._router.navigate(['/main-home/booking']).then(value => { });
   }
-  bookingsMaster = [
-    {
-      serial: 1,
-      date: new Date(),
-      operationName: 'operation one',
-      docName: 'Ahmed mostafa',
-      numOfSlot: 2,
-      note: "test note",
-      listOfPatient: [{
-        serial: 1,
-        date: new Date(),
-        operationName: 'operation two',
-        patName: 'Ayman Ashraf',
-        numOfSlot: 3,
-        cost: 1500,
-        status: "Going"
-      },
-      {
-        serial: 2,
-        date: new Date(),
-        operationName: 'operation two',
-        patName: 'Ali mallol',
-        numOfSlot: 3,
-        note: "Going",
-        cost: 3400,
+  bookingDetailObj: any = {}
+  bookingDetailArr: any[] = []
 
-        status: "Going"
+  isOpen = false;
 
-      },
-      {
-        serial: 3,
-        date: new Date(),
-        operationName: 'operation two',
-        patName: 'Eisa Magdy',
-        numOfSlot: 3,
-        note: "Going",
-        cost: 2700,
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+  }
+  deleteItem() {
+    // Add your delete logic here
+    alert('Item deleted!');
+  }
+  toogle: boolean = false;
+  openMenu(event: any) {
+    event.preventDefault();
+    this.toogle = !this.toogle
+  }
 
-        status: "Going"
-      },
-      {
-        serial: 4,
-        date: new Date(),
-        operationName: 'operation two',
-        patName: 'Elsayed Morgan',
-        numOfSlot: 3,
-        note: "Pending",
-        cost: 1300,
 
-        status: "Going"
-      }]
-    },
-    {
-      serial: 2,
-      date: new Date(),
-      operationName: 'operation two',
-      docName: 'Eslam mohamed',
-      numOfSlot: 3,
-      note: "test note",
-      listOfPatient: [{
-        serial: 1,
-        date: new Date(),
-        operationName: 'operation two',
-        patName: 'Zaki kamel',
-        numOfSlot: 3,
-        note: "test note",
-        cost: 1050,
 
-        status: "Going"
-      },
-      {
-        serial: 2,
-        date: new Date(),
-        operationName: 'operation two',
-        patName: 'Esmail elshazly',
-        numOfSlot: 3,
-        note: "test note",
-        cost: 720,
-        status: "Going"
-      },
-      {
-        serial: 3,
-        date: new Date(),
-        operationName: 'operation two',
-        patName: 'kareem mohamed',
-        numOfSlot: 3,
-        note: "test note",
-        cost: 450,
-        status: "Going"
-      },
-      {
-        serial: 4,
-        date: new Date(),
-        operationName: 'operation two',
-        patName: 'Gamal Elsayed',
-        numOfSlot: 3,
-        note: "test note",
-        cost: 7800,
-        status: "Going"
-      }]
 
-    },
-  ];
+  //delete with procedure_code From BookingSchedula and split this ","
 
+  deleteBooking(row: any) {
+    this._BookingService.deleteBooking(row)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((res: any) => {
+        if ((res) || (Object.keys(res).length == 0)) {
+          this.getBookingById(this.bookingDetailCode);
+        } else {
+          this.toastr.error(res);
+        }
+      })
+
+  }
+  deletingOperation: any
+  @ViewChild("delete", { static: true })
+  delete: TemplateRef<any> | undefined;
+  openPopupMail(row: any) {
+    this.deletingOperation = row.procedure_Name
+    const ChecksendMail = this.dialog.open(this.delete!, {});
+    ChecksendMail.afterClosed().subscribe((result) => {
+      if (result === 'Ok') {
+        this.deleteBooking(row);
+      } else if (result === 'CLOSE') {
+      }
+    });
+  }
 }

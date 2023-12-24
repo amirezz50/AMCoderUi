@@ -7,7 +7,7 @@ import { RegisterNewUserComponent } from './register-new-user/register-new-user.
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
-import { PagerModule } from 'src/shared/custom-pagination/custom-pagination.Module';
+import { PaginationModule } from 'src/shared/custom-pagination/custom-pagination.Module';
 import { SheetOfHospitalComponent } from './sheet-of-hospital/sheet-of-hospital.component';
 import { TasksAutoMatchedComponent } from './tasks-auto-matched/tasks-auto-matched.component';
 import { UsersModule } from './Administration/Administration.module';
@@ -39,7 +39,7 @@ import { NotificationComponent } from './notification/notification.component';
     FormsModule,
     MainHomeRoutingModule,
     FontAwesomeModule,
-    PagerModule,
+    PaginationModule,
     UsersModule,
     FinancialAdminModule,
     CustomDropdownModule,

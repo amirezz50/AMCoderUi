@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="col">
       <button class="btn" (click)="routeToLink()">
@@ -15,7 +15,8 @@
     <div class="col-md-6">
       <div class="form-group">
         <label for="Value">Doctor</label>
-        <custom-select-option [array]="[doctorArr]" (code)="getCodeFromArray($event,1)"></custom-select-option>
+        <custom-select-option [bindCode]="bindCode" [array]="[doctorArr]"
+          (code)="getCodeFromArray($event,1)"></custom-select-option>
         <!-- <input type="text" class="form-control" id="Value" [(ngModel)]="objBooking.note" /> -->
       </div>
     </div>
@@ -23,7 +24,7 @@
       <div class="form-group">
         <label for="birthDate">Reservation Date</label>
         <input type="date" class="form-control" id="birthDate" [(ngModel)]="objBooking.reservationDate"
-          (change)="checkAvilableSlot($event)" />
+          (change)="checkAvilableSlot($event.target)" />
       </div>
     </div>
   </div>
@@ -33,9 +34,9 @@
         <label for="Procedure">Procedure Type</label>
         <div class="card">
           <div *ngFor="let operation of operationArr; let i = index">
-            <input type="checkbox" [id]="'Procedure' + i" [name]="'operationCheckbox'"
+            <input type="checkbox" [id]="'checkboxProcedure' + i" [name]="'operationCheckbox'"
               [(ngModel)]="+operation.selected" />
-            <label [for]="'checkbox' + i">
+            <label [for]="'checkboxProcedure' + i">
               <strong>{{ operation.name }}</strong><br />
             </label>
           </div>

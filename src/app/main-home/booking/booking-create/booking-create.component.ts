@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, takeUntil } from 'rxjs';
@@ -27,7 +27,8 @@ export class BookingCreateComponent implements OnInit {
   constructor(public _router: Router,
     private _BookingService: BookingService,
     private toastr: ToastrService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +40,22 @@ export class BookingCreateComponent implements OnInit {
       this.resetObj()
     }
   }
+  bindUpdateObj(row: any) {
+    this.docId = row.docId
+    this.bindCode = row.docId;
+    this.objBooking.reservationDate = new Date(row.reservationDate)
+    this.objBooking.reservationDate.setHours(this.objBooking.reservationDate.getHours() + 2);
+    this.objBooking.reservationDate = this.objBooking.reservationDate.toISOString().split("T")[0]
+    this.checkAvilableSlot({ value: this.objBooking.reservationDate })
+    // this.arrShiftsTime.splice(row.schecduleTimeSerial, 1)
+
+    this.operationArr = this.operationArr.map(element => {
+      return { ...element, selected: this.objBooking.operationSelected.split(",").includes(element.code.toString()) };
+    });
+
+
+  }
+
   doctorArr: any[] = [];
   patientArr: any[] = [];
   operationArr: any[] = [];
@@ -88,19 +105,24 @@ export class BookingCreateComponent implements OnInit {
     }
 
   }
+  bindCode: any = 0
   getBookingById(id: any) {
     this._BookingService.getAllBooking(id)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((res: any) => {
         if (res && res.data) {
+          this.getSelectize();
           this.objBooking = Object.assign({}, res.data[0]);
+          if (this.objBooking) {
+            this.bindUpdateObj(this.objBooking)
+
+          }
         } else {
           this.toastr.error(res);
         }
       })
   }
   saveBooking(row: any) {
-
     let obj: any = {}
     obj.serial = -1;
     obj.docId = this.docId;
@@ -115,7 +137,7 @@ export class BookingCreateComponent implements OnInit {
         obj.operationSelected += op.code.toString() + ","
       }
     });
-    if (this.checkValidation(obj) == -1) {
+    if (this.checkValidation(obj, 1) == -1) {
       return;
     }
     // this.arrShiftsTime.forEach(op => {
@@ -139,6 +161,23 @@ export class BookingCreateComponent implements OnInit {
       })
   }
   updateBooking(row: any) {
+    let obj: any = {}
+
+    obj.docId = this.docId;
+    if (this.objBooking.reservationDate && this.objBooking.reservationDate != new Date(this.objBooking.reservationDate).toISOString())
+      obj.reservationDate = new Date(this.objBooking.reservationDate).toISOString();
+    obj.schecduleTimeSerial = this.selectedTimeSlot;
+    obj.numSlot = this.objBooking.numSlot;
+    obj.note = this.objBooking.note;
+    obj.operationSelected = "";
+    this.operationArr.forEach(op => {
+      if (op.selected) {
+        obj.operationSelected += op.code.toString() + ","
+      }
+    });
+    if (this.checkValidation(obj, 2) == -1) {
+      return;
+    }
     this._BookingService.updateBooking(row)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((res: any) => {
@@ -150,7 +189,7 @@ export class BookingCreateComponent implements OnInit {
         }
       })
   }
-  checkValidation(obj: any): number {
+  checkValidation(obj: any, type: any): number {
     if (!obj.docId) {
       this.toastr.error("Please select doctor");
       return -1;
@@ -163,7 +202,7 @@ export class BookingCreateComponent implements OnInit {
       this.toastr.error("Please select time slot");
       return -1;
     }
-    if (obj.operationSelected == "") {
+    if (obj.operationSelected == "" && type == 1) {
       this.toastr.error("Please select operation");
       return -1;
     }
@@ -185,13 +224,13 @@ export class BookingCreateComponent implements OnInit {
   selectedTimeSlot: any | null = null;
   numSlot: number = 0;
   checkAvilableSlot(ev: any) {
-    if (ev.target.value) {
-      let obj = { reservationDate: new Date(ev.target.value).toISOString() }
+    if (ev.value) {
+      let obj = { reservationDate: new Date(ev.value).toISOString() }
       this._BookingService.checkAvailableSlots(obj)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((res: any) => {
           if ((res && res.data) || (Object.keys(res).length == 0)) {
-            this.arrShiftsTime = res.data
+            this.arrShiftsTime = res.data;
           } else if (Object.keys(res).length != 0) {
             this.toastr.error(res);
           }

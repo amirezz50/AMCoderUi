@@ -11,10 +11,12 @@ export class CustomSelectOptionComponent implements OnInit, OnChanges {
   pageSize: number = 10;
   flagOpenClose: boolean = false;
   @Output() code: EventEmitter<any> = new EventEmitter<any>();
+  @Input() bindCode: any
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
   myControl = new FormControl();
 
@@ -23,10 +25,19 @@ export class CustomSelectOptionComponent implements OnInit, OnChanges {
   selectedItem: any;
   ngOnChanges(changes: SimpleChanges): void {
     this.array = this.array[0]
-    this.arrayFilter = this.array
+    this.arrayFilter = this.array;
+    if (this.bindCode > 0) {
+      if (Array.isArray(this.array) && this.array.length > 0) {
+        let x = this.array.filter(x => x.code == this.bindCode)
+        if (x.length > 0)
+          this.selectedItem = x[0].name;
+      }
+
+    }
   }
   search(ev: any) {
     this.flagOpenClose = true;
+
     if (ev.target.value == '' || !ev.target.value) {
       this.arrayFilter = this.array;
     } else {

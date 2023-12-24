@@ -12,6 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 export class BookingComponent implements OnInit {
   bookings: any[] = []
   bookingsFilter: any[] = []
+  pageIndex: number = 0;
+  pageSize: number = 10;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(public _router: Router,
@@ -29,7 +31,7 @@ export class BookingComponent implements OnInit {
 
     this._router.navigate([link, { id: serial }]).then(value => { });
   }
-  getBookingById(id:number) {
+  getBookingById(id: number) {
     this._BookingService.getAllBooking(id)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((res: any) => {

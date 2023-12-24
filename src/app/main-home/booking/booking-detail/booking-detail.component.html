@@ -7,12 +7,35 @@
   <div class="container" style="padding: 0px 40px;">
     <div>
       <div class="small-title row">
-        <div class="header-one col-11">{{bookingsMaster[bookingDetailCode!].date|date:'dd/MM/yyyy'}}
-          {{bookingsMaster[bookingDetailCode!].date|date:'hh:mm:a'}}</div>
-        <div class="header-two col-1"><i class="fa-solid fa-ellipsis"></i></div>
+        <div class="header-one col-11">{{bookingDetailObj.reservationDate|date:'dd/MM/yyyy'}}
+          ({{bookingDetailObj.startTime|date:'hh:mm'}}- {{bookingDetailObj.endTime|date:'hh:mm'}})</div>
+        <!-- <div class="header-two col-1" (click)="toggleDropdown()">
+
+          <div class="dropdown" [ngClass]="{ 'open': isOpen }">
+            <button class="dropdown-btn" (click)="deleteItem()">Delete</button>
+          </div>
+        </div> -->
+
+        <div class="dropdown col-1">
+          <button class="dropbtn" (click)="openMenu($event)">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+          <div class="dropdown-content" *ngIf="this.toogle==true">
+            <table style="width: 100%;">
+              <tbody>
+                <tr style="cursor: pointer;">
+                  <td><button style="border: none;width: 100%;background: none;"
+                      (click)="openMenu($event)">test</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
       <br>
-      <div class="large-title">{{bookingsMaster[bookingDetailCode!].docName}}</div>
+      <div class="large-title">{{bookingDetailObj.docName}}</div>
     </div>
     <hr>
     <br>
@@ -35,8 +58,8 @@
         </thead>
         <tbody>
           <tr style="width: 20%;">
-            <td>{{bookingsMaster[bookingDetailCode!].date|date:'dd/MM/yyyy'}} -
-              {{bookingsMaster[bookingDetailCode!].date|date:'hh:mm:a'}}</td>
+            <td>{{bookingDetailObj.reservationDate|date:'dd/MM/yyyy'}} -
+              {{bookingDetailObj.startTime|date:'hh:mm'}}</td>
             <td style="width: 60%;"></td>
             <td style="width: 20%;">
               <div class="card-status">Confirmed <i class="fa-solid fa-check"></i></div>
@@ -58,16 +81,21 @@
             <th>Cost</th>
             <th>Note</th>
             <th>Time</th>
+            <th>Action</th>
           </tr>
 
         </thead>
-        <tbody *ngFor="let item of bookingsMaster[bookingDetailCode!].listOfPatient">
+        <tbody *ngFor="let item of bookingDetailArr">
           <tr>
-            <td>{{item.numOfSlot}}</td>
-            <td>{{item.operationName}}</td>
-            <td>{{item.cost}}</td>
+            <td>{{item.numSlot}}</td>
+            <td>{{item.procedure_Name}}</td>
+            <td>{{item.procedure_Price}}</td>
             <td>{{item.note}}</td>
-            <td>{{item.date|date:'dd/MM/yyyy'}}</td>
+            <td>{{item.startTime|date:'hh:mm'}}</td>
+            <div class="row" style="justify-content: space-around;">
+              <button class="btn btn-danger col-5 btn-action" (click)="openPopupMail(item)">Delete</button>
+              <button class="btn btn-warning col-5 btn-action">Update</button>
+            </div>
             <!-- <td>
               <div class="card-status">{{item.status}} <i class="fa-solid fa-check"></i></div>
             </td> -->
@@ -77,3 +105,18 @@
     </div>
   </div>
 </div>
+
+
+
+
+<ng-template #delete>
+  <h1>Are you sure you want to delete {{deletingOperation}}?</h1>
+  <div style="    text-align: center;
+  font-size: 17px !important;">
+    <Button mat-raised-button mat-button [mat-dialog-close]="'Ok'" class="btn btn-danger popup-button"
+      style="    margin-right: 60px;">
+      Delete</Button>
+    <Button mat-raised-button mat-button [mat-dialog-close]="'CLOSE'" class="btn btn-warning popup-button">
+      Cancel</Button>
+  </div>
+</ng-template>

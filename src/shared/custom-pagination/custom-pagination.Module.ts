@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { PagerComponent } from './custom-pagination.component';
+import { PaginationComponent } from './custom-pagination.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
-        PagerComponent
+        PaginationComponent
 
     ],
     imports: [
         FormsModule,
 
-    ], exports: [PagerComponent]
+    ], exports: [PaginationComponent]
 })
-export class PagerModule { }
+export class PaginationModule { }

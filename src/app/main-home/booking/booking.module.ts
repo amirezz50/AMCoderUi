@@ -5,6 +5,8 @@ import { BookingDetailComponent } from './booking-detail/booking-detail.componen
 import { FormsModule } from '@angular/forms';
 import { BookingCreateComponent } from './booking-create/booking-create.component';
 import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom-select-option.module';
+import { PaginationModule } from 'src/shared/custom-pagination/custom-pagination.Module';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     BookingComponent,
@@ -14,7 +16,9 @@ import { CustomSelectOptionModule } from 'src/shared/custom-select-option/custom
   imports: [
     CommonModule,
     FormsModule,
-    CustomSelectOptionModule
+    CustomSelectOptionModule,
+    PaginationModule,
+    MatDialogModule
 
   ], exports: [
     BookingComponent,

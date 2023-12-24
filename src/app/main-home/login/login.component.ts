@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
 
     this._authService.login(this.loginModel)
-      // .pipe(takeUntil(this.ngUnsubscribe))
+      .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(
         (res: any) => {
           this.authResult = res;
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('token', res.array.token);
             sessionStorage.setItem('UserData', JSON.stringify(res));
             this._router.navigateByUrl('/main-home');
-            this.toastr.info( 'Welcome');
+            this.toastr.info('Welcome');
 
           } else if (res && res.messages && res.messages.length > 0) {
             this.toastr.error(res.messages[0], 'Error');
