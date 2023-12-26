@@ -50,4 +50,19 @@ export class BookingComponent implements OnInit {
       x.operationName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
       x.numOfSlot.toString().includes(this.searchTerm.toLowerCase()))
   }
+
+
+  deleteBooking(row: any) {
+    this._BookingService.deleteBooking(row)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((res: any) => {
+        if ((res) || (Object.keys(res).length == 0)) {
+          this.getBookingById(0);
+          this.toastr.success("Deleted");
+        } else {
+          this.toastr.error(res);
+        }
+      })
+
+  }
 }

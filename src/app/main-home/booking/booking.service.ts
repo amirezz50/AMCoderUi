@@ -8,7 +8,6 @@ const SelectizeUrl = CONFIG.baseUrls.Selectize;
   providedIn: 'root'
 })
 export class BookingService {
-
   constructor(private _http: HttpGeneralService) { }
   getAllSelectize(obj: any) {
     return this._http.post<any>(`${SelectizeUrl}/GetAllSelectize`, obj)
@@ -25,10 +24,17 @@ export class BookingService {
   deleteBooking(row: any) {
     return this._http.delete<any>(`${BookingUrl}/DeleteBooking/${row.serial}`)
   }
-
-
-
-  // -------------------------------
+  //------------------
+  getAllBookingDetail(id: number) {
+    return this._http.get<any>(`${BookingUrl}/GetAllBookingDetail/${id}`)
+  }
+  deleteBookingDetail(row: any) {
+    return this._http.delete<any>(`${BookingUrl}/DeleteBookingDetail/${row.serial}`)
+  }
+  updateBookingDetail(row: any) {
+    return this._http.update<any>(`${BookingUrl}/UpdateBookingDetail`, row)
+  }
+  // ------------------
   checkAvailableSlots(obj: any) {
     return this._http.post<any>(`${BookingUrl}/CheckAvailableSlots`, obj)
   }

@@ -17,7 +17,7 @@
         <th>Doc. Name</th>
         <th>Date</th>
         <th>Time</th>
-        <th>Procedure Type</th>
+        <!-- <th>Procedure Type</th> -->
         <th>Number of Slot</th>
         <th>Note</th>
         <th>Action</th>
@@ -29,13 +29,15 @@
         <td>{{ booking.reservationDate | date:"dd/MM/yyyy"}}</td>
         <td>{{ booking.startTime | date:"hh:mm"}}</td>
         <!-- doctor or patient name -->
-        <td>{{ booking.procedure_Name }}</td>
+        <!-- <td>{{ booking.procedure_Name }}</td> -->
         <td>{{ booking.numSlot }}</td>
         <td>{{ booking.note }}</td>
         <td>
           <div class="row" style="justify-content: space-around;">
             <button (click)="routeToLink('/main-home/booking-detail',booking.serial)"
               class="btn btn-success col-5 btn-action" style="font-size: 15px ">Detail</button>
+            <button class="btn btn-danger col-5 btn-action"
+              (click)="deleteBooking(booking)">Delete</button>
             <!-- <button class="btn btn-warning col-5 btn-action"
               (click)="routeToLink('/main-home/booking-create',booking.serial)"
               style="font-size: 15px !important;">Update</button> -->

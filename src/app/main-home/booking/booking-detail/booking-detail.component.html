@@ -93,7 +93,8 @@
             <td>{{item.note}}</td>
             <td>{{item.startTime|date:'hh:mm'}}</td>
             <div class="row" style="justify-content: space-around;">
-              <button class="btn btn-danger col-5 btn-action" (click)="openPopupMail(item)">Delete</button>
+              <button *ngIf="bookingDetailArr.length>1" class="btn btn-danger col-5 btn-action"
+                (click)="openPopupMail(item)">Delete</button>
               <button class="btn btn-warning col-5 btn-action">Update</button>
             </div>
             <!-- <td>

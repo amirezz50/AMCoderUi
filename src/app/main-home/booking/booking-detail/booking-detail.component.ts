@@ -12,27 +12,28 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class BookingDetailComponent implements OnInit {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
-
+  bookingDetailObj: any = {}
+  bookingDetailArr: any[] = []
+  isOpen = false;
+  toogle: boolean = false;
+  bookingDetailCode: number | null = null;
   constructor(public _router: Router,
     private _BookingService: BookingService,
     private toastr: ToastrService,
     private dialog: MatDialog,
     private route: ActivatedRoute,) { }
-  bookingDetailCode: number | null = null;
   ngOnInit(): void {
     if (this.route.snapshot.paramMap)
       var x: any = this.route.snapshot.paramMap;
     if (x && x.params && x.params.id)
       this.bookingDetailCode = +x.params.id
-
-
     if (this.bookingDetailCode) {
-      this.getBookingById(this.bookingDetailCode)
+      this.getAllBookingDetailById(this.bookingDetailCode)
     }
   }
 
-  getBookingById(id: any) {
-    this._BookingService.getAllBooking(id)
+  getAllBookingDetailById(id: any) {
+    this._BookingService.getAllBookingDetail(id)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((res: any) => {
         if (res && res.data) {
@@ -51,40 +52,24 @@ export class BookingDetailComponent implements OnInit {
     });
     this._router.navigate(['/main-home/booking']).then(value => { });
   }
-  bookingDetailObj: any = {}
-  bookingDetailArr: any[] = []
-
-  isOpen = false;
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
   }
-  deleteItem() {
-    // Add your delete logic here
-    alert('Item deleted!');
-  }
-  toogle: boolean = false;
   openMenu(event: any) {
     event.preventDefault();
     this.toogle = !this.toogle
   }
-
-
-
-
-  //delete with procedure_code From BookingSchedula and split this ","
-
-  deleteBooking(row: any) {
-    this._BookingService.deleteBooking(row)
+  deleteBookingDetail(row: any) {
+    this._BookingService.deleteBookingDetail(row)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((res: any) => {
         if ((res) || (Object.keys(res).length == 0)) {
-          this.getBookingById(this.bookingDetailCode);
+          this.getAllBookingDetailById(this.bookingDetailCode);
         } else {
           this.toastr.error(res);
         }
       })
-
   }
   deletingOperation: any
   @ViewChild("delete", { static: true })
@@ -94,7 +79,7 @@ export class BookingDetailComponent implements OnInit {
     const ChecksendMail = this.dialog.open(this.delete!, {});
     ChecksendMail.afterClosed().subscribe((result) => {
       if (result === 'Ok') {
-        this.deleteBooking(row);
+        this.deleteBookingDetail(row);
       } else if (result === 'CLOSE') {
       }
     });
