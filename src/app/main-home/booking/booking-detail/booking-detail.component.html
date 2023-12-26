@@ -95,7 +95,7 @@
             <div class="row" style="justify-content: space-around;">
               <button *ngIf="bookingDetailArr.length>1" class="btn btn-danger col-5 btn-action"
                 (click)="openPopupMail(item)">Delete</button>
-              <button class="btn btn-warning col-5 btn-action">Update</button>
+              <button class="btn btn-warning col-5 btn-action" (click)="openUpdatePopup(item)">Update</button>
             </div>
             <!-- <td>
               <div class="card-status">{{item.status}} <i class="fa-solid fa-check"></i></div>
@@ -117,6 +117,39 @@
     <Button mat-raised-button mat-button [mat-dialog-close]="'Ok'" class="btn btn-danger popup-button"
       style="    margin-right: 60px;">
       Delete</Button>
+    <Button mat-raised-button mat-button [mat-dialog-close]="'CLOSE'" class="btn btn-warning popup-button">
+      Cancel</Button>
+  </div>
+</ng-template>
+<ng-template #update>
+
+  <h1>Update {{operationName}}</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <label for="birthDate">Time Slot</label>
+      <div class="form-group card">
+        <div *ngFor="let slot of arrShiftsTime; let i = index">
+          <input type="radio" [id]="'timeSlot' + i" [name]="'timeSlot'" [value]="slot"
+            (click)="selectRadioSchedulTime(slot)" />
+          <label [for]="'timeSlot' + i">{{ slot.startTime | date: 'HH:mm' }} - {{ slot.endTime | date: 'HH:mm'
+            }}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 form-group">
+      <label for="procedure_Price">Cost</label>
+      <input type="text" class="form-control" id="procedure_Price" [(ngModel)]="objBookingDetial.procedure_Price" />
+    </div>
+    <div class="col-md-12 form-group">
+      <label for="note">Note</label>
+      <input type="text" class="form-control" id="note" [(ngModel)]="objBookingDetial.note" />
+    </div>
+  </div>
+  <div style="    text-align: center;
+  font-size: 17px !important;">
+    <Button mat-raised-button mat-button [mat-dialog-close]="'Ok'" class="btn btn-success popup-button"
+      style="margin-right: 60px;">
+      update</Button>
     <Button mat-raised-button mat-button [mat-dialog-close]="'CLOSE'" class="btn btn-warning popup-button">
       Cancel</Button>
   </div>

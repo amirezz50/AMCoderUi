@@ -71,6 +71,8 @@ export class BookingDetailComponent implements OnInit {
         }
       })
   }
+
+
   deletingOperation: any
   @ViewChild("delete", { static: true })
   delete: TemplateRef<any> | undefined;
@@ -84,4 +86,67 @@ export class BookingDetailComponent implements OnInit {
       }
     });
   }
+  //-----------------------update---------------
+  @ViewChild("update", { static: true })
+  update: TemplateRef<any> | undefined;
+  operationName: any = ''
+  openUpdatePopup(row: any) {
+    this.operationName = row.procedure_Name
+    row.reservationDate = new Date(row.reservationDate)
+    row.reservationDate.setHours(row.reservationDate.getHours() + 2);
+    this.checkAvilableSlot({ reservationDate: row.reservationDate })
+    const ChecksendMail = this.dialog.open(this.update!, {});
+    ChecksendMail.afterClosed().subscribe((result) => {
+      if (result === 'Ok') {
+        this.updateBookingDetail(row);
+      } else if (result === 'CLOSE') {
+      }
+    });
+  }
+  updateBookingDetail(row: any) {
+    if (this.checkValidation(this.objBookingDetial) == -1) {
+      return
+    }
+    this.objBookingDetial.serial = row.serial;
+    this._BookingService.updateBookingDetail(this.objBookingDetial)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((res: any) => {
+        if ((res) || (Object.keys(res).length == 0)) {
+          this.getAllBookingDetailById(this.bookingDetailCode);
+        } else {
+          this.toastr.error(res);
+        }
+      })
+  }
+  checkValidation(obj: any) {
+    if (!obj.schecduleTimeSerial) {
+      this.toastr.error("Please select time slot");
+      return -1;
+    }
+    return 0;
+  }
+  arrShiftsTime: any[] = [];
+  checkAvilableSlot(ev: any) {
+    if (ev.reservationDate) {
+      let obj = { reservationDate: new Date(ev.reservationDate).toISOString() }
+      this._BookingService.checkAvailableSlots(obj)
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((res: any) => {
+          if ((res && res.data) || (Object.keys(res).length == 0)) {
+            this.arrShiftsTime = res.data;
+          } else if (Object.keys(res).length != 0) {
+            this.toastr.error(res);
+          }
+        })
+    }
+  }
+  selectedTimeSlot: any
+  objBookingDetial: any = {}
+  selectRadioSchedulTime(ev: any) {
+    if (ev) {
+      this.objBookingDetial.schecduleTimeSerial = ev.serial
+      // this.selectedTimeSlot = ev.serial
+    }
+  }
+
 }
