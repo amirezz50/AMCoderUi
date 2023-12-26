@@ -7,8 +7,8 @@ import { WebsiteComponent } from './website/website.component';
 
 const routes: Routes = [
 
-  { path: '', pathMatch: 'full', redirectTo: 'app-website' },
-  { path: 'app-website', component: WebsiteComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'main-home' },
+  //{ path: 'app-website', component: WebsiteComponent },
   {
     path: 'main-home', loadChildren: () => import('./main-home/main-home.module').then(m => m.MainHomeModule), runGuardsAndResolvers: 'always',
     canActivate: [LoggedInGuard]
