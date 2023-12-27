@@ -7,29 +7,25 @@
         <custom-select-option [array]="[doctorArr]" (code)="getCodeFromArray($event,1)"></custom-select-option>
       </div>
     </div>
-    <div class="filter-group row">
+    <!-- <div class="filter-group row">
       <label for="patientDropdown" class="col-5">Select Patient:</label>
       <div>
         <div style="width: 90%;">
           <custom-select-option [array]="[patientArr]" (code)="getCodeFromArray($event,2)"></custom-select-option>
-          <!-- <select id="patientDropdown" class="col-6">
-          <option value="patient1">Patient 1</option>
-          <option value="patient2">Patient 2</option>
-        </select> -->
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="filter-group" style="display: block">
       <div>
         <label for="dateFrom">From:</label>
       </div>
-      <div><input type="date" id="dateFrom" style="width: 90%;" /></div>
+      <div><input type="date" id="dateFrom" style="width: 90%;" [(ngModel)]="searchObj.fromDate" /></div>
     </div>
     <div class="filter-group" style="display: block">
       <label for="dateTo">To:</label>
-      <div><input type="date" id="dateTo" style="width: 90%;" /></div>
+      <div><input type="date" id="dateTo" style="width: 90%;" [(ngModel)]="searchObj.toDate" /></div>
     </div>
-    <button class="btn" style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"
+    <button class="btn" style="cursor: pointer;" (click)="getDoctorFees()"><i class="fa-solid fa-magnifying-glass"
         style="font-size: 17px;"></i></button>
   </div>
   <div class="col-lg-4">
@@ -44,7 +40,7 @@
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Patient Code</th>
+
         <th>Procedure Type</th>
         <th>Reservation Date</th>
         <th>Patient Price</th>
@@ -56,10 +52,9 @@
           selected: patient.isSelected,
           'not-selected': !patient.isSelected
         }" (click)="selected(patient)">
-        <td>{{ patient.patientCode }}</td>
-        <td>{{ patient.serviceName }}</td>
-        <td>{{ patient.reservationDate }}</td>
-        <td>{{ patient.patientPrice }}</td>
+        <td>{{ patient.procedure_Name }}</td>
+        <td>{{ patient.reservationDate|date:'dd/MM/yyyy' }}</td>
+        <td>{{ patient.procedure_price }}</td>
       </tr>
     </tbody>
   </table>

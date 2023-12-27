@@ -50,9 +50,12 @@
       <div class="form-group card">
         <div *ngFor="let slot of arrShiftsTime; let i = index">
           <input type="radio" [id]="'timeSlot' + i" [name]="'timeSlot'" [value]="slot"
-            (click)="selectRadioSchedulTime(slot)" [(ngModel)]="objBooking.reservationTimeSerial" />
-          <label [for]="'timeSlot' + i">{{ slot.startTime | date: 'HH:mm' }} - {{ slot.endTime | date: 'HH:mm'
-            }}</label>
+            [disabled]="slot.flagShiftOnOff!=1" (click)="selectRadioSchedulTime(slot)"
+            [(ngModel)]="objBooking.reservationTimeSerial" />
+          <label [ngClass]="{'shif-off': slot.flagShiftOnOff!=1}" [for]="'timeSlot' + i">{{ slot.startTime | date:
+            'HH:mm' }} -
+            {{ slot.endTime | date: 'HH:mm'
+            }}</label> <label *ngIf="slot.flagShiftOnOff!=1" style="color: red;"> [Off]</label>
           <!-- <div *ngFor="let slot of arrShiftsTime; let i = index">
               <input type="checkbox" [id]="'arrShiftsTime' + i" [name]="'operationCheckbox'" [(ngModel)]="+slot.selected" />
               <label [for]="'arrShiftsTime' + i">

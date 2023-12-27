@@ -8,3 +8,8 @@
 .col-md-6 {
   align-self: start;
 }
+
+.shif-off {
+  color: red;
+  text-decoration: line-through;
+}

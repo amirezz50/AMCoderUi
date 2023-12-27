@@ -74,6 +74,12 @@
   font-weight: bold;
 }
 
+.title-system-img {
+  height: 50px;
+  border-radius: 37px;
+  width: 100px;
+}
+
 .title-Sidebar {
   font-size: 17px;
   font-weight: bold;

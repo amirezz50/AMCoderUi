@@ -1,6 +1,6 @@
 
-const serviceUrl = 'http://femtovision-001-site2.ctempurl.com';
-// const serviceUrl = 'https://localhost:44381';
+// const serviceUrl = 'http://femtovision-001-site2.ctempurl.com';
+const serviceUrl = 'https://localhost:44381';
 export class CONFIG {
   public static baseUrls = {
     // config: 'commands/config',
@@ -18,6 +18,7 @@ export class CONFIG {
     Email: `${serviceUrl}/api/Email`,
     Booking: `${serviceUrl}/api/Booking`,
     Selectize: `${serviceUrl}/api/Selectize`,
+    FinancialUrl: `${serviceUrl}/api/Financial`,
 
 
 
