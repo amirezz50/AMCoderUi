@@ -115,14 +115,35 @@
 
 }
 
-@media(max-width: 768px) {
+/* @media(max-width: 768px) {
   .auth-form {
     width: 100%;
   }
-}
+} */
 
 .label {
   color: black;
   font-size: 15px;
 }
 
+@media (max-width: 768px) {
+  .auth-form {
+    width: 90%;
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    bottom: 0;
+  }
+
+  .responsive-regist {
+    overflow-x: auto;
+  }
+
+  .card-auth {
+    padding: 20px;
+  }
+
+  .card-form .btn-auth {
+    padding: 10px 40px;
+  }
+}

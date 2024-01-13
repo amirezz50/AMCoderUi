@@ -1,3 +1,5 @@
+import { HttpClient, HttpRequest } from '@angular/common/http';
+import { Binary } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { CONFIG } from 'src/shared/config';
 import { HttpGeneralService } from 'src/shared/http-general.service';
@@ -9,7 +11,8 @@ const EmailUrl = CONFIG.baseUrls.Email;
 })
 export class UsersService {
 
-  constructor(private _http: HttpGeneralService) { }
+  constructor(private _http: HttpGeneralService,
+    private httpClient: HttpClient) { }
   getAllUsers(id: number) {
     return this._http.get<any>(`${UsersUrl}/GetAllUsers/${id}`)
   }
@@ -27,6 +30,13 @@ export class UsersService {
   sendMail(obj: any) {
     return this._http.post<any>(`${EmailUrl}/SendMail`, obj)
   }
+
+  //-----------------------
+  addImage(image: FormData) {
+    return this._http.post<any>(`${UsersUrl}/UploadUserImage`, image);
+    //return this.httpClient.request(new HttpRequest('POST', `${UsersUrl}/UploadUserImage`, image));
+  }
+
 }
 
 

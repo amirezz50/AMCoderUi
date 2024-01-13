@@ -1,7 +1,7 @@
 <div class="auth-page">
   <div class="auth-form">
     <div class="card-auth">
-      <div *ngIf="showRegisterForm==false" style="    width: 100%;line-height: 3;">
+      <div *ngIf="showRegisterForm==false" style="    width: 100%;line-height: 3;" class="responsive-regist">
         <div class="card-form">
           <div class="auth-title">
             <span>Log In</span>
@@ -25,71 +25,16 @@
             </div>
           </div>
           <br>
-
-          <!-- <div class="d-none1" *ngIf="showForgetPass">
-            <div class="form-group">
-              <label for="telephone" class="label">رقم الهاتف / اسم المستخدم</label>
-              <input id="telephone" type="tel" class="form-control" [(ngModel)]="recoveryPhone">
-            </div>
-            <div class="form-group">
-              <br>
-              <button type="submit" [disabled]="loading" class="btn btn-auth" (click)="sendActivationCode()">
-                <span *ngIf="loading" class="fa fa-spinner fa-spin mr-1"></span>
-                اعادة تعيين كلمة المرور
-              </button>
-            </div>
-            <div class="log">
-              <a (click)="showForgetPass = !showForgetPass">رجوع </a>
-            </div>
-          </div> -->
         </div>
 
       </div>
-      <div *ngIf="showRegisterForm==true" style="width: 100%;">
+      <div *ngIf="showRegisterForm==true" style="width: 100%;" class="responsive-regist">
         <register-new-user (rigesterPage)="registerationForm($event)"></register-new-user>
       </div>
     </div>
-    <!-- step of active code -->
-    <!-- <div class="card-auth" *ngIf="activeStep == 2">
-        <div class="">
-          <br>
-          <br>
-          <div class="auth-title">
-            <h2 class="">{{'ACTIVECODE'|translate}}!</h2>
-            <br>
-            <p class="">{{'PLEASEENTERTHEACTIVATIONCODEONPHONE'|translate}}</p>
-            <br>
-          </div>
-          <br>
-
-          <div class="card-form">
-            <div class="row">
-              <div class="form-group col-12">
-                <label for="activationCode" class="">{{'ACTIVECODE'|translate}}*</label>
-                <input id="activationCode" type="text" class="form-control" [formControl]="activationCode"
-                  [ngClass]="{ 'is-invalid': activationCode.errors && (activationCode.dirty || activationCode.touched), 'is-valid': !activationCode.errors }">
-              </div>
-              <div class="form-group col-12">
-                <button type="submit" class="btn btn-auth" [disabled]="!activationCode.valid || loading"
-                  (click)="activateAccount()">
-                  <span *ngIf="loading"></span>
-                  {{'PO_ACTIVE'|translate}}
-                </button>
-              </div>
-              <div class="form-group col-12">
-                <div class="log">
-                  <a href="javascript:void(0)" (click)="activeStep = 1">{{'BACKTOLOGIN'|translate}}</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
 
   </div>
   <div class="slide">
     <img src="../../../assets/images/loginBackground.jpg" alt="">
-    <!-- <img src="../../../assets/images/bgroundAuto.jpeg" alt=""> -->
   </div>
 </div>

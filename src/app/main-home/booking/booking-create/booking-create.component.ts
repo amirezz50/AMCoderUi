@@ -210,6 +210,12 @@ export class BookingCreateComponent implements OnInit {
       this.toastr.error("Please fill number of slot");
       return -1;
     }
+    if (
+      this.operationArr.filter(x => x.selected).length > this.numSlot
+    ) {
+      this.toastr.error("The number Of procedure > number of time slot");
+      return -1;
+    }
     return 0;
   }
   BookingId: any;
@@ -238,6 +244,10 @@ export class BookingCreateComponent implements OnInit {
     }
   }
   selectRadioSchedulTime(ev: any) {
+    if (ev.avilableSlot <= 0) {
+      this.toastr.error("this hour is full")
+      return;
+    }
     if (ev) {
       this.selectedTimeSlot = ev.serial
       this.numSlot = ev.avilableSlot
@@ -254,4 +264,14 @@ export class BookingCreateComponent implements OnInit {
       }
     }
   }
+  // checkOperationWithSlot(op: any, ev: any) {
+  //   let count = this.operationArr.filter(x => x.selected).length;
+  //   if (count > this.numSlot) {
+  //     op.selected = 0;
+  //     op.selected = false;
+
+  //     this.toastr.error("The number Of operation > number of time slot");
+  //     return
+  //   }
+  // }
 }

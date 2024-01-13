@@ -53,3 +53,11 @@ body {
 input {
   font-size: 15px !important;
 }
+
+button {
+  font-size: 15px !important;
+}
+
+textarea {
+  font-size: 15px !important;
+}

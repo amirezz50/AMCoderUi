@@ -1,6 +1,6 @@
 <div class="auth-page">
   <div class="auth-form">
-    <div class="card-auth" >
+    <div class="card-auth">
       <div style="width: 100%;">
         <div class="card-form">
           <div class="auth-title">
@@ -12,13 +12,12 @@
               <input id="user" type="text" class="form-control" [(ngModel)]="registerModel.firstName">
             </div>
             <div class="form-group">
-              <label for="user" class="label">Email</label>
-              <input id="user" type="text" class="form-control" [(ngModel)]="registerModel.email">
+              <label for="email" class="label">Email</label>
+              <input id="email" type="text" class="form-control" [(ngModel)]="registerModel.email">
             </div>
             <div class="form-group">
               <label for="pass" class="label">Password </label>
-              <input id="pass" type="password" class="form-control" [(ngModel)]="registerModel.password"
-                data-type="password">
+              <input id="pass" type="password" class="form-control" [(ngModel)]="registerModel.password" data-type="password">
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-auth" (click)="register()">Register</button>

@@ -7,9 +7,10 @@
         questions
       </h1> -->
 
-      <div style="direction: rtl; padding: 17px; display: flex; justify-content: space-between;">
+      <div style="direction: rtl;     padding-bottom: 50px;padding-right: 25px; display: flex; justify-content: space-between;">
         <div>
-          <button class="btn-save" style="direction: ltr !important" (click)="save()">
+          <button class="btn-save" style="direction: ltr !important;width: 120px;justify-content: center;"
+            (click)="save()">
             <i class="fa-regular fa-floppy-disk"></i>Save
           </button>
         </div>
@@ -28,16 +29,17 @@
     <br>
     <div *ngFor="let review of reviewList;let indx=index;">
       <div class="col-12 row">
-        <div class="form-group col-9">
+        <div class="form-group col-9" style="padding-left: 30px;">
           <h2 *ngIf="review.dataStatus!=1&&review.dataStatus!=2">{{review.question}}
           </h2>
           <textarea class="form-control" rows="3" *ngIf="review.dataStatus==1||review.dataStatus==2"
             [(ngModel)]="review.question"></textarea>
         </div>
-        <div class="row col-3" style="justify-content: space-around;">
+        <div class="row col-3" style="justify-content: end;">
           <button *ngIf="review.dataStatus!=1&&review.dataStatus!=2" class="btn btn-success col-4 btn-action"
             (click)="updateQuestion(review)">Update</button>
-          <button class="btn btn-danger col-4 btn-action" (click)="deleteQuestion(review)">Delete</button>
+          <button class="btn btn-danger col-4 btn-action" style="margin-left: 20px;"
+            (click)="deleteQuestion(review)">Delete</button>
         </div>
         <!-- <ngb-rating [max]="5" [(rate)]="starRating1" [readonly]="false" style="font-size:45px;"
       class="color-system"></ngb-rating> -->

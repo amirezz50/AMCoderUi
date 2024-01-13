@@ -103,4 +103,27 @@ export class UsersComponent implements OnInit {
       }
     });
   }
+  imgURL: any
+  fileDataCv: any = {}
+  onFileChanged(event: any) {
+    // Get the file selected.
+    this.fileDataCv = {}
+    this.fileDataCv.file = event.target.files[0];
+    this.fileDataCv.dataName = event.target.files[0].name;
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (event2) => {
+      this.imgURL = reader.result;
+    };
+    const formData: FormData = new FormData();
+    formData.append('dataName', event.target.files[0].name);
+    formData.append('file', event.target.files[0], event.target.files[0].name);
+    console.log('FormData:', formData);
+    this._usersService.addImage(formData)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (event: any) => {
+          console.log(event);
+        });
+  }
 }

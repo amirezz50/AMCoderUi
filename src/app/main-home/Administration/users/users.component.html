@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <button class="btn-save" (click)="routeToLink(0)">
+  <button class="btn-save" (click)="routeToLink(0)" style="width: 120px;justify-content: center;">
     <i class="fa-solid fa-plus"></i>Add</button>
   <br>
   <form style="height: 75vh;">
@@ -50,7 +50,10 @@
   </form>
 </div>
 
-
+<!-- <div style="height: 250px;">
+  <input type="file" (change)="onFileChanged($event)">
+  <img [src]="imgURL" height="200" *ngIf="imgURL">
+</div> -->
 
 <ng-template #sendMail>
   <h1 style="text-align: center;
